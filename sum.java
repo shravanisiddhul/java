@@ -14,8 +14,4 @@ class Sum{
 
     }
 
-    @Override
-    public String toString() {
-        return "Sum []";
-    }
 }
