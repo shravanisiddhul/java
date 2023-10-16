@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Factorial",
+      "request": "launch",
+      "mainClass": "Factorial",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "FactorialExample",
+      "request": "launch",
+      "mainClass": "FactorialExample",
+      "projectName": "java_bdccd79e"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
