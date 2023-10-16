@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Sum_of_Natural",
+      "request": "launch",
+      "mainClass": "Sum_of_Natural",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Prime",
       "request": "launch",
       "mainClass": "Prime",
