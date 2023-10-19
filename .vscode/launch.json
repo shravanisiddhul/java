@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Factorial1",
+      "request": "launch",
+      "mainClass": "Factorial1",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Employee",
       "request": "launch",
       "mainClass": "Employee",
