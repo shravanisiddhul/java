@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Fibonacci",
+      "request": "launch",
+      "mainClass": "Fibonacci",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "FibonacciExample1",
+      "request": "launch",
+      "mainClass": "FibonacciExample1",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Factorial1",
       "request": "launch",
       "mainClass": "Factorial1",
