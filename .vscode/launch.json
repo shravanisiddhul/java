@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SwapNumbers",
+      "request": "launch",
+      "mainClass": "SwapNumbers",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "AsciiValue",
       "request": "launch",
       "mainClass": "AsciiValue",
