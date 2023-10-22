@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "EvenOdd",
+      "request": "launch",
+      "mainClass": "EvenOdd",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "SwapNumbers",
       "request": "launch",
       "mainClass": "SwapNumbers",
