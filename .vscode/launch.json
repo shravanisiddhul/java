@@ -3,6 +3,48 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Add",
+      "request": "launch",
+      "mainClass": "Add",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Addition",
+      "request": "launch",
+      "mainClass": "Addition",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Sum_of_2",
+      "request": "launch",
+      "mainClass": "Sum_of_2",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Sum",
+      "request": "launch",
+      "mainClass": "Sum",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "sum",
+      "request": "launch",
+      "mainClass": "sum",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "sum_of_two",
+      "request": "launch",
+      "mainClass": "sum_of_two",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "EvenOdd",
       "request": "launch",
       "mainClass": "EvenOdd",
