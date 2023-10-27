@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Greater_no",
+      "request": "launch",
+      "mainClass": "Greater_no",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Odd_even",
       "request": "launch",
       "mainClass": "Odd_even",
