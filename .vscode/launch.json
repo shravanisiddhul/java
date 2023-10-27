@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Month",
+      "request": "launch",
+      "mainClass": "Month",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Week",
+      "request": "launch",
+      "mainClass": "Week",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Calculator",
       "request": "launch",
       "mainClass": "Calculator",
