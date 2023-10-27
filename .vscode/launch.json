@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Switch",
+      "request": "launch",
+      "mainClass": "Switch",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Greater_no",
       "request": "launch",
       "mainClass": "Greater_no",
