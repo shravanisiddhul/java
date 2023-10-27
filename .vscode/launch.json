@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Odd_even",
+      "request": "launch",
+      "mainClass": "Odd_even",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "if_else",
       "request": "launch",
       "mainClass": "if_else",
