@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "if_else",
+      "request": "launch",
+      "mainClass": "if_else",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Add",
       "request": "launch",
       "mainClass": "Add",
