@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "While",
+      "request": "launch",
+      "mainClass": "While",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "For_loop",
       "request": "launch",
       "mainClass": "For_loop",
