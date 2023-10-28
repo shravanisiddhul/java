@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Do_while",
+      "request": "launch",
+      "mainClass": "Do_while",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "While",
       "request": "launch",
       "mainClass": "While",
