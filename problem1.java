@@ -5,7 +5,7 @@ public class problem1 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Number : ");
         int n = sc.nextInt();
-        int sum = 0;
+        double sum = 0;
         for(int i = 1; i<=n; i++){
             sum = sum + i;
         }
