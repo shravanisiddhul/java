@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "GFG",
+      "request": "launch",
+      "mainClass": "GFG",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "problem5",
+      "request": "launch",
+      "mainClass": "problem5",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "problem4",
       "request": "launch",
       "mainClass": "problem4",
