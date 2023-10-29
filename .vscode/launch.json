@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "GCF_HCF",
+      "request": "launch",
+      "mainClass": "GCF_HCF",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "GFG2",
       "request": "launch",
       "mainClass": "GFG2",
