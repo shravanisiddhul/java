@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Pattern2",
+      "request": "launch",
+      "mainClass": "Pattern2",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Pattern1",
+      "request": "launch",
+      "mainClass": "Pattern1",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "problem6",
       "request": "launch",
       "mainClass": "problem6",
