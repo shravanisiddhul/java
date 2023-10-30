@@ -1,6 +1,7 @@
-public import java.util.Scanner;
+import java.util.Scanner;
 
 public class problem6{
+    
     public static void evaluateMarks(int marks) {
         if (marks >= 90) {
             System.out.println("This is Good");
