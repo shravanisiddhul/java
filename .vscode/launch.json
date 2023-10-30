@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "problem6",
+      "request": "launch",
+      "mainClass": "problem6",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "StudentMarksProgram",
+      "request": "launch",
+      "mainClass": "StudentMarksProgram",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "GCF_HCF",
       "request": "launch",
       "mainClass": "GCF_HCF",
