@@ -1,2 +1,2 @@
-# My First ever java Program
-This is my first program of Java, with collaboration of VScode and GitHub
+# Java Basic Programs
+This is are the some of basic programs that i practicing daily
