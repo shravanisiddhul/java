@@ -3,6 +3,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Problem15",
+      "request": "launch",
+      "mainClass": "Problem15",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Problem14",
+      "request": "launch",
+      "mainClass": "Problem14",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Function5",
+      "request": "launch",
+      "mainClass": "Function5",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Functions4",
+      "request": "launch",
+      "mainClass": "Functions4",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Problem13",
       "request": "launch",
       "mainClass": "Problem13",
