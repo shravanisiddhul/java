@@ -2,21 +2,21 @@ import java.util.Scanner;
 public class Problem15 {
     public static void checkPrime(int n)
     {
-        boolean flag = false;
-        for(int i=2; i<= n/2; i++)
+        int temp = 0;
+        for(int i=2;i<=n-1;i++)
         {
             if(n % i == 0)
             {
-                flag = true;
-                break;
+                temp = temp + 1;
             }
+        
         }
-        if(!flag)
-        System.out.println(+num+" is a prime number");
+        if(temp==0)
+        System.out.println(+n+" is a prime number");
         else
-        System.out.println(+num+ " is not a prime number");
+        System.out.println(+n+ " is a not prime number");
+    
     }
-
 
     public static void main(String[] args)
     {
@@ -27,3 +27,4 @@ public class Problem15 {
         checkPrime(n);
     }
 }
+

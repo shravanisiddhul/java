@@ -3,6 +3,48 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Excercise5",
+      "request": "launch",
+      "mainClass": "Excercise5",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Exercise4",
+      "request": "launch",
+      "mainClass": "Exercise4",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Exercise3",
+      "request": "launch",
+      "mainClass": "Exercise3",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Exercise2",
+      "request": "launch",
+      "mainClass": "Exercise2",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Excercise1",
+      "request": "launch",
+      "mainClass": "Excercise1",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Problem16",
+      "request": "launch",
+      "mainClass": "Problem16",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Problem15",
       "request": "launch",
       "mainClass": "Problem15",
