@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Exercise9",
+      "request": "launch",
+      "mainClass": "Exercise9",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Exercise8",
       "request": "launch",
       "mainClass": "Exercise8",
