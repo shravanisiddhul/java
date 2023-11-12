@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Arrays",
+      "request": "launch",
+      "mainClass": "Arrays",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Permutation",
       "request": "launch",
       "mainClass": "Permutation",
