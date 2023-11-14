@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Array_problem1",
+      "request": "launch",
+      "mainClass": "Array_problem1",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Arrays",
       "request": "launch",
       "mainClass": "Arrays",
