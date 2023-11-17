@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Transpose_array",
+      "request": "launch",
+      "mainClass": "Transpose_array",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "twoDArray_problem1",
       "request": "launch",
       "mainClass": "twoDArray_problem1",
