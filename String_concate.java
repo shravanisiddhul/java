@@ -10,5 +10,6 @@ public class String_concate {
 
         String fullname = firstname +" "+ lastname;
         System.out.println("Fullname is : "+fullname);
+        System.out.println(fullname.length());
     }
 }
