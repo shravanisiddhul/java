@@ -37,5 +37,11 @@ public class String_concate {
         //substring
         String name = fullname.substring(4,5);
         System.out.println(name);
+
+        //Print Int value in string
+        String str = "123";
+        int number = Integer.parseInt(str);
+        System.out.println(number);
+
     }
 }
