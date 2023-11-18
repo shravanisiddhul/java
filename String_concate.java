@@ -23,5 +23,16 @@ public class String_concate {
         {
             System.out.println(fullname.charAt(i));
         }
+        System.out.println();
+
+        //Compare
+        if(firstname.compareTo(lastname)== 0)
+        {
+            System.out.println("Strings are Equal ");
+        }
+        else
+        {
+            System.out.println("Strings are not Equal ");
+        }
     }
 }
