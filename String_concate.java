@@ -8,8 +8,20 @@ public class String_concate {
         System.out.println("Enter Last Name : ");
         String lastname = sc.next();
 
-        String fullname = firstname +" "+ lastname;
+        //concatenation
+        String fullname = firstname +" "+"V"+" "+lastname;
         System.out.println("Fullname is : "+fullname);
+
+        //Calculating length
         System.out.println(fullname.length());
+        System.out.println();
+
+        //Printing characters one by one
+        System.out.println("Characters of String are : ");
+
+        for(int i=0;i<fullname.length(); i++)
+        {
+            System.out.println(fullname.charAt(i));
+        }
     }
 }
