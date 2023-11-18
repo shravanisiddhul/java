@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Strings",
+      "request": "launch",
+      "mainClass": "Strings",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Transpose_array",
       "request": "launch",
       "mainClass": "Transpose_array",
