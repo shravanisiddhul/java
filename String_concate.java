@@ -34,5 +34,8 @@ public class String_concate {
         {
             System.out.println("Strings are not Equal ");
         }
+        //substring
+        String name = fullname.substring(4,5);
+        System.out.println(name);
     }
 }
