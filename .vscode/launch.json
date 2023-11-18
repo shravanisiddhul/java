@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "String_concate",
+      "request": "launch",
+      "mainClass": "String_concate",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Strings",
       "request": "launch",
       "mainClass": "Strings",
