@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "String_problem2",
+      "request": "launch",
+      "mainClass": "String_problem2",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "String1",
       "request": "launch",
       "mainClass": "String1",
