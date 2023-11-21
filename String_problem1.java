@@ -19,7 +19,8 @@ public class String_problem1 {
         for(int i=0; i<array.length;i++)
         {
             System.out.println(array[i]);
-            TotalLength = array[i].length();
+            TotalLength = TotalLength+array[i].length();
+
         }
         System.out.println(TotalLength);
 
