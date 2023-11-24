@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "StringBuilder",
+      "request": "launch",
+      "mainClass": "StringBuilder",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "String_Builder",
+      "request": "launch",
+      "mainClass": "String_Builder",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "String_probem3",
       "request": "launch",
       "mainClass": "String_probem3",
