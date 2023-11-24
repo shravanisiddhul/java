@@ -22,5 +22,13 @@ public class String_Builder {
         //delete 
         sb.delete(5, sb.length());
         System.out.println(sb);
+        
+        //append
+        sb.append(" Siddhul");
+        System.out.println(sb);
+
+        //reverse String
+        sb.reverse();
+        System.out.println(sb);
 }
 }
