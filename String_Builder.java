@@ -30,7 +30,8 @@ public class String_Builder {
         //reverse String
         // sb.reverse();
         // System.out.println(sb);
-
+        
+        //reverse
     for(int i=0; i<sb.length()/2; i++)
     {
         int front = i;
