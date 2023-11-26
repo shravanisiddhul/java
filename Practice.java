@@ -5,16 +5,17 @@ public class Practice
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter A : ");
-        int a = sc.nextInt();
-        
-        if(a % 2 == 0)
+        System.out.println("Enter Number : ");
+        int n = sc.nextInt();
+        int fact = 1;
+
+        for(int i=1;i<=n; i++)
         {
-            System.out.println("Number is Even ");
+            fact = fact * i ;
         }
-        else{
-            System.out.println("Number is Odd ");
-        }
+        System.out.println("Factorial is : "+fact);
+        
+
 
 
     }
