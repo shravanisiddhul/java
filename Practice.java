@@ -6,31 +6,19 @@ public class Practice
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a Number : ");
         int n = sc.nextInt();
-        int temp=0;
-        boolean isPrime = true;
-        if(n<=1)
+        
+        int f1=0;
+        int f2=1;
+        int f3;
+        System.out.println("Fibonacci series is : ");
+        System.out.print(f1+" "+f2);
+        for(int i=2; i<=n; i++)
         {
-            isPrime = false;
-        }
-        else{
-            for(int i=2;i<=n; i++)
-            {
-                if(n % i == 0)
-                {
-                    temp = temp+i;
-                    break;
-                }
+            f3 = f1 + f2;
+            System.out.print(" "+f3);
+            f1 = f2;
+            f2 = f3;
 
-            }
         }
-        if(isPrime)
-        {
-            System.out.println("Prime");
-        }
-        else{
-            System.out.println("Not Prime");
-        }
-
-
-    }
 } 
+}
