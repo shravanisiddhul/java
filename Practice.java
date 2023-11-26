@@ -5,13 +5,20 @@ public class Practice
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a String : ");
+        System.out.println("Enter a String :");
         String str = sc.nextLine();
 
-        for(int i=str.length();i>0; i--)
+        String reverse = "";
+        for(int i=str.length()-1; i>=0; i--)
         {
-            System.out.print(str.charAt(i-1));
+            reverse = reverse + str.charAt(i);
         }
-        System.out.println(str.length());
+        if(str.equals(reverse))
+        {
+            System.out.println("palindrome");
+        }
+        else{
+            System.out.println("Not Palindrome");
+        }
     }
 }
