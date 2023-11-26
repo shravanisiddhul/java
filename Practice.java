@@ -12,5 +12,6 @@ public class Practice
         {
             System.out.print(str.charAt(i-1));
         }
+        System.out.println(str.length());
     }
 }
