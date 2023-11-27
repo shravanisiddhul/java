@@ -1,32 +1,20 @@
 import java.util.*;
 public class Practice
 {
-    public static void main(String args [])
-    {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter Size : ");
-        int size = sc.nextInt();
-        int sum = 0;
-        
-        int number[] = new int [size];
+    
+        static int factorial(int n){    
+         if (n == 0)    
+           return 1;    
+         else    
+           return(n * factorial(n-1));    
+        }    
 
-        System.out.println("Enter Array elements : ");
-        for(int i=0; i<size; i++)
-        {
-            number[i] = sc.nextInt();
-        }
-
-        System.out.println("Entered Array Elements are : ");
-        System.out.print("{");
-        for(int i= 0; i<number.length; i++)
-        {
-            System.out.print(number[i]+" ");
-            sum = sum + number[i];
-            
-        }
-        System.out.println("}");
-        System.out.println();
-        System.out.println("Sum is "+sum);
+        public static void main(String args[])
+        {  
+         int i,fact=1;  
+         int number=4;//It is the number to calculate factorial    
+         fact = factorial(number);   
+         System.out.println("Factorial of "+number+" is: "+fact);    
+        }  
         
-} 
 }
