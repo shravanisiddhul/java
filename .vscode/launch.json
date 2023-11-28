@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "UpdateSet",
+      "request": "launch",
+      "mainClass": "UpdateSet",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "ClearSet",
       "request": "launch",
       "mainClass": "ClearSet",
