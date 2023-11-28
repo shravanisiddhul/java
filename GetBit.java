@@ -1,5 +1,5 @@
 import java.util.*;
-public class SetBit {
+public class GetBit {
     public static void main(String args [])
     {
         int n = 6;
