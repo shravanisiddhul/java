@@ -1,9 +1,9 @@
 import java.util.*;
-public class Bits {
+public class SetBit {
     public static void main(String args [])
     {
-        int n = 5;
-        int pos = 2;
+        int n = 6;
+        int pos = 3;
         int BitMask = 1 << pos;
         if((BitMask & n) == 0)
         {

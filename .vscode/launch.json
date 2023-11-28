@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SetBit",
+      "request": "launch",
+      "mainClass": "SetBit",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Bits",
       "request": "launch",
       "mainClass": "Bits",
