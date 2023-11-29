@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "StringB_2",
+      "request": "launch",
+      "mainClass": "StringB_2",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "UpdateSet",
       "request": "launch",
       "mainClass": "UpdateSet",
