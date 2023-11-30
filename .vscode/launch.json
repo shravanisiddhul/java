@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "InsertionSort",
+      "request": "launch",
+      "mainClass": "InsertionSort",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "SelectionSort",
       "request": "launch",
       "mainClass": "SelectionSort",
