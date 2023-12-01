@@ -1,6 +1,6 @@
 import java.util.*;
 public class FactRecursion {
-    public static void PrintFact(int i,int n,int fact)
+    public static void PrintFact(int i,int n,double fact)
     {
         if(i == n+1)
         {
@@ -17,7 +17,7 @@ public class FactRecursion {
         System.out.println("Enter a Number : ");
         int n = sc.nextInt();
         int i = 1;
-        int fact = 1;
+        double fact = 1;
         PrintFact(i, n, fact);
 
     }    
