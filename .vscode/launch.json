@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "PowerRecursion2",
+      "request": "launch",
+      "mainClass": "PowerRecursion2",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "PowerRecursion",
       "request": "launch",
       "mainClass": "PowerRecursion",
