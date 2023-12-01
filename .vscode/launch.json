@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "PowerRecursion",
+      "request": "launch",
+      "mainClass": "PowerRecursion",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "FiboRecursion",
       "request": "launch",
       "mainClass": "FiboRecursion",
