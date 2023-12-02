@@ -1,33 +1,23 @@
 import java.util.*;
-public class Practice{
-    public static void Array(int arr[])
+public class Practice
+{
+    public static void TowerOfhanoi(int n,String src, String helper,String dest)
     {
-        for(int i=0; i<arr.length; i++){
-            System.out.print(arr[i]+ " ");
+        if(n == 1)
+        {
+            System.out.println("Transfer Disk "+n+ " from "+src+" to "+dest);
+            return;
         }
-        System.out.println();
+        TowerOfhanoi(n-1, src, dest, helper);
+        System.out.println("Transfer Disk "+n+ " from "+src+" to "+dest);
+        TowerOfhanoi(n-1, helper, src, dest);
     }
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter An Array: ");
-        int arr[] = new int [5];
+        System.out.println("Enter Number of Disks : ");
+        int n = sc.nextInt();
 
-        for(int i=0 ; i<arr.length; i++){
-            arr[i] = sc.nextInt();
-        }
-
-        for(int i=1; i<arr.length; i++)
-        {
-            int current =arr[i];
-            int j = i-1;
-            while(j >= 0 && current < arr[j])
-            {
-                arr[j+1] = arr[j];
-                j--;
-            }
-            arr[j+1] = current;
-        }
-        Array(arr);
+        TowerOfhanoi(n,"S", "H","D");
     }
 }
