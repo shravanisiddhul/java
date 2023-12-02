@@ -1,23 +1,23 @@
 import java.util.*;
 public class Practice
 {
-    public static void TowerOfhanoi(int n,String src, String helper,String dest)
+    public static void StringReverse(String str, int i)
     {
-        if(n == 1)
+        if(i == 0)
         {
-            System.out.println("Transfer Disk "+n+ " from "+src+" to "+dest);
+            System.out.print(str.charAt(i));
             return;
         }
-        TowerOfhanoi(n-1, src, dest, helper);
-        System.out.println("Transfer Disk "+n+ " from "+src+" to "+dest);
-        TowerOfhanoi(n-1, helper, src, dest);
+        System.out.print(str.charAt(i));
+        StringReverse(str, i-1);
     }
+    
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter Number of Disks : ");
-        int n = sc.nextInt();
+        System.out.println("Enter a String  : ");
+        String str = sc.next();
 
-        TowerOfhanoi(n,"S", "H","D");
+        StringReverse(str, str.length()-1);
     }
 }
