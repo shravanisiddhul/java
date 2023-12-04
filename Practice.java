@@ -1,25 +1,37 @@
 import java.util.*;
 public class Practice
 {
-    public static void ReverseString(String str,int i)
+    public static int first = -1;
+    public static int last = -1;
+    if(i == str.length())
     {
-        if (i == 0 ) 
+        System.out.println("First time found at : "+first);
+        System.out.println("Last Time found at : "+last);
+        return;
+    }
+
+    public static void FindOccurence(String str,char ch,int i)
+    {
+        if(str.length() == ch)
         {
-            System.out.println(str.charAt(i));
-            return;
+            if (first == -1) 
+            {
+                first = i;
+            }
+            else{
+                last = i;
+            }
         }
-
-        System.out.print(str.charAt(i));
-        ReverseString(str, i-1);
-
+        FindOccurence(str, ch, i+1);
     }
     public static void main(String args [])
     {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner (System.in);
         System.out.println("Enter a String : ");
         String str = sc.next();
-
-        ReverseString(str, str.length()-1);
-
-    }
+        System.out.println("Enter a character that u want ti=o search : ");
+        char ch = sc.next().charAt(0);
+    
+        Practice.FindOccurence(str, ch,0);
+    
 }

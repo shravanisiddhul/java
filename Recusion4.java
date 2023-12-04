@@ -32,5 +32,7 @@ public class Recusion4 {
         
         FindOccurrence(str, ch, 0);
 
-    }    
-}
+    }
+    
+}    
+
