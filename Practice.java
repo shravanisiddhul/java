@@ -1,24 +1,21 @@
 import java.util.*;
-public class Practice
-{
-    public static void TowerOfHanoi(int n,String src,String helper, String dest)
+public class Practice{
+    public static void StrReverse(String str,int i)
     {
-        if(n == 1)
+        if(i == 0)
         {
-            System.out.println("Transfer ring "+n+" from "+src+ " to "+dest);
+            System.out.print(str.charAt(i));
             return;
         }
-        TowerOfHanoi(n-1, src, dest, helper);
-        System.out.println("Transfer ring "+n+" from "+src+ " to "+dest);
-        TowerOfHanoi(n-1, helper, src, dest);
+        System.out.print(str.charAt(i));
+        StrReverse(str, i-1);
     }
-    public static void main(String args[])
+    public static void main(String args [])
     {
-        Scanner sc = new Scanner (System.in);
-        System.out.println("Enter no. of Rings : ");
-        int n = sc.nextInt();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a String : ");
+        String str = sc.next();
 
-        TowerOfHanoi(n, "S", "H", "D");
-
+        StrReverse(str,str.length()-1);
     }
 }
