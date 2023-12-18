@@ -1,37 +1,24 @@
 import java.util.*;
 public class Practice
 {
-    public static int first = -1;
-    public static int last = -1;
-    if(i == str.length())
+    public static void TowerOfHanoi(int n,String src,String helper, String dest)
     {
-        System.out.println("First time found at : "+first);
-        System.out.println("Last Time found at : "+last);
-        return;
-    }
-
-    public static void FindOccurence(String str,char ch,int i)
-    {
-        if(str.length() == ch)
+        if(n == 1)
         {
-            if (first == -1) 
-            {
-                first = i;
-            }
-            else{
-                last = i;
-            }
+            System.out.println("Transfer ring "+n+" from "+src+ " to "+dest);
+            return;
         }
-        FindOccurence(str, ch, i+1);
+        TowerOfHanoi(n-1, src, dest, helper);
+        System.out.println("Transfer ring "+n+" from "+src+ " to "+dest);
+        TowerOfHanoi(n-1, helper, src, dest);
     }
-    public static void main(String args [])
+    public static void main(String args[])
     {
         Scanner sc = new Scanner (System.in);
-        System.out.println("Enter a String : ");
-        String str = sc.next();
-        System.out.println("Enter a character that u want ti=o search : ");
-        char ch = sc.next().charAt(0);
-    
-        Practice.FindOccurence(str, ch,0);
-    
+        System.out.println("Enter no. of Rings : ");
+        int n = sc.nextInt();
+
+        TowerOfHanoi(n, "S", "H", "D");
+
+    }
 }
