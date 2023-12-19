@@ -1,37 +1,41 @@
 import java.util.*;
-public class Recursion5 
+public class Recursion5
 {
-        //to add all 'x' to the end of the string
-    public static String addX(int count) 
+    public static void PassAllX(String str, int i,int count,char ch,String newString)
     {
-        String newStr = "x";
-        for(int i=1;i<count; i++) 
+        if(i == str.length())
         {
-        newStr += 'x';
+            for(int idx=0;idx<count; idx++)
+            {
+                newString += ch;
+            }
+            // PassAllX(str, i+1, count, ch, newString);
+            System.out.println(newString);
+            return;
+
         }
-        return newStr;
-    }
-    public static String moveAllX(String str, int idx, int count) 
-    {
-        if(idx == str.length()) 
+        char currentCh = str.charAt(i);
+        if(str.charAt(i) == ch)
         {
-            return addX(count);
+            count++;
+            PassAllX(str, i+1, count, ch, newString);
         }
-        if(str.charAt(idx) == 'x') 
-        {
-            return moveAllX(str, idx+1, count+1);
-        } 
-        else {
-            String nextStr = moveAllX(str, idx+1, count);
-            return str.charAt(idx) + nextStr;
-        }   
+        else{
+            newString += currentCh;
+            PassAllX(str, i+1, count, ch, newString);
+            // System.out.println(newString);
+        }
     }
-    public static void main(String args[]) 
+    public static void main(String args [])
     {
-        String str = "abcdefxghxixjxxxk";
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a String : ");
+        String str = sc.nextLine();
         int count = 0;
-        String newStr = moveAllX(str, 0, count);
-        System.out.println(newStr);
+        String newString = "";
+        System.out.println("Enter character to be moved : ");
+        char ch = sc.next().charAt(0);
+
+        PassAllX(str, 0, 0, ch, newString);
     }
 }
-

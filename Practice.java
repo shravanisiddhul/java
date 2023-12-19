@@ -1,30 +1,41 @@
 import java.util.*;
-public class Practice{
-    public static boolean IsSorted(int arr[],int i)
+public class Practice
+{
+    public static void PassAllX(String str, int i,int count,char ch,String newString)
     {
-        if(i == arr.length-1)
+        if(i == str.length())
         {
-            return true;
-        }
-        if(arr[i] < arr[i+1])
-        {
-            // array is sorted until now
-            return IsSorted(arr, i+1);
-        }else{
-            return false;
-        }
+            for(int idx=0;idx<count; idx++)
+            {
+                newString += ch;
+            }
+            // PassAllX(str, i+1, count, ch, newString);
+            System.out.println(newString);
+            return;
 
+        }
+        char currentCh = str.charAt(i);
+        if(str.charAt(i) == ch)
+        {
+            count++;
+            PassAllX(str, i+1, count, ch, newString);
+        }
+        else{
+            newString += currentCh;
+            PassAllX(str, i+1, count, ch, newString);
+            // System.out.println(newString);
+        }
     }
-    public static void main(String args[])
+    public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter elemnts of an Array of size 5 : ");
-        int arr[] = new int [5];
+        System.out.println("Enter a String : ");
+        String str = sc.nextLine();
+        int count = 0;
+        String newString = "";
+        System.out.println("Enter character to be moved : ");
+        char ch = sc.next().charAt(0);
 
-        for(int i=0; i<arr.length;i++)
-        {
-            arr[i] = sc.nextInt();
-        }
-        System.out.println(IsSorted(arr, 0));
+        PassAllX(str, 0, 0, ch, newString);
     }
 }
