@@ -1,37 +1,36 @@
 import java.util.*;
 public class Practice{
-    public static int first = -1;
-    public static int last = -1;
-
-    public static void CountOccurrence(String str,char ch,int i)
+    public static boolean IsSorted(int arr[],int i)
     {
-        if(i == str.length())
+        if(i == arr.length-1)
         {
-            System.out.println("First occured at : "+first);
-            System.out.println("Last occured at : "+last);
-            return;
+            return true;
         }
-        if(str.charAt(i) == ch)
+        if(arr[i] < arr[i+1])
         {
-            if(first == -1)
-            {
-                first = i;
-            }
-            else{
-                last = i;
-            }
+            //Array is sorted
+            return IsSorted(arr, i+1);
         }
-        CountOccurrence(str, ch, i+1);
-    }
+        else{
+            return false;
+        }
+    }    
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a String : ");
-        String str = sc.nextLine();
-        System.out.println("Enter Element to be Searched : ");
-        char ch = sc.next().charAt(0);
+        System.out.println("Enter Size of an Array : ");
+        int size = sc.nextInt();
+        int arr[] = new int [size];
+        System.out.println("Enter elemnents of an Array : ");
 
-        CountOccurrence(str, ch,0);
-
+        for(int i=0 ; i<size; i++)
+        {
+            arr[i] = sc.nextInt(); 
+        }
+        // for(int i=0; i<arr.length;i++)
+        // {
+        //     System.out.println(arr[i]+" ");
+        // }
+        System.out.println(IsSorted(arr, 0));
     }
 }
