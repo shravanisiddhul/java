@@ -8,29 +8,23 @@ public class Practice{
         }
         if(arr[i] < arr[i+1])
         {
-            //Array is sorted
+            // array is sorted until now
             return IsSorted(arr, i+1);
-        }
-        else{
+        }else{
             return false;
         }
-    }    
-    public static void main(String args [])
+
+    }
+    public static void main(String args[])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter Size of an Array : ");
-        int size = sc.nextInt();
-        int arr[] = new int [size];
-        System.out.println("Enter elemnents of an Array : ");
+        System.out.println("Enter elemnts of an Array of size 5 : ");
+        int arr[] = new int [5];
 
-        for(int i=0 ; i<size; i++)
+        for(int i=0; i<arr.length;i++)
         {
-            arr[i] = sc.nextInt(); 
+            arr[i] = sc.nextInt();
         }
-        // for(int i=0; i<arr.length;i++)
-        // {
-        //     System.out.println(arr[i]+" ");
-        // }
         System.out.println(IsSorted(arr, 0));
     }
 }
