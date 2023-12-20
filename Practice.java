@@ -1,38 +1,22 @@
 import java.util.*;
-public class Practice
-{
-    public static void MoveAllX(String str, int i, int count,char ch,String newString)
+public class Practice{
+    public static void TowerOfHanoi(int n,String src,String helper,String dest)
     {
-        if(i == str.length())
+        if (n == 1)
         {
-            for(int idx=0; idx < count; idx++)
-            {
-                newString += ch;
-            }
-            System.out.println("NewString : "+newString);
+            System.out.println("Transfer Ring "+n+" from "+src+" to "+dest);
             return;
         }
-        char currentCh = str.charAt(i);
-        if(str.charAt(i) == ch)
-        {
-            count++;
-            MoveAllX(str, i+1, count, ch, newString);
-        }
-        else{
-            newString += currentCh;
-            MoveAllX(str, i+1, count, ch, newString);
-        }
+        TowerOfHanoi(n-1, src, dest, helper);
+        System.out.println("Transfer Ring "+n+" from "+src+" to "+dest);
+        TowerOfHanoi(n-1, helper, src, dest);
     }
-    public static void main(String args[])
+    public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter String : ");
-        String str = sc.nextLine();
-        System.out.println("Enter character to be moved : ");
-        char ch = sc.next().charAt(0);
-        String newString = "";
+        System.out.println("Enter no. of Rings : ");
+        int n = sc.nextInt();
 
-        MoveAllX(str, 0, 0, ch, newString);
-
+        TowerOfHanoi(n, "S", "H", "D");
     }
 }
