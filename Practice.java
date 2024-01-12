@@ -1,22 +1,10 @@
 import java.util.*;
-public class Practice{
-    public static void TowerOfHanoi(int n,String src,String helper,String dest)
+public class Practice
+{
+    public static void main(String args[])
     {
-        if (n == 1)
-        {
-            System.out.println("Transfer Ring "+n+" from "+src+" to "+dest);
-            return;
-        }
-        TowerOfHanoi(n-1, src, dest, helper);
-        System.out.println("Transfer Ring "+n+" from "+src+" to "+dest);
-        TowerOfHanoi(n-1, helper, src, dest);
+        System.out.println("Hello World!!!");
     }
-    public static void main(String args [])
-    {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter no. of Rings : ");
-        int n = sc.nextInt();
+    
 
-        TowerOfHanoi(n, "S", "H", "D");
-    }
 }
