@@ -1,15 +1,17 @@
 import java.util.*;
 public class Practice
-  
 {
-
     public static void main(String args [])
     {
-        int i=0;
-        do
-        {
-            System.out.println("Hello World!!! ");
-            i++;
-        }while(i<10);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Age,Name,Salary of an Employee : ");
+        System.out.println("Enter Name : ");  
+        String name = sc.nextLine();
+        System.out.println("Enter Age : ");
+        int age = sc.nextInt();
+        System.out.println("Enter Salary : ");
+        double salary = sc.nextDouble();
+        
+        System.out.println("(" +name+", "+age+", "+salary+")");
     }
 }
