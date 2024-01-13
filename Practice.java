@@ -15,24 +15,14 @@ public class Practice
             Num[i] = sc.nextInt();
         }
         
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
-
-        for(int i=0; i<Num.length-1; i++)
+        System.out.println("Enter Element to be Serached : ");
+        int x = sc.nextInt();
+        for(int i=0; i<Num.length; i++)
         {
-            if( Num[i] < min)
+            if(Num[i] == x)
             {
-                min = Num[i];
+                System.out.println("X is found At : "+i);
             }
-            if( Num[i] > max)
-            {
-                max = Num[i];
-            }
-            
-        }
-        System.out.println("Minimum Value : "+min);
-        System.out.println("Maximum Value : "+max);
-        
+        }       
     }
-
 }
