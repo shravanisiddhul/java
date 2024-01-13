@@ -1,19 +1,22 @@
 import java.util.*;
 public class Practice
 {
-    public static void Average(int num1,int num2,int num3)
+    public static void SumOfOdd(int num,int sum)
     {
-        int avg = (num1+num2+num3)/3;
-        System.out.println("Average : "+avg);
+        for(int i=1; i<num; i++)
+        {
+            System.err.println(i);
+            sum = sum + i; 
+        }
+        System.out.println("Sum : "+sum);
+
     }
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter 3 numbers : ");
-        int num1 = sc.nextInt();
-        int num2 = sc.nextInt();
-        int num3 = sc.nextInt();
-
-        Average(num1,num2,num3);
+        System.out.println("Enter number : ");
+        int num = sc.nextInt();
+        int sum =0;
+        SumOfOdd(num,sum);
     }
 }
