@@ -8,6 +8,7 @@ public class Array_problem1 {
 
         String ch[] = new String[size];
 
+        System.out.println("Enter Elements : ");
         for(int i=0; i<size; i++)
         {
             ch[i] = sc.next();
