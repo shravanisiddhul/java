@@ -1,22 +1,16 @@
 import java.util.*;
 public class Practice
 {
-    public static void SumOfOdd(int num,int sum)
+    public static void main(String args[])
     {
-        for(int i=1; i<num; i++)
-        {
-            System.err.println(i);
-            sum = sum + i; 
-        }
-        System.out.println("Sum : "+sum);
+        Scanner sc = new Scanner (System.in);
+        System.out.println("Enter a No. : ");
+        int n = sc.nextInt();
 
-    }
-    public static void main(String args [])
-    {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter number : ");
-        int num = sc.nextInt();
-        int sum =0;
-        SumOfOdd(num,sum);
+        System.out.println("Table of "+n+" is :");
+        for(int i=1;i<=10;i++)
+        {
+            System.out.println(n+" * "+i+" = "+n*i);
+        }
     }
 }
