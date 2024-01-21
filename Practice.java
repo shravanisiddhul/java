@@ -1,34 +1,63 @@
 import java.util.*;
 public class Practice
 {
-    public static void main(String args [])
-
+    public static void main(String args[])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter 0 or 1:");
-        int n =sc.nextInt();
+        System.out.println("Enter a Number :");
+        int n = sc.nextInt();
 
-        
-        do{
-            System.out.println("Enter Marks :");
-            int marks = sc.nextInt();
-            
-            if(marks>=90 && marks<=100)
+        boolean isPrime = true;
+        for(int i=2;i<=n/2;i++)
+        {
+            if(n%i == 0)
             {
-                System.out.println("This is Good");
+                isPrime = false;
+                break;
             }
-            else if(marks >=89 && marks<=60)
+        }
+        if(isPrime)
+        {
+            if(n==1)
             {
-                System.out.println("This is also Good");
+                System.out.println("Neither Prime Nor composite");
             }
-            else 
-            {
-                System.out.println("This is Good as well");
+            else{
+                System.out.println("Prime");
             }
-            System.out.println("Do you want to continue \nThen Enter 0 or 1 :");
-            n =sc.nextInt();
-
-        }while( n==1);
-    
+        }
+        else{
+            System.out.println("Not Prime");
+        }
     }
+
 }
+// import java.util.*;
+
+
+// public class Practice {
+//    public static void main(String args[]) {
+//        Scanner sc = new Scanner(System.in);
+//        int n = sc.nextInt();
+
+
+//        boolean isPrime = true;
+//        for(int i=2; i<=n/2; i++) {
+//            if(n % i == 0) {
+//                isPrime = false;
+//                break;
+//            }
+//        }
+
+
+//        if(isPrime) {
+//            if(n == 1) {
+//                System.out.println("This is neither prime not composite");
+//            } else {
+//                System.out.println("This is a prime number");
+//            }
+//        } else {
+//            System.out.println("This is not a prime number");
+//        }
+//    }   
+// }
