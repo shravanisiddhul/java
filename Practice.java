@@ -11,8 +11,13 @@ public class Practice {
         {
             for(int j=0;j<=i;j++)
             {
-                System.out.print(num+" ");
-                num++;
+                if((i+j) % 2 ==0)
+                {
+                    System.out.print("1"+" ");
+                }
+                else{
+                    System.out.print("0"+" ");
+                }
             }
             System.out.println();
         }
