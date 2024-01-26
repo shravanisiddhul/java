@@ -1,15 +1,12 @@
 import java.util.*;
 public class Practice
 {
-    public static void EvenOrNot(int n) 
+    public static void Table(int n) 
     {
-        if (n % 2 ==0) 
-        {
-            System.out.println("No is Even");
-        } 
-        else{
-            System.out.println("No is Odd");
-        }   
+       for(int i=1;i<=10;i++)
+       {
+            System.out.println(n+" * "+i+" = "+n*i);
+       }   
     }
 
     
@@ -19,6 +16,6 @@ public class Practice
         System.out.println("Enter a Number : ");
         int n = sc.nextInt();
 
-        EvenOrNot(n);
+        Table(n);
     }
 }
