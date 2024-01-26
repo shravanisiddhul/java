@@ -1,43 +1,18 @@
 import java.util.*;
-public class Practice
-{
+public class Practice{
+    public static void multiply(int a,int b)
+    {
+        int mul = a * b;
+        System.out.println("Multiplication of "+a+" and "+b+ " is : "+mul);
+    }
     public static void main(String args[])
     {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        System.out.println("Enter a :");
+        int a = sc.nextInt();
+        System.out.println("Enter b : ");
+        int b = sc.nextInt();
 
-        for(int i=1;i<=n;i++)
-        {
-            for(int j=1;j<=i;j++)
-            {
-               System.out.print("*");
-            }
-            for(int j=1;j<=2*(n-i);j++)
-            {
-                System.out.print(" ");
-            }
-            for(int j=1;j<=i;j++)
-            {
-                System.out.print("*");
-            }
-            System.out.println();
-        }
-        for(int i=n;i>=1;i--)
-        {
-            for(int j=1;j<=i;j++)
-            {
-                System.out.print("*");
-            }
-            for(int j=1;j<=2*(n-i);j++)
-            {
-                System.out.print(" ");
-            }
-            for(int j=1;j<=i;j++)
-            {
-                System.out.print("*");
-            }
-            System.out.println();
-        }
-
+        multiply(a,b);
     }
 }
