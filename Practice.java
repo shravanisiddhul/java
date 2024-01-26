@@ -1,28 +1,33 @@
 import java.util.*;
-public class Practice{
-    public static void Factorial(int n,int fact)
+public class Practice
+{
+    public static void Isprime(int n) 
     {
-        
-        if(n<0)
+        boolean isPrime = true;
+        for(int i=2;i<=n/2;i++)
         {
-            System.out.println("Invalid number ");
-            return;
+            if(n % i == 0)
+            {
+                isPrime=false;
+                break;
+            }
         }
-        for(int i=1;i<=n;i++)
+        if(isPrime)
         {
-            fact = fact * i;
+            System.out.println(n+" is a Prime Number ");
         }
-        System.out.println("Factorial of "+n+ " is : "+fact);
-        return;
+        else{
+            System.out.println(n+" is not a Prime Number");
+        }
+
     }
+    
     public static void main(String args[])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a number : ");
+        System.out.println("Enter a Number : ");
         int n = sc.nextInt();
 
-        int fact = 1;
-
-        Factorial(n,fact);        
+        Isprime(n);
     }
 }
