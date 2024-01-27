@@ -1,20 +1,24 @@
 import java.util.*;
 public class Practice{
-    public static void SumOfOdd(int n,int sum)
-    {
-        for(int i=1;i<=n;i=i+2)
+    public static void GreaterNo(int a,int b){
+        if(a>b)
         {
-            sum = sum + i;
+            System.out.println(a+" is grater than "+b);
         }
-        System.out.println("Sum of all Odd Numbers : "+sum);
+        else{
+            System.err.println(b+" is geater than "+a);
+        }
         return;
     }
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a Number :");
-        int n = sc.nextInt();
-        int sum = 0;
-        SumOfOdd(n,sum);
+        System.out.println("Enter 2 Numbers ");
+        System.out.println("Enter A :");
+        int a = sc.nextInt();
+        System.out.println("Enter B : ");
+        int b = sc.nextInt();
+
+        GreaterNo(a, b);
     }
 }
