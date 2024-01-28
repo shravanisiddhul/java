@@ -1,8 +1,8 @@
 import java.util.*;
 public class Practice{
-	static int PositiveCount;
-	static int NegativeCount;
-	static int ZeroCunt;
+	int PositiveCount;
+	int NegativeCount;
+	int ZeroCunt;
 	public static void Count(int PostiveCount,int NegativeCount,int ZeroCount){
 		Scanner sc = new Scanner(System.in);
 		char choice ;
@@ -20,11 +20,11 @@ public class Practice{
 			}
 			System.out.println("Do you want to enter Another Number ?(y/n)");
 			choice = sc.next().charAt(0);
-		}while(choice=='Y' || choice=='y');
+		}while(choice=='Y' && choice=='y');
 		
-		System.out.println("Positive Number : "+PositiveCount);
-		System.out.println("Negative Number : "+NegativeCount);
-		System.out.println("Zero Number : "+ZeroCount);
+		System.out.Println("Positive Number : "+PositiveCount);
+		System.out.Println("Negative Number : "+NegativeCount);
+		System.out.Println("Zero Number : "+ZeroCount);
 		
 	}
 	
