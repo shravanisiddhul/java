@@ -1,25 +1,25 @@
-import java.util.Scanner;
-public class Practice {
-    public static int  GCD(int num1,int num2)
+import java.util.*;
+public class Practice{
+    public static void Fibo(int n,int n1,int n2)
     {
-        while(num2 != 0)
+        for(int i=2;i<n;i++)
         {
-            int temp = num2;
-            num2 = num2 % num1;
-            num1 = temp;
+            int n3 = n1 + n2;
+            System.out.print(" "+n3);
+            n1 = n2;
+            n2 = n3;
         }
-        return num1;
+
     }
-    public static void main(String args[])
+    public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter num1 : ");
-        int num1 = sc.nextInt();
-        System.out.println("Enter num2 :");
-        int num2 = sc.nextInt();
+        System.out.println("Enter no : ");
+        int n = sc.nextInt();
 
-        int result = GCD(num1,num2);
-        System.out.println("GCD of "+num1+" and "+num2+" is : "+result);
+        int n1 = 0;
+        int n2 = 1;
+        System.out.print(n1+" "+n2);
+        Fibo(n, n1, n2);
     }
-    
 }
