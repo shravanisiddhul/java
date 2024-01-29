@@ -7,16 +7,28 @@ public class Practice{
         System.out.println("Enter size : ");
         int size = sc.nextInt();
 
-        String  arr[] = new String [size];
+        int  arr[] = new int [size];
         System.out.println("Enter Names : ");
         for(int i=0;i<size;i++)
         {
-            arr[i] = sc.next();
+            arr[i] = sc.nextInt();
         }
-        System.out.println("Name of "+size+" BTS members  are : ");
-        for(int i=0;i<arr.length;i++)
-        {
-            System.out.println((i+1)+". "+arr[i]);
-        }
+        
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+
+       for(int i=0;i<arr.length;i++)
+       {
+            if(arr[i] < min)
+            {
+                min = arr[i];
+            }
+            if(arr[i] > max)
+            {
+                max = arr[i];
+            }
+       } 
+       System.out.println("Maximum Value : "+max);
+       System.out.println("Minimum Value : "+min);
     }
 }
