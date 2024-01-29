@@ -6,24 +6,24 @@ public class Practice
         Scanner sc = new Scanner(System.in);
     
 
-        System.out.println("Enter a String : ");
+        System.out.println("Enter an Email : ");
         String str = sc.next();
 
         String result ="";
         for(int i=0;i<str.length();i++)
         {
-            if(str.charAt(i) == 'e')
+            if(str.charAt(i) == '@')
             {
-                result += 'i';
+                break;
             }
-            else if(str.charAt(i) == 'i')
-            {
-                result+= 'e';
-            }            
+            // else if(str.charAt(i) == 'i')
+            // {
+            //     result+= 'e';
+            // }            
             else{
                 result += str.charAt(i);
             }
         }
-        System.out.println("Result is "+result);
+        System.out.println("Result is : "+result);
     }
 }
