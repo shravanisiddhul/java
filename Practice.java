@@ -8,27 +8,41 @@ public class Practice{
         int size = sc.nextInt();
 
         int  arr[] = new int [size];
-        System.out.println("Enter Names : ");
+        System.out.println("Enter Numbers : ");
         for(int i=0;i<size;i++)
         {
             arr[i] = sc.nextInt();
         }
         
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
+        boolean isAscending = true;
+        for(int i=0; i<arr.length-1;i++)
+        {
+            if(arr[i] > arr[i+1])
+            {
+                isAscending = false;
+            }
+        }
+        if(isAscending)
+        {
+            System.out.println("Array is in Ascending order");
+        }else{
+            System.out.println("Array is not in ascending order");
+        }
 
-       for(int i=0;i<arr.length;i++)
-       {
-            if(arr[i] < min)
+        System.out.println("Sorted Array is : ");
+        for(int i=0;i<arr.length;i++)
+        {
+            for(int j=i+1 ;j<arr.length;j++)
             {
-                min = arr[i];
+                if(arr[i] > arr[j])
+                {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
             }
-            if(arr[i] > max)
-            {
-                max = arr[i];
-            }
-       } 
-       System.out.println("Maximum Value : "+max);
-       System.out.println("Minimum Value : "+min);
+            System.out.print(arr[i]+ " ");
+        }
+        
     }
 }
