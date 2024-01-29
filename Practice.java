@@ -4,18 +4,26 @@ public class Practice
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter size :");
-        int size = sc.nextInt();
+    
 
-        String arr[] = new String [size];
+        System.out.println("Enter a String : ");
+        String str = sc.next();
 
-        int total_length = 0;
-
-        for(int i=0;i<size;i++)
+        String result ="";
+        for(int i=0;i<str.length();i++)
         {
-            arr[i] = sc.next();
-            total_length += arr[i].length();
+            if(str.charAt(i) == 'e')
+            {
+                result += 'i';
+            }
+            else if(str.charAt(i) == 'i')
+            {
+                result+= 'e';
+            }            
+            else{
+                result += str.charAt(i);
+            }
         }
-        System.out.println("Total length of string is "+total_length);
+        System.out.println("Result is "+result);
     }
 }
