@@ -28,23 +28,16 @@ public class Practice
             System.out.println();
         }
         
-        System.out.println("Enter element to be searched : ");
-        int x = sc.nextInt();
-        boolean found=false;
-        for(int i=0;i<rows;i++)
+        System.out.println("Transpose is ");
+        for(int j=0;j<cols;j++)
         {
-            for(int j=0;j<cols;j++)
+            for(int i=0;i<rows;i++)
             {
-                if(arr[i][j] ==  x)
-                {
-                    System.out.println(x+ " is found at ("+i+","+j+")");
-                    found = true;
-                }
+                System.out.print(arr[i][j]+" ");  
             }
+            System.out.println();
+            
         }
-        if(!found)
-        {
-            System.out.println(x+ " is not found in the array ");
-        }
+        
     }
 }
