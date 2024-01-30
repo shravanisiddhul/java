@@ -1,26 +1,26 @@
 import java.util.*;
 public class Practice
 {
-    public static void PrintSum(int i,int n,int sum)
+    public static void CalFactorial(int i,int n,int fact)
     {
         
         if(i == n)
         {
-            sum =sum + i;
-            System.out.println("Sum of "+n+" is : "+sum);
+            fact = fact * i;
+            System.out.println("Factorial of "+n+" number is : "+fact);
             return;
         }
-        sum = sum + i;
-        PrintSum(i+1,n,sum);
+        fact = fact * i;
+        CalFactorial(i+1, n, fact);
     }
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a Number : ");
         int n = sc.nextInt();
-        int sum = 0;
+        int fact = 1;
         int i = 1;
 
-        PrintSum(i, n, sum);
+        CalFactorial(i, n, fact);
     }
 }
