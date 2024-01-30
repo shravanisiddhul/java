@@ -1,19 +1,26 @@
-// import java.util.*;
+import java.util.*;
 public class Practice
 {
-    public static void Print(int n)
+    public static void PrintSum(int i,int n,int sum)
     {
         
-        if(n == 6)
+        if(i == n)
         {
+            sum =sum + i;
+            System.out.println("Sum of "+n+" is : "+sum);
             return;
         }
-        System.out.println(n);
-        Print(n+1);
+        sum = sum + i;
+        PrintSum(i+1,n,sum);
     }
     public static void main(String args [])
     {
-        int n = 1;
-        Print(n);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a Number : ");
+        int n = sc.nextInt();
+        int sum = 0;
+        int i = 1;
+
+        PrintSum(i, n, sum);
     }
 }
