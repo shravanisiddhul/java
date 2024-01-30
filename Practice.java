@@ -1,29 +1,31 @@
 import java.util.*;
-public class Practice
-{
+public class Practice{
+    public static void PrintArray(int arr[])
+    {
+        System.out.println("Sorted Array : ");
+        for(int i=0;i<arr.length;i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+    }
+
     public static void main(String args [])
     {
-        Scanner sc = new Scanner(System.in);
-    
+        int arr[] = {1,22,3,2,5,5,3};
 
-        System.out.println("Enter an Email : ");
-        String str = sc.next();
-
-        String result ="";
-        for(int i=0;i<str.length();i++)
+        for(int i=0;i<arr.length-1;i++)
         {
-            if(str.charAt(i) == '@')
+            for (int j=0;j<arr.length-i-1;j++)
             {
-                break;
+                if(arr[j] > arr[j+1])
+                {
+                    int temp=arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1]=temp;
+                }
             }
-            // else if(str.charAt(i) == 'i')
-            // {
-            //     result+= 'e';
-            // }            
-            else{
-                result += str.charAt(i);
-            }
+            
         }
-        System.out.println("Result is : "+result);
+        PrintArray(arr);
     }
 }

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Functions1
+public class function1
 {
     public static void printMyName(String name)
     {
