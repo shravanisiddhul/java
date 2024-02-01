@@ -1,38 +1,31 @@
 import java.util.*;
 public class Practice
-{ 
-    
-    public static int first = -1;
-    public static int last = -1;
-    public static void Occurence(String str,int i,char ch)
+{
+    public static boolean isSorted(int arr[],int i)
     {
-        if(i == str.length())
+        if(i == arr.length-1)
         {
-            System.out.println(first);
-            System.out.println(last);
-            return;
+            return true;
         }
-        if(str.charAt(i) == ch)
+        if (arr[i] < arr[i+1])
         {
-            if(first == -1)
-            {
-                first = i;
-            }
-            else
-            {
-                last = i;
-            }
+            return isSorted(arr, i+1);
+        }else
+        {
+            return false;
         }
-        Occurence(str, i+1, ch);
     }
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter String : ");
-        String str = sc.next();
-        System.out.println("Enter element to be searched : ");
-        char ch = sc.next().charAt(0);
+        int arr[] = new int [5];
+        System.out.println("Enter an Array: ");
+        for(int i=0;i<5;i++)
+        {
+            arr[i] = sc.nextInt();
+        }
 
-        Occurence(str, 0, ch);
+        System.out.println(isSorted(arr, 0));
+
     }
 }
