@@ -1,23 +1,34 @@
 import java.util.*;
 public class Practice
 {
-    public static boolean isSorted(int arr[],int i)
+    public static void MoveX(String str,int i,int count,String newString)
     {
-        if(i == arr.length-1)
+        if(i == str.length())
         {
-            return true;
+            for(int idx=0;idx<count;idx++)
+            {
+                newString +='x';
+            }
+            System.out.println(newString);
+            return;
         }
-        if(arr[i] >= arr[i+1])
+        if(str.charAt(i) == 'x')
         {
-            // array is unsorted
-            return false;
-        }else{
-            return isSorted(arr, i+1);
+            count++;
+            MoveX(str, i+1, count, newString);
+        }
+        else{
+            newString += str.charAt(i);
+            MoveX(str, i+1, count, newString);
         }
     }
     public static void main(String args [])
     {
-        int arr[] = {1,2,3,4,5};
-        System.out.println(isSorted(arr, 0));
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter String : ");
+        String str = sc.next();
+
+        MoveX(str, 0, 0, " ");
+
     }
 }
