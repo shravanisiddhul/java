@@ -3,13 +3,10 @@ public class Practice1
 {
     public static void main(String args [])
     {
-       for(int i=2020;i>=2000;i=i-4)
+       for(int i=1;i<=5;i++)
        {
-        if(i % 4 == 0)
-        {
-            System.out.println(i);
-
-        }
+        int square=i*i;
+        System.out.println(square);
        }
 
     }    
