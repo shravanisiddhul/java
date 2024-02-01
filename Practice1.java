@@ -1,28 +1,22 @@
 import java.util.*;
-public class Practice1 {
-    public static int CalcPower(int x,int n)
-    {
-        if( n == 0)
-        {
-            return 1;
-        }
-        if(x == 0)
-        {
-            return 0;
-        }
-        int xpownm1 = CalcPower(x, n-1);
-        int xpown = x * xpownm1;
-        return xpown; 
-    }
+public class Practice1
+{
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a Number :");
-        int x = sc.nextInt();
-        System.out.println("Enter Power Number : ");
-        int n = sc.nextInt();
+        System.out.println("Enter your Age :");
+        int age = sc.nextInt();
+        
 
-        int result = CalcPower(x, n);
-        System.out.println(x+" raised to "+n+" is : "+result);
-    }    
+        if(age < 0)
+        {
+            System.out.println("Enter Correct Age");
+        }else if (age < 18)
+        {
+            System.out.println(" Not Eligible");
+        }
+        else{
+            System.out.println("Eligible");
+        }
+    }
 }
