@@ -1,22 +1,37 @@
 import java.util.*;
 public class Practice{
-    public static  void StringRev(String str,int i)
+    public static int first =-1;
+    public static int last =-1;
+    public static  void Occurences(String str,int i,char ch)
     {
-        if(i == 0)
+        if(i == str.length())
         {
-            System.out.print(str.charAt(i));
+            System.out.println("First Occurence of "+ch+" at : "+first);
+            System.out.println("Last Occurence of "+ch+" at : "+last);
             return;
         }
-        System.out.print(str.charAt(i));
-        StringRev(str, i-1);
-        // System.out.println(str);
+        // char currentChar = str.charAt(i);
+        if(str.charAt(i) == ch)
+        {
+            if(first == -1)
+            {
+                first = i;
+            }
+            else{
+                last = i;
+            }
+        }
+        Occurences(str, i+1,ch);
     }
+    
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a String : ");
         String str = sc.next();
+        System.out.println("Enter element to be searched");
+        char ch = sc.next().charAt(0);
         
-        StringRev(str,str.length()-1);
+        Occurences(str, 0,ch);
     }
 }
