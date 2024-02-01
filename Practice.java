@@ -7,25 +7,17 @@ public class Practice
         {
             return true;
         }
-        if (arr[i] < arr[i+1])
+        if(arr[i] >= arr[i+1])
         {
-            return isSorted(arr, i+1);
-        }else
-        {
+            // array is unsorted
             return false;
+        }else{
+            return isSorted(arr, i+1);
         }
     }
     public static void main(String args [])
     {
-        Scanner sc = new Scanner(System.in);
-        int arr[] = new int [5];
-        System.out.println("Enter an Array: ");
-        for(int i=0;i<5;i++)
-        {
-            arr[i] = sc.nextInt();
-        }
-
+        int arr[] = {1,2,3,4,5};
         System.out.println(isSorted(arr, 0));
-
     }
 }
