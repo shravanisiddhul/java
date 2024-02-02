@@ -1,24 +1,37 @@
 import java.util.*;
 public class Practice1
 {
+    
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter String : ");
         String str = sc.next();
-        int count = 0;
+        int Upper_count = 0;
+        int Lower_count = 0;
+        int digit_count = 0;
 
        int i = 0;
        while(i<str.length())
        {
-        if(str.charAt(i)=='a'|| str.charAt(i)== 'e'|| str.charAt(i)=='o'||str.charAt(i)=='u')
+        char ch = str.charAt(i);
+        if(Character.isUpperCase(ch))
         {
-            count++;
+            Upper_count++;
         }
         i++;
+        if (Character.isLowerCase(ch)) {
+            Lower_count++;
+        }
+        if(Character.isDigit(ch))
+        {
+            digit_count++;
+        }
         
        }
-       System.out.println(count);
+       System.out.println("Uppercase :"+Upper_count);
+       System.out.println("Lowercase :"+Lower_count);
+       System.out.println("Digit Count : "+digit_count);
     }
 }
         
