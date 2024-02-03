@@ -1,32 +1,34 @@
 import java.util.*;
-
 public class Practice
 {
-    public static String [] keypad ={".","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
-    
-    public static void PrintComb(String str,int i,String Combination)
+    public static int CountMaze(int i,int j,int n,int m)
     {
-        if(i == str.length())
+        if(i == n || j==m)
         {
-            System.out.println(Combination);
-            return;
+            return 0;
         }
-       
-        char CurrChar = str.charAt(i);
-        String mapping = keypad[CurrChar-'0'];
+        if(i == n-1 && j == m-1)
+        {
+            return 1;
+        }
 
-        for(int idx =0 ; idx<mapping.length(); idx++)
-        {
-            PrintComb(str, i+1, Combination+mapping.charAt(idx));
-        }
+        // downword move
+        int downpath = CountMaze(i+1, j, n, m);
+
+        // right move
+        int rightmove = CountMaze(i, j+1, n, m);
+
+        return downpath + rightmove;
     }
-    
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a String (from 0 to 9): ");
-        String str = sc.next();
-        HashSet<String> set = new HashSet<>(); 
-        PrintComb(str, 0, " ");
+        System.out.println("Enter n :");
+        int n = sc.nextInt();
+        System.out.println("Enter m :");
+        int m = sc.nextInt();
+
+        int TotalPath = CountMaze(0, 0, n, m);
+        System.out.println("Total Path : "+TotalPath);
     }
 }
