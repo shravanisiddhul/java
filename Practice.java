@@ -1,34 +1,37 @@
 import java.util.*;
 public class Practice
 {
-    public static int CountMaze(int i,int j,int n,int m)
+    public static void printSubset(ArrayList<Integer> subset)
     {
-        if(i == n || j==m)
+        for(int i=0;i<subset.size();i++)
         {
-            return 0;
+            System.out.print(subset.get(i)+" ");
         }
-        if(i == n-1 && j == m-1)
+        System.out.println();
+    }
+    public static void findSubset(int n,ArrayList<Integer> subset)
+    {
+        if(n == 0)
         {
-            return 1;
+            printSubset(subset);
+            return;
         }
+        // when added
+        subset.add(n);
+        findSubset(n-1, subset);
 
-        // downword move
-        int downpath = CountMaze(i+1, j, n, m);
-
-        // right move
-        int rightmove = CountMaze(i, j+1, n, m);
-
-        return downpath + rightmove;
+        // when not added
+        subset.remove(subset.size()-1);
+        findSubset(n-1, subset);
     }
     public static void main(String args [])
     {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter n :");
+        Scanner sc = new Scanner (System.in);
+        System.out.println("Enter of elements : ");
         int n = sc.nextInt();
-        System.out.println("Enter m :");
-        int m = sc.nextInt();
+        ArrayList<Integer> subset = new ArrayList<>();
 
-        int TotalPath = CountMaze(0, 0, n, m);
-        System.out.println("Total Path : "+TotalPath);
+        findSubset(n, subset);
     }
+
 }
