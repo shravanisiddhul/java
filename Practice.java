@@ -1,77 +1,32 @@
-[8:34 PM] Jay Prakash
-import java.util.Scanner;
- 
-public class Main {
+import java.util.*;
 
-    public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter a string:");
-
-        String input = scanner.nextLine();
-
-        int count = 0;
-
-        int i = 0;
-
-        while (i < input.length()) {
-
-            char ch = input.charAt(i);
-
-            if (Character.isUpperCase(ch)) {
-
-                count++;
-
-            }
-
-            i++;
-
+public class Practice
+{
+    public static String [] keypad ={".","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
+    
+    public static void PrintComb(String str,int i,String Combination)
+    {
+        if(i == str.length())
+        {
+            System.out.println(Combination);
+            return;
         }
+       
+        char CurrChar = str.charAt(i);
+        String mapping = keypad[CurrChar-'0'];
 
-        System.out.println("Number of uppercase letters in the string: " + count);
-
-    }
-
-}
-
-[8:34 PM] khushboo Singh 
-Counting uppercase and lowercase letters 
-[8:35 PM] divya sree (Guest)
-import java.util.Scanner;
- 
-public class Raghu {
-
-    public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter a string: ");
-
-        String input = scanner.nextLine();
-
-        int count = 0;
-
-        int i = 0; 
-
-        while (i < input.length()) {
-
-            char ch = input.charAt(i);
-
-            if (Character.isUpperCase(ch)) {
-
-                count++; 
-
-            }
-
-            i++;
-
+        for(int idx =0 ; idx<mapping.length(); idx++)
+        {
+            PrintComb(str, i+1, Combination+mapping.charAt(idx));
         }
-
-        System.out.println("Number of uppercase letters: " + count);
-
-        scanner.close();
-
     }
-
+    
+    public static void main(String args [])
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a String (from 0 to 9): ");
+        String str = sc.next();
+        HashSet<String> set = new HashSet<>(); 
+        PrintComb(str, 0, " ");
+    }
 }
