@@ -1,29 +1,27 @@
-import java.util.HashSet;
+import java.util.*;
 public class Recursion8
 {
-    public static void printSubseq(String str, int idx, String res, HashSet<String>allSubseq) 
+    public static void sequences(String str,int i,String newString )
     {
-        if(idx == str.length()) 
+        if(i == str.length())
         {
-            if(allSubseq.contains(res)) 
-            {
-                return;
-            }
-            allSubseq.add(res);
-            System.out.println(res);
+            System.out.println(newString);
             return;
         }
+        char CurrChar = str.charAt(i);
+        
+        //to be
+        sequences(str, i+1, newString+CurrChar);
 
-        //choose
-        printSubseq(str, idx+1, res+str.charAt(idx), allSubseq);
-        //don't choose
-        printSubseq(str, idx+1, res, allSubseq);
+        // to not to be
+        sequences(str, i+1, newString);
     }
-    public static void main(String args[]) 
-    {
-        String str1 = "abc";
-        String str2 = "aaa";
-        HashSet<String> allSubseq = new HashSet<>();
-        printSubseq(str2, 0, "", allSubseq);
-    }    
+public static void main(String args [])
+{
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter a String : ");
+    String str = sc.next();
+
+    sequences(str, 0, " ");
+}
 }
