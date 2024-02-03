@@ -1,27 +1,33 @@
 import java.util.*;
-public class Recursion7 {
-    public static String removeDuplicates(String str, int idx, boolean present[]) 
-    {
-        if(idx == str.length()) 
-        {
-            return "";
-        }
-        char curr = str.charAt(idx);
-        if(present[curr-'a']) 
-        {
-            return removeDuplicates(str, idx+1, present);
-        } 
-        else {
-        present[curr-'a'] = true;
-        return curr + removeDuplicates(str, idx+1, present);
-        }
-    }
-    public static void main(String args[]) 
-    {
-        String str = "abcadbcefghabi";
-        boolean present[] = new boolean[str.length()];
-        System.out.println(removeDuplicates(str, 0, present));
-    }
-} 
-    
+public class Recursion7
+{
+    public static boolean[] map = new boolean [26];
 
+    public static void RemoveDuplicates(String str,int i,String newString)
+    {
+        if(i == str.length())
+        {
+            System.out.println("NewString is : "+newString);
+            return;
+        }
+        char CurrChar = str.charAt(i);
+        if(map[CurrChar - 'a'])
+        {
+            RemoveDuplicates(str, i+1, newString);
+        }else{
+            newString += CurrChar;
+            map[CurrChar -'a'] = true;
+            RemoveDuplicates(str, i+1, newString);
+
+        }
+    }
+
+    public static void main(String args [])
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a String :");
+        String str = sc.next();
+
+        RemoveDuplicates(str, 0, " ");
+    }
+}
