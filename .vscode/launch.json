@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Recursion12",
+      "request": "launch",
+      "mainClass": "Recursion12",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Recursion11",
       "request": "launch",
       "mainClass": "Recursion11",
