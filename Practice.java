@@ -1,32 +1,26 @@
 import java.util.*;
 public class Practice
 {
-    public static int PlaceTiles(int n,int m)
+    public static int guestCalls(int n)
     {
-        if(n < m)
-        {
+        if(n <= 1)
+        { 
             return 1;
         }
-        if( n == m)
-        {
-            return 2; 
-        }
-        // horizontally
-        int HoriPlacement = PlaceTiles(n-m, m);
+        // single
+        int way1 = guestCalls(n-1);
 
-        // vertically
-        int VerPlacemnet = PlaceTiles(n-1, m);
+        // pair
+        int way2 =(n-1) * guestCalls(n-2);
 
-        return HoriPlacement + VerPlacemnet;
+        return way1 + way2;
     }
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter n : ");
+        System.out.println("Enter no of guests : ");
         int n = sc.nextInt();
-        System.out.println("Enter m : ");
-        int m = sc.nextInt();
 
-        System.out.println("No of Tile Placed are : "+PlaceTiles(n, m));
+        System.out.println(guestCalls(n));
     }
 }
