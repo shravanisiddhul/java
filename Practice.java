@@ -1,37 +1,32 @@
 import java.util.*;
 public class Practice
 {
-    public static void printSubset(ArrayList<Integer> subset)
+    public static int PlaceTiles(int n,int m)
     {
-        for(int i=0;i<subset.size();i++)
+        if(n < m)
         {
-            System.out.print(subset.get(i)+" ");
+            return 1;
         }
-        System.out.println();
-    }
-    public static void findSubset(int n,ArrayList<Integer> subset)
-    {
-        if(n == 0)
+        if( n == m)
         {
-            printSubset(subset);
-            return;
+            return 2; 
         }
-        // when added
-        subset.add(n);
-        findSubset(n-1, subset);
+        // horizontally
+        int HoriPlacement = PlaceTiles(n-m, m);
 
-        // when not added
-        subset.remove(subset.size()-1);
-        findSubset(n-1, subset);
+        // vertically
+        int VerPlacemnet = PlaceTiles(n-1, m);
+
+        return HoriPlacement + VerPlacemnet;
     }
     public static void main(String args [])
     {
-        Scanner sc = new Scanner (System.in);
-        System.out.println("Enter of elements : ");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter n : ");
         int n = sc.nextInt();
-        ArrayList<Integer> subset = new ArrayList<>();
+        System.out.println("Enter m : ");
+        int m = sc.nextInt();
 
-        findSubset(n, subset);
+        System.out.println("No of Tile Placed are : "+PlaceTiles(n, m));
     }
-
 }
