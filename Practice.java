@@ -2,16 +2,18 @@ public class Practice
 {
     public static void main(String args [])
     {
-        int i=1;
-        int j=1;
-        while(i<=3)
+        int i;
+        int j;
+        int k;
+        for(i=1;i<=3;i++)
         {
-            while(j<=2)
+            for(j=1;j<=2;j++)
             {
-                System.out.println(i*j);
-                j++;
+                for(k=1;k<=2;k++)
+                {
+                    System.out.print(i+j+k+" ");
+                }
             }
-            i++;
         }
     }
 }
