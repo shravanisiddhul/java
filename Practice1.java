@@ -1,37 +1,32 @@
 import java.util.*;
 public class Practice1
 {
-    
     public static void main(String args [])
     {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter String : ");
-        String str = sc.next();
-        int Upper_count = 0;
-        int Lower_count = 0;
-        int digit_count = 0;
+        int arr[] = new int [4];
+        System.out.println("Enter elements in array 1 :");
+        for(int i=0;i<4;i++)
+        {
+            arr[i] = sc.nextInt();
+        }
 
-       int i = 0;
-       while(i<str.length())
-       {
-        char ch = str.charAt(i);
-        if(Character.isUpperCase(ch))
+        int arr2[] = new int [4];
+        System.out.println("Enter elements in array 2 :");
+        for(int i=0;i<4;i++)
         {
-            Upper_count++;
+            arr2[i] = sc.nextInt();
         }
-        i++;
-        if (Character.isLowerCase(ch)) {
-            Lower_count++;
-        }
-        if(Character.isDigit(ch))
-        {
-            digit_count++;
-        }
-        
-       }
-       System.out.println("Uppercase :"+Upper_count);
-       System.out.println("Lowercase :"+Lower_count);
-       System.out.println("Digit Count : "+digit_count);
     }
+       
+        int result[] = new int [4];
+        for(int i=0;i<4;i++)
+        {
+            int[] arr;
+            int[] arr2;
+            result[i] = arr[i] + arr2[i];
+            System.out.println(result);
+        }
+
+
 }
-        
