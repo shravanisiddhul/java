@@ -13,14 +13,21 @@ public class practice2
                 arr[i][j] = sc.nextInt();
             }
         }
+
+        int total = 0;
+        int count = 0;
         
-        for(int i=0;i<2;i++)
+        for(int i=0;i<arr.length;i++)
         {
-            for(int j=0;j<3;j++)
+            for(int j=0;j<arr[i].length;j++)
             {
-                int avg = arr[i] 
+                total += arr[i][j]; 
+                count++;
             }
         }
+
+        double average = total /count;
+        System.out.println("The Average : "+average);
         
     }    
 }

@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "practice2",
+      "request": "launch",
+      "mainClass": "practice2",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "NQueenProbelm",
       "request": "launch",
       "mainClass": "NQueenProbelm",
