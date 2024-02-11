@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "KnightsProblem",
+      "request": "launch",
+      "mainClass": "KnightsProblem",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "practice2",
       "request": "launch",
       "mainClass": "practice2",
