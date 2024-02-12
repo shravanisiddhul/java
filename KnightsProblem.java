@@ -101,7 +101,7 @@ public class KnightsProblem
     }
     public static void main(String args [])
     {
-        int n=2;
+        int n=1;
         char[][] board = new char[n][n];
         for(int i=0;i<n;i++)
         {

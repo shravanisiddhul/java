@@ -4,73 +4,58 @@ public class Practice
     public static boolean isSafe(char[][] board,int row,int col)
     {
         int n = board.length;
-        for(int j=0;j<board.length;j++)
-        {
-            if(board[row][j] == 'Q')
-            {
-                return false;
-            }
-        }
+        
+        // 2 Up 1 left
+        int i=row-2;
+        int j=col-1;
+        if(i>=0 && j>=0 && board[i][j] == 'K')
+        return false;
 
-        for(int i=0;i<board.length;i++)
-        {
-            if(board[i][col] == 'Q')
-            {
-                return false;
-            }
-        }
+        // 2 Up 1 right
+        i=row-2;
+        j=col+1;
+        if(i>=0 && j<n && board[i][j] == 'K')
+        return false;
 
-        int i = row;
-        int j = col;
-        while(i>=0 && j>=0)
-        {
-            if(board[i][j] == 'Q')
-            {
-                return false;
-            }
-            i--;
-            j--;  
-        }
+        // 2 Down 1 left
+        i=row+2;
+        j=col-1;
+        if(i<n && j>=0 && board[i][j] == 'K')
+        return false;
 
-        i = row;
-        j = col;
-        while(i<n && j>=0)
-        {
-            if(board[i][j] == 'Q')
-            {
-                return false;
-            }
-            i++;
-            j--; 
-        }
+        // 2 Down 1 right
+        i=row+2;
+        j=col+1;
+        if(i<n && j<n && board[i][j] == 'K')
+        return false;
 
-        i = row;
-        j = col;
-        while(i>=0 && j<n)
-        {
-            if(board[i][j] == 'Q')
-            {
-                return false;
-            }
-            i--;
-            j++;  
-        }
+        // 2 Right 1 Up
+        i=row-1;
+        j=col-2;
+        if(i>=0 && j>=0 && board[i][j] == 'K')
+        return false;
 
-        i = row;
-        j = col;
-        while(i<n && j<n)
-        {
-            if(board[i][j] == 'Q')
-            {
-                return false;
-            }
-            i++;
-            j++;
-        }
+        // 2 Right 1 Down 
+        i=row+1;
+        j=col-2;
+        if(i<n && j>=0 && board[i][j] == 'K')
+        return false;
+
+        // 2 Left 1 Up
+        i=row-1;
+        j=col+2;
+        if(i>=0 && j<n && board[i][j] == 'K')
+        return false;
+
+        // 2 Left 1 Down
+        i=row+1;
+        j=col+2;
+        if(i<n && j<n&& board[i][j] == 'K')
+        return false;
 
         return true;
     }
-    public static void nqueen(char[][] board,int row)
+    public static void nknight(char[][] board,int row ,int col,int num)
     {
         int n = board.length;
         if(row == n)
@@ -82,36 +67,41 @@ public class Practice
                     System.out.print(board[i][j]);
                 }
                 System.out.println();
-            }   
+            }
             System.out.println();
             return;
         }
-
-        for(int j=0;j<n;j++)
+        else if(isSafe(board,row,col))
         {
-            if(isSafe(board,row,j))
+            board[row][col] = 'K';
+            if(col != n-1)
             {
-                board[row][j] = 'Q';
-                nqueen(board, row+1);
-                board[row][j] = 'X';
+                nknight(board, row, col+1, num+1);
             }
+            else
+            {
+                nknight(board, row+1, 0, num+1);
+                board[row][col] = 'X';
+            }
+        }
+        if(col != n-1)
+        {
+            nknight(board, row, col+1, num);
+        }else{
+            nknight(board, row+1, 0, num);
         }
     }
     public static void main(String args [])
     {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter no of size you want of the board : ");
-        int n = sc.nextInt();
-
-        char [][] board = new char [n][n];
-        for(int i=0;i<n;i++)
+        int n = 1;
+        char[][] board = new char[n][n];
+        for(int i = 0 ;i<n;i++)
         {
             for(int j=0;j<n;j++)
             {
                 board[i][j] = 'X';
             }
         }
-        nqueen(board, 0);
-
+        nknight(board, 0, 0, 0);
     }
 }
