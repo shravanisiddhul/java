@@ -86,8 +86,9 @@ public class KnightsProblem
             }
             else{
                 nkight(board, row+1, 0, num+1);
-                board[row][col] = 'X';
             }
+                board[row][col] = 'X';
+            
         }
         if(col!=n-1)
         {
@@ -101,7 +102,7 @@ public class KnightsProblem
     }
     public static void main(String args [])
     {
-        int n=1;
+        int n=3;
         char[][] board = new char[n][n];
         for(int i=0;i<n;i++)
         {
