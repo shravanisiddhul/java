@@ -11,7 +11,7 @@ class Student
 		Scanner sc = new Scanner(System.in);
 		Id = sc.nextInt();
 		Name = sc.next();
-		System.out.println("id is: "+Id+"name is: "+Name);
+		System.out.println("id is: "+Id+"  Name is: "+Name);
 	}
 }
 public class practice2 {
