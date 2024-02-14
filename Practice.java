@@ -1,5 +1,5 @@
 
-//  Hierarchy Inheritance
+//  Simple Inheritance
 class A
 {
 	public void display()
@@ -18,13 +18,13 @@ class B extends A
 	}
 }
 
-class C extends A
-{
-	public void set()
-	{
-		System.out.println("class C");
-	}
-}
+// class C extends A
+// {
+// 	public void set()
+// 	{
+// 		System.out.println("class C");
+// 	}
+// }
 
 public class Practice {
  
@@ -33,8 +33,8 @@ public class Practice {
 		B obj = new B();
         obj.display();
         obj.show();
-        C obj2 = new C();
-        obj2.set();
+        // C obj2 = new C();
+        // obj2.set();
 	}
  
 }
