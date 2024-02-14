@@ -1,62 +1,47 @@
 import java.util.*;
 public class Practice
 {
-    public static void conquer(int arr[],int l,int mid,int r)
+    public static int partition(int arr[],int low,int high)
     {
-        int merged[] = new int [r-l+1];
-
-        int idx1 = l;
-        int idx2 = mid+1;
-        int x = 0 ;
-
-        while(idx1 <= mid && idx2 <= r)
+        int pivot = arr[high];
+        int i = low-1;
+        for(int j=low;j<high;j++)
         {
-            if(arr[idx1] <= arr[idx2])
+            if(arr[j] < pivot)
             {
-                merged[x++] = arr[idx1++];
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
             }
-            else{
-                merged[x++] = arr[idx2++];
-            }
         }
+        i++;
+        int temp = arr[i];
+        arr[i] = arr[high];
+        arr[high] = temp;
 
-        while(idx1<=mid)
-        {
-            merged[x++] = arr[idx1++];
-        }
-
-        while(idx2 <=r)
-        {
-            merged[x++] = arr[idx2++];
-        }
-
-        
-        for(int i=0,j=l ;i<merged.length;i++,j++)
-        {
-            arr[j] = merged[i];
-        }
+        return i;
     }
-    public static void divide(int arr[],int l,int r)
+    public static void quickSort(int arr[],int low,int high)
     {
-        if(l >= r)
+        if(low < high)
         {
-            return;
+            int pidx = partition(arr,low,high);
+            quickSort(arr, low, pidx-1);
+            quickSort(arr, pidx+1, high);
         }
-        int mid = l+(r-l)/2;
-        divide(arr, l, mid);
-        divide(arr, mid+1, r);
-        conquer(arr, l, mid, r);
-
     }
     public static void main(String args [])
     {
-        int arr[] = {7,8,5,4,9,2,6,4};
+        int arr[] = {7,8,5,6,9,4,1,5};
         int n = arr.length;
-        divide(arr, 0, n-1);
-        System.out.println("Sorted array is :");
+        quickSort(arr, 0, n-1);
+
+        System.out.println("\n");
+        System.out.println("Sorted array is : ");
         for(int i=0;i<n;i++)
         {
-            System.out.print(arr[i] +" ");
+            System.out.print(arr[i]+" ");
         }
         System.out.println();
     }
