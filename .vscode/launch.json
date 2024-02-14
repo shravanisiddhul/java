@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SingleInheritance",
+      "request": "launch",
+      "mainClass": "SingleInheritance",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "QuickSort",
       "request": "launch",
       "mainClass": "QuickSort",
