@@ -1,48 +1,41 @@
-import java.util.*;
-public class Practice
+
+//  Hierarchy Inheritance
+class A
 {
-    public static int partition(int arr[],int low,int high)
-    {
-        int pivot = arr[high];
-        int i = low-1;
-        for(int j=low;j<high;j++)
-        {
-            if(arr[j] < pivot)
-            {
-                i++;
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-        i++;
-        int temp = arr[i];
-        arr[i] = arr[high];
-        arr[high] = temp;
-
-        return i;
-    }
-    public static void quickSort(int arr[],int low,int high)
-    {
-        if(low < high)
-        {
-            int pidx = partition(arr,low,high);
-            quickSort(arr, low, pidx-1);
-            quickSort(arr, pidx+1, high);
-        }
-    }
-    public static void main(String args [])
-    {
-        int arr[] = {7,8,5,6,9,4,1,5};
-        int n = arr.length;
-        quickSort(arr, 0, n-1);
-
-        System.out.println("\n");
-        System.out.println("Sorted array is : ");
-        for(int i=0;i<n;i++)
-        {
-            System.out.print(arr[i]+" ");
-        }
-        System.out.println();
-    }
+	public void display()
+	{
+		System.out.println("class A");
+	}
+	
 }
+ 
+
+class B extends A
+{
+	public void show()
+	{
+		System.out.println("class B");
+	}
+}
+
+class C extends A
+{
+	public void set()
+	{
+		System.out.println("class C");
+	}
+}
+
+public class Practice {
+ 
+	public static void main(String[] args)
+	{
+		B obj = new B();
+        obj.display();
+        obj.show();
+        C obj2 = new C();
+        obj2.set();
+	}
+ 
+}
+ 
