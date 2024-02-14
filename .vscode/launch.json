@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MultilevelInheritance",
+      "request": "launch",
+      "mainClass": "MultilevelInheritance",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "SingleInheritance",
       "request": "launch",
       "mainClass": "SingleInheritance",
