@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MergeSort",
+      "request": "launch",
+      "mainClass": "MergeSort",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "maxKnights",
       "request": "launch",
       "mainClass": "maxKnights",
