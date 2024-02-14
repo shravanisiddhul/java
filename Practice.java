@@ -1,107 +1,63 @@
 import java.util.*;
 public class Practice
 {
-    public static boolean isSafe(char[][] board,int row,int col)
+    public static void conquer(int arr[],int l,int mid,int r)
     {
-        int n = board.length;
-        
-        // 2 Up 1 left
-        int i=row-2;
-        int j=col-1;
-        if(i>=0 && j>=0 && board[i][j] == 'K')
-        return false;
+        int merged[] = new int [r-l+1];
 
-        // 2 Up 1 right
-        i=row-2;
-        j=col+1;
-        if(i>=0 && j<n && board[i][j] == 'K')
-        return false;
+        int idx1 = l;
+        int idx2 = mid+1;
+        int x = 0 ;
 
-        // 2 Down 1 left
-        i=row+2;
-        j=col-1;
-        if(i<n && j>=0 && board[i][j] == 'K')
-        return false;
-
-        // 2 Down 1 right
-        i=row+2;
-        j=col+1;
-        if(i<n && j<n && board[i][j] == 'K')
-        return false;
-
-        // 2 Right 1 Up
-        i=row-1;
-        j=col-2;
-        if(i>=0 && j>=0 && board[i][j] == 'K')
-        return false;
-
-        // 2 Right 1 Down 
-        i=row+1;
-        j=col-2;
-        if(i<n && j>=0 && board[i][j] == 'K')
-        return false;
-
-        // 2 Left 1 Up
-        i=row-1;
-        j=col+2;
-        if(i>=0 && j<n && board[i][j] == 'K')
-        return false;
-
-        // 2 Left 1 Down
-        i=row+1;
-        j=col+2;
-        if(i<n && j<n&& board[i][j] == 'K')
-        return false;
-
-        return true;
-    }
-    public static void nknight(char[][] board,int row ,int col,int num)
-    {
-        int n = board.length;
-        if(row == n)
+        while(idx1 <= mid && idx2 <= r)
         {
-            for(int i=0;i<n;i++)
+            if(arr[idx1] <= arr[idx2])
             {
-                for(int j=0;j<n;j++)
-                {
-                    System.out.print(board[i][j]);
-                }
-                System.out.println();
+                merged[x++] = arr[idx1++];
             }
-            System.out.println();
+            else{
+                merged[x++] = arr[idx2++];
+            }
+        }
+
+        while(idx1<=mid)
+        {
+            merged[x++] = arr[idx1++];
+        }
+
+        while(idx2 <=r)
+        {
+            merged[x++] = arr[idx2++];
+        }
+
+        
+        for(int i=0,j=l ;i<merged.length;i++,j++)
+        {
+            arr[j] = merged[i];
+        }
+    }
+    public static void divide(int arr[],int l,int r)
+    {
+        if(l >= r)
+        {
             return;
         }
-        else if(isSafe(board,row,col))
-        {
-            board[row][col] = 'K';
-            if(col != n-1)
-            {
-                nknight(board, row, col+1, num+1);
-            }
-            else
-            {
-                nknight(board, row+1, 0, num+1);
-                board[row][col] = 'X';
-            }
-        }
-        if(col != n-1)
-        {
-            nknight(board, row, col+1, num);
-        }else{
-            nknight(board, row+1, 0, num);
-        }
+        int mid = l+(r-l)/2;
+        divide(arr, l, mid);
+        divide(arr, mid+1, r);
+        conquer(arr, l, mid, r);
+
     }
     public static void main(String args [])
     {
-        int n = 1;
-        char[][] board = new char[n][n];
-        for(int i = 0 ;i<n;i++)
+        int arr[] = {7,8,5,4,9,2,6,4};
+        int n = arr.length;
+        divide(arr, 0, n-1);
+        System.out.println("Sorted array is :");
+        for(int i=0;i<n;i++)
         {
-            for(int j=0;j<n;j++)
-            {
-                board[i][j] = 'X';
-            }
+            System.out.print(arr[i] +" ");
         }
-        nknight(board, 0, 0, 0);
+        System.out.println();
     }
 }
