@@ -1,41 +1,108 @@
-
-//  Simple Inheritance
-class A
+import java.util.*;
+public class Practice
 {
-	public void display()
-	{
-		System.out.println("class A");
-	}
-	
-}
- 
+    public static boolean isSafe(char[][] board,int row,int col)
+    {
+        int n = board.length;
+        
+        // horizontal
+        for(int j=0;j<n;j++)
+        {
+            if(board[row][j] == 'Q')
+            {
+                return false;
+            }
+        }
 
-class B extends A
-{
-	public void show()
-	{
-		System.out.println("class B");
-	}
-}
+        // vertically
+        for(int i=0;i<n;i++)
+        {
+            if(board[i][col] == 'Q')
+            {
+                return false;
+            }
+        }
 
-// class C extends A
-// {
-// 	public void set()
-// 	{
-// 		System.out.println("class C");
-// 	}
-// }
+        int i=row;
+        int j=col;
+        while(i<n && j>=0)
+        {
+            if(board[i][j] == 'Q')
+                return false;
+                i++;
+                j--;
+        }
 
-public class Practice {
- 
-	public static void main(String[] args)
-	{
-		B obj = new B();
-        obj.display();
-        obj.show();
-        // C obj2 = new C();
-        // obj2.set();
-	}
- 
+        i= row;
+        j= col;
+        while(i<n && j<n)
+        {
+            if(board[i][j] == 'Q')
+                return false;
+                i++;
+                j++;
+        }
+
+        i= row;
+        j= col;
+        while(i>=0 && j<n)
+        {
+            if(board[i][j] == 'Q')
+                return false;
+                i--;
+                j++;
+            
+        }
+
+        i= row;
+        j= col;
+        while(i>=0 && j>=0)
+        {
+            if(board[i][j] == 'Q')
+                return false;
+                i--;
+                j--;
+        }
+        return true;
+    }
+    public static void nqueen(char[][] board,int row)
+    {
+        int n = board.length;
+        if(row == n)
+        {
+            for(int i=0;i<n;i++)
+            {
+                for(int j=0;j<n;j++)
+                {
+                    System.out.print(board[i][j]);
+                }
+                System.out.println();
+            }
+            System.out.println();
+            return ;
+        }
+        for(int j=0;j<n;j++)
+        {
+            if(isSafe(board,row,j))
+            {
+                board[row][j] = 'Q';
+                nqueen(board, row+1);
+                board[row][j] = 'X';
+            }
+        }
+    }
+    public static void main(String args[])
+    {
+        int n = 4;
+        char[][] board = new char[n][n];
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                board[i][j] = 'X';
+            }
+        }
+        nqueen(board,0);
+    }
+
 }
- 
