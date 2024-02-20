@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "OOPS",
+      "request": "launch",
+      "mainClass": "OOPS",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Hierarchy",
       "request": "launch",
       "mainClass": "Hierarchy",
