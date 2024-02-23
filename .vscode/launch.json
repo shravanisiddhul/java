@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "OOPS1",
+      "request": "launch",
+      "mainClass": "OOPS1",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Constructor",
+      "request": "launch",
+      "mainClass": "Constructor",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "OOPS",
       "request": "launch",
       "mainClass": "OOPS",
