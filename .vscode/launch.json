@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Polymorphism",
+      "request": "launch",
+      "mainClass": "Polymorphism",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "OOPS1",
       "request": "launch",
       "mainClass": "OOPS1",

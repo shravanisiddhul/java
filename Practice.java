@@ -1,42 +1,29 @@
-import java.util.*;
-
-// Copy Constructor
-class Car
+class Employee
 {
-  String color;
-  float speed;
+  int empid;
+  String e_name;
+  int salary;
 
-  public void carInfo()
+  public void emp_Info()
   {
-    System.out.println("Color of car is : "+this.color);
-    System.out.println("Speed of color is :"+this.speed);
+    System.out.println("Employee id : "+this.empid);
+    System.out.println("Employee Name is : "+this.e_name);
+    System.out.println("Salary of Employee is : "+this.salary);
   }
+  // Employee()
+  // {
 
-  Car(Car C2) 
-  {
-    this.color = C2.color;
-    this.speed = C2.speed;
-  }
-  Car()
-  {
-
-  }
+  // }
 }
 public class Practice
 {
-    public static void main(String args [])
-    {
-        System.out.println("Car 1 Details are :"); 
-        Car C1 = new Car();
-        C1.color = "Purple";
-        C1.speed = 120;
-
-        C1.carInfo();
-
-        System.out.println();
-        System.out.println("Car 2 Details are :");
-        Car C2 = new Car(C1);
-        C2.carInfo();
-        // System.out.println();
-    }
+  public static void main(String args [])
+  {
+    Employee e1 = new Employee();
+    e1.empid = 1;
+    e1.e_name = "Shravani";
+    e1.salary = 100000; 
+    e1.emp_Info();
+  }
+  
 }
