@@ -5,6 +5,13 @@
       "type": "java",
       "name": "Bank",
       "request": "launch",
+      "mainClass": "Bank",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Bank",
+      "request": "launch",
       "mainClass": "bank.Bank",
       "projectName": "java_bdccd79e"
     },
