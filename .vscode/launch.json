@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "MultipleINheritance",
+      "request": "launch",
+      "mainClass": "MultipleINheritance",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Interfaces",
       "request": "launch",
       "mainClass": "Interfaces",
