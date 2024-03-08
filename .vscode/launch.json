@@ -3,6 +3,27 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Bank",
+      "request": "launch",
+      "mainClass": "bank.Bank",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "HybridInheritance",
+      "request": "launch",
+      "mainClass": "HybridInheritance",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "HierarchicalInheritance",
+      "request": "launch",
+      "mainClass": "HierarchicalInheritance",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Polymorphism",
       "request": "launch",
       "mainClass": "Polymorphism",

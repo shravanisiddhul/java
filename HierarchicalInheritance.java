@@ -16,15 +16,22 @@ class Triangle extends shape
 	}
 }
 
+class Circle extends shape
+{
+	public void area(int r)
+	{
+		System.out.println("Area of Circle is : "+3.14*r*r);
+	}
+}
 
-
-
-public class SingleInheritance {
+public class HierarchicalInheritance {
     public static void main(String[] args)
 	{
 		Triangle t1 = new Triangle();
 		t1.area(3, 4);
-        
+
+		Circle c1 = new Circle();
+		c1.area(5);
 	}
  
 }
