@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Interfaces",
+      "request": "launch",
+      "mainClass": "Interfaces",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Abstraction",
+      "request": "launch",
+      "mainClass": "Abstraction",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Bank",
       "request": "launch",
       "mainClass": "Bank",

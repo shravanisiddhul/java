@@ -1,47 +1,32 @@
-// package inheritance;
-import java.util.*;
-class shape
+import bank.*;
+
+class Account
 {
-	public void area()
+	public String name;
+	protected String email;
+	private String password;
+
+	public String getPassword()
 	{
-		System.out.println("Display");
+		return this.password;
 	}
-	
-}
-class Triangle extends shape
-{
-	public void area(int l,int h)
+
+	public void setPassword(String str)
 	{
-		System.out.println("Area of Triangle is : "+(l*h)*2);
-	}
-}
-class EquilateralTriangle extends Triangle
-{
-	public void area(int l,int h)
-	{
-		System.out.println("Area of Eqilateral Triangle is : "+(l*h)*2);
+		this.password = str;
 	}
 }
-
-class Circle extends shape
+public class Practice
 {
-	public void area(int r)
+	public static void main(String args [])
 	{
-		System.out.println("Area of Circle is : "+3.14*r*r);
+		Account acc2 = new Account();
+		acc2.name = "Shravani";
+		acc2.email = "shravanisiddhul1473@gmail.com";
+		acc2.setPassword("123");
+		System.out.println(acc2.name);
+		System.out.println(acc2.email);
+		System.out.println(acc2.getPassword());
 	}
-}
 
-public class Practice {
-    public static void main(String[] args)
-	{
-		EquilateralTriangle t1 = new EquilateralTriangle();
-		t1.area(3, 4);
-
-		Circle c1 = new Circle();
-		c1.area(5);
-
-	
-
-	}
- 
 }
