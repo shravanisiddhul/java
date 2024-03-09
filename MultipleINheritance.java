@@ -26,6 +26,6 @@ public class MultipleINheritance {
         Horse horse = new Horse();
         horse.tail();
         horse.eat();
-        
+         
     }
 }

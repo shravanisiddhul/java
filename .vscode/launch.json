@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Arraylist",
+      "request": "launch",
+      "mainClass": "Arraylist",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "ArrayList",
+      "request": "launch",
+      "mainClass": "ArrayList",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "MultipleINheritance",
       "request": "launch",
       "mainClass": "MultipleINheritance",
