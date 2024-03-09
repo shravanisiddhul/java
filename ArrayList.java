@@ -38,6 +38,12 @@ class Arraylist
         int size = list.size();
         System.out.println("Length of array is :"+" "+size);
 
+        // delete
+        list.remove(4);
+        System.out.println(list);
+
+        size = list.size();
+        System.out.println("Length of array is :"+" "+size);
     }
 
 }
