@@ -24,6 +24,13 @@ class Arraylist
         // add 12 between 11 and 13
         list.add(2, 12);
 
+        // loop
+        for(int i=0;i<list.size();i++)
+        {
+            System.out.print(list.get(i)+" ");
+        }
+        System.out.println();
+
         // sort
         Collections.sort(list);
         System.out.println(list);
