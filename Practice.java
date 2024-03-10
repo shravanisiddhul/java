@@ -1,75 +1,77 @@
-class Practice{
+import javax.sound.sampled.LineListener;
+
+class Practice
+{
 	Node head;
-	class Node{
+
+	public class Node
+	{
 		String data;
 		Node next;
-
-		Node(String data)
-		{
-			this.data = data;
-			this.next = null;
-		}
-
-		// Add fist 
+		
+		// Add First
 		public void addFirst(String data)
 		{
-			Node newNode = new Node(data);
+			Node newNode = new Node();
 			if(head == null)
 			{
 				head = newNode;
 				return;
-			} 
+			}
 			newNode.next = head;
 			head = newNode;
 		}
 
-		// Add Last 
-		public  void addLast(String data)
+		// Add last 
+		public void addLast(String data)
 		{
-			Node newNode = new Node(data);
+			Node newNode = new Node();
 			if(head == null)
 			{
 				head = newNode;
 				return;
-			} 
-			Node currNode = new Node(data);
+			}
+			Node currNode = new Node();
 			while(currNode.next != null)
 			{
 				currNode = currNode.next;
 			}
 			currNode.next = newNode;
-
-			// Print
-
 		}
+
 		public void printList()
 		{
 			if(head == null)
 			{
 				System.out.println("List is Empty");
 			}
-			Node currNode = new Node(data);
+			Node currNode = new Node();
 			while(currNode != null)
 			{
 				System.out.println(currNode+" -> ");
 				currNode = currNode.next;
 			}
 			System.out.println("Null");
-		}
 
+		}
 	}
 	public static void main(String args [])
 	{
 		LL list = new LL();
-		list.addFirst("2");
-		list.addFirst("1");
+		list.addFirst("M");
+		list.addFirst("I");
+		list.addFirst("K");
+	
+		list.addLast("T");
+		list.addLast("A");
+		list.addLast("E");
+		list.addLast("H");
+		list.addLast("Y");
+		list.addLast("U");
+		list.addLast("N");
+		list.addLast("G");
 		list.printList();
 
-		list.addLast("3");
-		list.addLast("4");
-		list.printList();
 
-		list.addFirst("0");
-		list.printList();
 	}
 }
