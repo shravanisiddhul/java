@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ReverseLL",
+      "request": "launch",
+      "mainClass": "ReverseLL",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "LLProblem2",
       "request": "launch",
       "mainClass": "LLProblem2",
