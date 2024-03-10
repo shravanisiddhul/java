@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "practice",
+      "request": "launch",
+      "mainClass": "practice",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
+      "name": "Practice",
+      "request": "launch",
+      "mainClass": "Practice",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "ReverseLL",
       "request": "launch",
       "mainClass": "ReverseLL",
