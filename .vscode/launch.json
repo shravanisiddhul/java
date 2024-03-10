@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "LL",
+      "request": "launch",
+      "mainClass": "LL",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Arraylist",
       "request": "launch",
       "mainClass": "Arraylist",

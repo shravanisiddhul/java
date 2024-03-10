@@ -42,7 +42,7 @@ class Arraylist
         list.remove(4);
         System.out.println(list);
 
-        size = list.size();
+         size = list.size();
         System.out.println("Length of array is :"+" "+size);
     }
 
