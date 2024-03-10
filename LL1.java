@@ -18,5 +18,11 @@ class LL1{
             System.out.print(list.get(i)+" -> ");
        }
        System.out.println("Null");
+
+       list.removeFirst();
+       list.removeLast();
+       System.out.println(list);
+
+       System.out.println(list.size());
     }
 }
