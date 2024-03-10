@@ -63,7 +63,6 @@ class Practice
 			return ;
 		}
 		head = head.next;
-		
 	}
 
 	// delete last
@@ -88,7 +87,6 @@ class Practice
 		}
 		secondLast.next = null;
 	}
-
 	public static void main(String args [])
 	{
 		Practice list = new Practice();
