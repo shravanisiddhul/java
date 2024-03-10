@@ -1,77 +1,63 @@
-import javax.sound.sampled.LineListener;
-
 class Practice
 {
 	Node head;
 
-	public class Node
-	{
+	public class Node{
 		String data;
 		Node next;
-		
-		// Add First
-		public void addFirst(String data)
-		{
-			Node newNode = new Node();
-			if(head == null)
-			{
-				head = newNode;
-				return;
-			}
-			newNode.next = head;
-			head = newNode;
-		}
 
-		// Add last 
-		public void addLast(String data)
+		Node(String data)
 		{
-			Node newNode = new Node();
-			if(head == null)
-			{
-				head = newNode;
-				return;
-			}
-			Node currNode = new Node();
-			while(currNode.next != null)
-			{
-				currNode = currNode.next;
-			}
-			currNode.next = newNode;
-		}
-
-		public void printList()
-		{
-			if(head == null)
-			{
-				System.out.println("List is Empty");
-			}
-			Node currNode = new Node();
-			while(currNode != null)
-			{
-				System.out.println(currNode+" -> ");
-				currNode = currNode.next;
-			}
-			System.out.println("Null");
-
+			this.data = data;
+			this.next = null;
 		}
 	}
-	public static void main(String args [])
+	public void addfirst(String data)
 	{
-		LL list = new LL();
-		list.addFirst("M");
-		list.addFirst("I");
-		list.addFirst("K");
-	
-		list.addLast("T");
-		list.addLast("A");
-		list.addLast("E");
-		list.addLast("H");
-		list.addLast("Y");
-		list.addLast("U");
-		list.addLast("N");
-		list.addLast("G");
+		Node newNode = new Node(data);
+		if(head == null)
+		{
+			head = newNode;
+			return;
+		}
+		head = newNode.next;
+		newNode = head;
+	}
+	public void addLast(String data)
+	{
+		Node newNode = new Node(data);
+		if(head == null)
+		{
+			head = newNode;
+			return;
+		}
+		Node currNode = head;
+		while(currNode.next != null)
+		{
+			currNode= currNode.next;
+		}
+		currNode.next = newNode;
+	}
+	public void printList()
+	{
+		if(head == null)
+		{
+			System.out.println("List is Empty");
+		}
+		Node currNode = head;
+		while(currNode != null)
+		{
+			System.out.print(currNode.data+" -> ");
+			currNode = currNode.next;
+		}
+		System.out.println("Null");
+	}
+	public static void main(String args[])
+	{
+		Practice list = new Practice();
+		list.addfirst("1");
+		list.addLast("2");
+		list.addLast("3");
 		list.printList();
-
-
 	}
 }
