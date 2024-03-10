@@ -1,6 +1,12 @@
 class Practice
 {
 	Node head;
+	private int size;
+
+	Practice()
+	{
+		this.size = 0;
+	}
 	public class Node
 	{
 		String data;
@@ -10,6 +16,7 @@ class Practice
 		{
 			this.data = data;
 			this.next = null;
+			size++;
 		}
 	}
 
@@ -62,6 +69,7 @@ class Practice
 			System.out.println("List is Empty");
 			return ;
 		}
+		size--;
 		head = head.next;
 	}
 
@@ -73,6 +81,8 @@ class Practice
 			System.out.println("List is Empty");
 			return;
 		}
+
+		size--;
 		if(head.next == null)
 		{
 			head = null;
@@ -86,6 +96,11 @@ class Practice
 			secondLast = secondLast.next;
 		}
 		secondLast.next = null;
+	}
+
+	public int getSize()
+	{
+		return size;
 	}
 	public static void main(String args [])
 	{
@@ -101,5 +116,7 @@ class Practice
 		list.deleteLast();
 		list.printList();
 
+		int size = list.getSize();
+		System.out.println(size);
 	}
 }
