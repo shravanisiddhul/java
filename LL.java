@@ -70,6 +70,13 @@ class LL{
         if(head == null)
         {
             System.out.println("List is Empty");
+            return;
+        }
+
+        if(head.next == null)
+        {
+            head = null;
+            return;
         }
 
         Node secondlast = head;
@@ -98,5 +105,7 @@ class LL{
 
         list.deletelast();
         list.printList();
+
+        
     }
 }
