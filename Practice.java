@@ -1,32 +1,75 @@
-import bank.*;
+class Practice{
+	Node head;
+	class Node{
+		String data;
+		Node next;
 
-class Account
-{
-	public String name;
-	protected String email;
-	private String password;
+		Node(String data)
+		{
+			this.data = data;
+			this.next = null;
+		}
 
-	public String getPassword()
-	{
-		return this.password;
+		// Add fist 
+		public void addFirst(String data)
+		{
+			Node newNode = new Node(data);
+			if(head == null)
+			{
+				head = newNode;
+				return;
+			} 
+			newNode.next = head;
+			head = newNode;
+		}
+
+		// Add Last 
+		public  void addLast(String data)
+		{
+			Node newNode = new Node(data);
+			if(head == null)
+			{
+				head = newNode;
+				return;
+			} 
+			Node currNode = new Node(data);
+			while(currNode.next != null)
+			{
+				currNode = currNode.next;
+			}
+			currNode.next = newNode;
+
+			// Print
+
+		}
+		public void printList()
+		{
+			if(head == null)
+			{
+				System.out.println("List is Empty");
+			}
+			Node currNode = new Node(data);
+			while(currNode != null)
+			{
+				System.out.println(currNode+" -> ");
+				currNode = currNode.next;
+			}
+			System.out.println("Null");
+		}
+
 	}
-
-	public void setPassword(String str)
-	{
-		this.password = str;
-	}
-}
-public class Practice
-{
 	public static void main(String args [])
 	{
-		Account acc2 = new Account();
-		acc2.name = "Shravani";
-		acc2.email = "shravanisiddhul1473@gmail.com";
-		acc2.setPassword("123");
-		System.out.println(acc2.name);
-		System.out.println(acc2.email);
-		System.out.println(acc2.getPassword());
-	}
+		LL list = new LL();
+		list.addFirst("2");
+		list.addFirst("1");
+		list.printList();
 
+		list.addLast("3");
+		list.addLast("4");
+		list.printList();
+
+		list.addFirst("0");
+		list.printList();
+	}
 }
