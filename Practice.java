@@ -1,7 +1,11 @@
-class practice
-{
+class Practice{
 	Node head;
-	public class Node{
+	private int size ;
+	Practice()
+	{
+		this.size = 0;
+	}
+	class Node{
 		int data;
 		Node next;
 
@@ -9,6 +13,7 @@ class practice
 		{
 			this.data = data;
 			this.next = null;
+			size++;
 		}
 	}
 	public void addFirst(int data)
@@ -22,7 +27,6 @@ class practice
 		newNode.next = head;
 		head = newNode;
 	}
-
 	public void addLast(int data)
 	{
 		Node newNode = new Node(data);
@@ -30,20 +34,21 @@ class practice
 		{
 			head = newNode;
 			return;
-		}
+		}	
 		Node currNode = head;
 		while(currNode.next != null)
 		{
 			currNode = currNode.next;
+			
 		}
-		currNode.next = newNode;
-		
+		currNode.next = newNode ;
 	}
 	public void printList()
 	{
 		if(head == null)
 		{
 			System.out.println("List is Empty");
+			return;
 		}
 		Node currNode = head;
 		while(currNode != null)
@@ -52,36 +57,42 @@ class practice
 			currNode = currNode.next;
 		}
 		System.out.println("Null");
-		
+
 	}
 	public void deleteFirst()
 	{
 		if(head == null)
 		{
-			System.out.println("List is empty");
 			return;
 		}
-		head = head.next ;
+		size--;
+		head= head.next;
 	}
 	public void deleteLast()
 	{
 		if(head == null)
 		{
-			System.out.println("list is empty");
+			System.out.println("List is Empty");
+			return;
 		}
+		size--;
 		if(head.next == null)
 		{
 			head = null;
-			return;
+			return ;
 		}
-		Node secondLast = head;
+		Node secondLast  = head ;
 		Node lastNode = head.next;
 		while(lastNode.next != null)
 		{
-			lastNode = lastNode.next;
 			secondLast = secondLast.next;
+			lastNode = lastNode.next;
 		}
 		secondLast.next = null;
+	}
+	public int getsize()
+	{
+		return size;
 	}
 	public void reverseIterate()
 	{
@@ -103,23 +114,25 @@ class practice
 		head.next = null;
 		head = prevNode;
 	}
-
-
 	public static void main(String args[])
 	{
-		practice list = new practice();
+		Practice list = new Practice();
 		list.addFirst(1);
 		list.addLast(2);
+		list.addFirst(0);
 		list.addLast(3);
 		list.addLast(4);
 		list.printList();
 
 		list.deleteFirst();
+		list.printList();
+
 		list.deleteLast();
 		list.printList();
+
+		System.out.println(list.getsize());
 
 		list.reverseIterate();
 		list.printList();
 	}
-	
 }
