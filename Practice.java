@@ -114,6 +114,18 @@ class Practice{
 		head.next = null;
 		head = prevNode;
 	}
+	public Node reverseRecursion(Node head)
+	{
+		if(head == null || head.next == null)
+		{
+			return head;
+		}
+		Node newHead = reverseRecursion(head.next);
+		head.next.next = head;
+		head.next = null;
+
+		return newHead;
+	}
 	public static void main(String args[])
 	{
 		Practice list = new Practice();
@@ -132,7 +144,11 @@ class Practice{
 
 		System.out.println(list.getsize());
 
-		list.reverseIterate();
+		// list.reverseIterate();
+		// list.printList();
+
+		list.head = list.reverseRecursion(list.head);
 		list.printList();
 	}
+
 }
