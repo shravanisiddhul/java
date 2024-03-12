@@ -2,6 +2,7 @@ class Practice
 {
 	Node head;
 	private int size;
+
 	Practice()
 	{
 		this.size = 0;
@@ -9,13 +10,13 @@ class Practice
 	class Node{
 		int data;
 		Node next;
-	
+
 		Node(int data)
 		{
 			this.data = data;
 			this.next = null;
 			size++;
-		}	
+		}
 	}
 	public void addFirst(int data)
 	{
@@ -25,7 +26,7 @@ class Practice
 			head = newNode;
 			return;
 		}
-		newNode.next = head;
+		newNode.next = head ;
 		head = newNode;
 	}
 	public void addLast(int data)
@@ -36,7 +37,7 @@ class Practice
 			head = newNode;
 			return;
 		}
-		Node currNode = head;
+		Node currNode = head ;
 		while(currNode.next != null)
 		{
 			currNode = currNode.next;
@@ -47,14 +48,14 @@ class Practice
 	{
 		if(head == null)
 		{
-			System.out.println("List is empty");
+			System.out.println("List is Empty");
 			return;
 		}
-		Node currNode = head;
+		Node currNode = head ;
 		while(currNode != null)
 		{
 			System.out.print(currNode.data+" -> ");
-			currNode = currNode.next;
+			currNode= currNode.next;
 		}
 		System.out.println("Null");
 	}
@@ -72,29 +73,28 @@ class Practice
 	{
 		if(head == null)
 		{
-			System.out.println("List is empty");
+			System.out.println("List is Empty");
 			return;
 		}
 		size--;
 		if(head.next == null)
 		{
-			head = null;
 			return;
 		}
-		Node secondLast = head;
+		Node secondlast = head;
 		Node lastNode = head.next;
 		while(lastNode.next != null)
 		{
+			secondlast = secondlast.next;
 			lastNode = lastNode.next;
-			secondLast = secondLast.next;
 		}
-		secondLast.next = null;
+		secondlast.next = null;
 	}
 	public int size()
 	{
 		return size;
 	}
-	public void reverseIterate()
+	public void reverseIterative()
 	{
 		if(head == null || head.next == null)
 		{
@@ -107,32 +107,34 @@ class Practice
 			Node nextNode = currNode.next;
 			currNode.next = prevNode;
 
-			// update
+			// .update
 			prevNode = currNode;
 			currNode = nextNode;
 		}
-		head.next = null;
+		head.next= null;
 		head = prevNode;
 	}
 	public Node reverseRecursive(Node head)
 	{
-		if(head == null || head.next == null)
-		{
-			return head ;
-		}	
-		Node newhead = reverseRecursive(head.next);
+		if (head == null || head.next == null) {
+			return head;
+		}
+		Node newHead = reverseRecursive(head.next);
 		head.next.next = head;
 		head.next = null;
-		return newhead;
+		return newHead;
 	}
-	public static void main(String args [])
+
+
+	public static void main(String args[])
 	{
 		Practice list = new Practice();
-		list .addFirst(1);
-		list.addLast(2);
+		list.addFirst(2);
 		list.addLast(3);
-		list.addFirst(0);
+		list.addFirst(1);
 		list.addLast(4);
+		list.addFirst(0);
+		list.addLast(5);
 		list.printList();
 
 		list.deleteFirst();
@@ -141,10 +143,10 @@ class Practice
 
 		System.out.println(list.size());
 
-		list.reverseIterate();
+		list.reverseIterative();
 		list.printList();
-		
+
 		list.head = list.reverseRecursive(list.head);
-		list.printList();  
+		list.printList();
 	}
 }
