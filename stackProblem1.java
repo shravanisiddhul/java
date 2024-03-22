@@ -12,7 +12,7 @@ public class stackProblem1 {
         pushAtBottom(data, s);
         s.push(top);
     }
-    
+
     public static void main(String args [], int data)
     {
         Stack<Integer> s = new Stack();
@@ -20,7 +20,7 @@ public class stackProblem1 {
         s.push(2);
         s.push(3);
         
-        pushAtBottom(data,s);
+        pushAtBottom(4,s);
         
         while(!s.isEmpty())
         {
