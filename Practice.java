@@ -1,57 +1,38 @@
+import java.util.ArrayList;
+
 public class Practice
 {
-	Node head;
-	static class Node
+	ArrayList<Integer> list = new ArrayList<>();
+	public boolean isEmpty()
 	{
-		int data ;
-		Node next;
-
-		Node(int data)
-		{
-			this.data = data;
-			this.next = null;
-		}
+		return list.size() == 0;
 	}
-	static class stack{
-		public static Node head;
-		public boolean isEmpty()
+	public void push(int data)
+	{
+		list.add(data);
+	}
+	public int pop()
+	{
+		if(isEmpty())
 		{
-			return head == null;
+			return -1;
 		}
-		public void push(int data)
-		{
-			Node newN = new Node(data);
-			if(isEmpty())
-			{
-				head = newN;
-				return ;
-			}
-			newN.next = head;
-			head = newN;
+		int top = list.get(list.size()-1);
+		list.remove(list.size()-1);
+		return top;
 
-		}
-		public int pop()
+	}
+	public int peek()
+	{
+		if(isEmpty())
 		{
-			if(isEmpty())
-			{
-				return -1;
-			}
-			int top = head.data;
-			head = head.next;
-			return top;
+			return -1;
 		}
-		public int peek()
-		{
-			if(isEmpty())
-			{
-				return -1;
-			}
-			return head.data;
-		}
+		return list.get(list.size()-1);
 	}
 	public static void main(String args [])
 	{
-		stack s = new stack();
+		Practice s = new Practice();
 		s.push(1);
 		s.push(2);
 		s.push(3);
