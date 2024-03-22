@@ -1,49 +1,150 @@
-import java.util.ArrayList;
+class Practice
+{
+	Node head;
+	private int size;
+	Practice()
+	{
+		this.size = 0;
+	}
+	public class Node{
+		int data;
+		Node next;
 
-public class Practice {
-	static class stack
-	{
-    final ArrayList<Integer> list = new ArrayList<>();
-	public boolean isEmpty()
-	{
-		return list.size() == 0;
-	}
-	public void push(int data)
-	{
-		list.add(data);
-	}
-	public int pop()
-	{
-		if(isEmpty())
+		Node(int data)
 		{
-			return -1;
+			this.data = data;
+			this.next = null;
+			size++;
 		}
-		int top = list.get(list.size()-1);
-		list.remove(list.size()-1);
-		return top;
 	}
-	public int peek()
+	public void addFirst(int data)
 	{
-		if(isEmpty())
+		Node newNode = new Node(data);
+		if(head == null)
 		{
-			return -1;
+			head = newNode;
+			return;
 		}
-		return list.get(list.size()-1);
+		newNode.next = head;
+		head = newNode;
 	}
-}
-    public static void main(String args [])
-    {
-        stack s = new stack();
-        s.push(1);
-        s.push(2);
-        s.push(3);
-        s.push(4);
-        while(!s.isEmpty())
-        {
-            System.out.println(s.peek());
-            s.pop();
-        }
+	public void addLast(int data)
+	{
+		Node newNode = new Node(data);
+		if(head == null)
+		{
+			head = newNode;
+			return;
+		}
+		Node currNode = head;
+		while(currNode.next != null)
+		{
+			currNode = currNode.next;
+		}
+		currNode.next = newNode;
+	}
+	public void printList()
+	{
+		if(head == null)
+		{
+			System.out.println("List is Empty");
+			return ;
+		}
+		Node currNode = head;
+		while(currNode != null)
+		{
+			System.out.print(currNode.data+" -> ");
+			currNode = currNode.next;
+		}
+		System.out.println("Null");
+	}
+	public void deleteFirst()
+	{
+		if(head == null)
+		{
+			System.out.println("List is Empty");
+			return ;
+		}
+		size--;
+		head = head.next;
+	}
+	public void deleteLast()
+	{
+		if(head == null)
+		{
+			System.out.println("List is Empty");
+			return ;
+		}
+		size--;
+		if(head.next == null)
+		{
+			head = null;
+			return;
+		}	
+		Node secondLast = head ;
+		Node lastNode = head.next;
+		while(lastNode.next != null)
+		{
+			lastNode = lastNode.next;
+			secondLast = secondLast.next;
+		} 
+		secondLast.next = null;
+	}
+	public void reverseIterate()
+	{
+		if(head == null)
+		{
+			System.out.println("List is Empty");
+			return ;
+		}
+		Node prevNode = head;
+		Node currNode = head.next;
+		while(currNode != null)
+		{
+			Node nextNode = currNode.next;
+			currNode.next = prevNode;
 
-    }
+			prevNode = currNode;
+			currNode = nextNode;
+		}
+		head.next = null;
+		head = prevNode;
+	}
+	public Node reverseRecursive(Node head)
+	{
+		if(head == null || head.next == null)
+		{
+			return head;
+		}
+		Node newHead = reverseRecursive(head.next);
+		head.next.next = head;
+		head.next = null;
 
+		return newHead;
+	}
+	public int size()
+	{
+		return size;
+	}
+	public static void main(String args [])
+	{
+		Practice list = new Practice();
+		list.addFirst(2);
+		list.addLast(3);
+		list.addFirst(1);
+		list.addLast(4);
+		list.addFirst(0);
+		list.addLast(5);
+		list.printList();
+		list.deleteFirst();
+		list.deleteLast();
+		list.printList();
+		list.reverseIterate();
+		list.printList();
+		list.head = list.reverseRecursive(list.head);
+		list.printList();
+
+		System.out.println(list.size());
+
+	}
 }
