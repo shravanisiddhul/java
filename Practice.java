@@ -1,47 +1,26 @@
-import java.util.ArrayList;
+import java.util.*;
+//To push an element at the bottom of a stack
+public class stackProblem1 {
+    public static void pushAtBottom(Stack<Integer> s, int data) {
+        if(s.isEmpty()) {
+            s.push(data);
+            return;
+        }
 
-public class Practice
-{
-	ArrayList<Integer> list = new ArrayList<>();
-	public boolean isEmpty()
-	{
-		return list.size() == 0;
-	}
-	public void push(int data)
-	{
-		list.add(data);
-	}
-	public int pop()
-	{
-		if(isEmpty())
-		{
-			return -1;
-		}
-		int top = list.get(list.size()-1);
-		list.remove(list.size()-1);
-		return top;
+        int temp = s.pop();
+        pushAtBottom(s, data);
+        s.push(temp);
+    }
 
-	}
-	public int peek()
-	{
-		if(isEmpty())
-		{
-			return -1;
-		}
-		return list.get(list.size()-1);
-	}
-	public static void main(String args [])
-	{
-		Practice s = new Practice();
-		s.push(1);
-		s.push(2);
-		s.push(3);
-		s.push(4);
+    public static void main(String args[]) {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        pushAtBottom(stack, 4);
 
-		while(!s.isEmpty())
-		{
-			System.out.println(s.peek());
-			s.pop();
-		}
-	}
+        while(!stack.isEmpty()) {
+            System.out.println(stack.pop());
+        }
+    }
 }

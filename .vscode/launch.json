@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "stackProblem1",
+      "request": "launch",
+      "mainClass": "stackProblem1",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "StackArray1",
       "request": "launch",
       "mainClass": "StackArray1",
