@@ -1,26 +1,30 @@
-import java.util.*;
-//To push an element at the bottom of a stack
-public class stackProblem1 {
-    public static void pushAtBottom(Stack<Integer> s, int data) {
-        if(s.isEmpty()) {
+import java.util.Stack;
+
+public class Practice
+{
+    public static void pushAtBottom(Stack<Integer> s,int data)
+    {
+        if(s.empty())
+        {
             s.push(data);
             return;
         }
-
-        int temp = s.pop();
+        int top = s.pop();
         pushAtBottom(s, data);
-        s.push(temp);
+        s.push(top);
     }
+    public static void main(String args [])
+    {
+        Stack<Integer> s = new Stack<>();
+        s.push(1);
+        s.push(2);
+        s.push(3);
 
-    public static void main(String args[]) {
-        Stack<Integer> stack = new Stack<>();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        pushAtBottom(stack, 4);
+        pushAtBottom(s, 4);
 
-        while(!stack.isEmpty()) {
-            System.out.println(stack.pop());
+        while(!s.empty())
+        {
+            System.out.println(s.pop());
         }
     }
 }
