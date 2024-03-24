@@ -2,9 +2,9 @@ import java.util.Stack;
 
 public class Practice
 {
-    public static void pushAtBottom(Stack<Integer> s,int data)
+    public static void pushAtBottom(Stack<Integer> s, int data)
     {
-        if(s.empty())
+        if(s.isEmpty())
         {
             s.push(data);
             return;
@@ -13,14 +13,15 @@ public class Practice
         pushAtBottom(s, data);
         s.push(top);
     }
-    public static void main(String args [])
+    
+    public static void  main(String args[])
     {
         Stack<Integer> s = new Stack<>();
         s.push(1);
         s.push(2);
         s.push(3);
 
-        pushAtBottom(s, 4);
+        pushAtBottom(s,4);
 
         while(!s.empty())
         {
