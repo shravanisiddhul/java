@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "ReverseStack",
+      "request": "launch",
+      "mainClass": "ReverseStack",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "stackProblem1",
       "request": "launch",
       "mainClass": "stackProblem1",
