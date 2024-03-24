@@ -14,6 +14,17 @@ public class Practice
         s.push(top);
     }
     
+    public static void reverse(Stack<Integer>s )
+    {
+        if(s.empty())
+        {
+            return ;
+        }
+        int top = s.pop();
+        reverse(s);
+        pushAtBottom(s, top);
+
+    }
     public static void  main(String args[])
     {
         Stack<Integer> s = new Stack<>();
@@ -21,7 +32,7 @@ public class Practice
         s.push(2);
         s.push(3);
 
-        pushAtBottom(s,4);
+        reverse(s);
 
         while(!s.empty())
         {
