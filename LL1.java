@@ -5,10 +5,10 @@ class LL1{
     public static void main(String args [])
     {
        LinkedList<String> list = new LinkedList<>();
-       list.addFirst("a");
-       list.addFirst("is");
-       list.addLast("List");
-       list.addFirst("These");
+       list.addFirst("1");
+       list.addFirst("0");
+       list.addLast("2");
+       list.addLast("3");
        System.out.println(list);
 
        System.out.println(list.size());
