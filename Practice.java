@@ -1,65 +1,67 @@
 public class Practice
 {
-    static class Node
+    static class Queue
     {
-        int data;
-        Node next;
-        
-        Node(int data)
+        static int arr[];
+        static int size;
+        static int rear = -1;
+
+        Queue(int n)
         {
-            this.data = data;
-            this.next = null;
+            arr = new int [n];
+            this.size = n;
         }
-    }
-    static class stack
-    {
-        public static Node head;
         public boolean isEmpty()
         {
-            return head == null;
+            return rear == -1;
         }
-        public void push(int data)
+        public void add(int data)
         {
-            Node newNode = new Node(data);
-           if(isEmpty())
-           {
-               head = newNode;
-               return;
-           }
-           newNode.next = head;
-           head = newNode;
+            if(rear == size -1)
+            {
+                System.out.println("Queue is full");
+                return ;
+            }
+            rear++;
+            arr[rear] = data;
         }
-        public int pop()
+        public int remove()
         {
             if(isEmpty())
             {
+                System.out.println("Queue is Empty");
                 return -1;
             }
-            int top = head.data;
-            head = head.next;
-            return top;
+            int front = -1;
+            for(int i=0; i<rear; i++)
+            {
+                arr[i] = arr[i+1];
+            }
+            rear--;
+            return front;
         }
         public int peek()
         {
-             if(isEmpty())
+            if(isEmpty())
             {
+                System.out.println("Queue is Empty");
                 return -1;
             }
-            return head.data;
+            return arr[0];
         }
     }
     public static void main(String args [])
     {
-        stack s = new stack();
-        s.push(1);
-        s.push(2);
-        s.push(3);
-        s.push(4);
-        
-        while(!s.isEmpty())
+        Queue q = new Queue(5);
+        q.add(1);
+        q.add(2);
+        q.add(3);
+
+        while(!q.isEmpty())
         {
-            System.out.println(s.peek());
-            s.pop();
+            System.out.println(q.peek());
+            q.remove();
+            
         }
     }
 }
