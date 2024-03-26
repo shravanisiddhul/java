@@ -1,11 +1,11 @@
-public class Practice
-{
-    static class Queue{
-        static int arr[];
+public class circularQueue {
+    static class Queue
+    {
+        static int[] arr;
         static int size;
         static int rear = -1;
         static int front = -1;
-
+    
         Queue(int n)
         {
             arr = new int [n];
@@ -17,7 +17,7 @@ public class Practice
         }
         public boolean isFull()
         {
-            return (rear + 1)% size == front;
+            return (rear+1) % size == front;   
         }
         public void add(int data)
         {
@@ -30,9 +30,8 @@ public class Practice
             {
                 front = 0;
             }
-            rear = (rear + 1 )%size;
+            rear = (rear + 1)%size;
             arr[rear] = data;
-
         }
         public int remove()
         {
@@ -42,12 +41,13 @@ public class Practice
                 return -1;
             }
             int result = arr[front];
-            if(rear == front )
+            if(rear == front)
             {
                 rear = front = -1;
             }
-            else{
-                front = (front + 1) % size;
+            else 
+            {
+                front = (front +1) % size;   
             }
             return result;
         }
@@ -71,14 +71,15 @@ public class Practice
         q.add(5);
         System.out.println(q.remove());
         q.add(6);
-        System.out.println(q.remove());
+        System.err.println(q.remove());
         q.add(7);
 
         while(!q.isEmpty())
         {
             System.out.println(q.peek());
             q.remove();
-            
+
         }
     }
 }
+ 

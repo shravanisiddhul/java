@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "circularQueue",
+      "request": "launch",
+      "mainClass": "circularQueue",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Queue",
       "request": "launch",
       "mainClass": "Queue",
