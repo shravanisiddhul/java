@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Queue",
+      "request": "launch",
+      "mainClass": "Queue",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "LL1",
       "request": "launch",
       "mainClass": "LL1",
