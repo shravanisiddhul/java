@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "QueueUsing2Stack",
+      "request": "launch",
+      "mainClass": "QueueUsing2Stack",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "QueueCF",
       "request": "launch",
       "mainClass": "QueueCF",
