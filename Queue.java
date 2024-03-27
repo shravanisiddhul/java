@@ -2,7 +2,7 @@ public class Queue {
     static class queue
     {
         static int arr[];
-        static int size;
+        int size;
         static int rear = -1;
 
         queue(int n)

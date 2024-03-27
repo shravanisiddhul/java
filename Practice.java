@@ -1,37 +1,29 @@
 public class Practice
 {
-    static class Node{
-        int data;
-        Node next;
-
-        Node(int data)
-        {
-            this.data = data;
-            this.next = null;
-        }
-    }
     static class Queue
     {
-        static Node head =null;
-        static Node tail = null ;
-        
+        static int arr[];
+        int size;
+        static int rear = -1;
+
+        Queue(int n)
+        {
+            arr = new int [n];
+            this.size = n;
+        }
         public boolean isEmpty()
         {
-            return head == null && tail == null;
+            return rear == -1;
         }
-        
         public void add(int data)
         {
-            Node newNode = new Node(data);
-            if(tail == null)
+            if(rear == size - 1)
             {
-                head = tail = newNode;
-                return ;
+                System.out.println(" Queue is Full");
+                return;
             }
-            
-            tail.next = newNode;
-            tail = newNode;
-            
+            rear ++;
+            arr[rear] = data;
         }
         public int remove()
         {
@@ -40,12 +32,12 @@ public class Practice
                 System.out.println("Queue is Empty");
                 return -1;
             }
-            int front = head.data;
-            if(head == tail)
+            int front = arr[0];
+            for(int i=0;i<rear;i++)
             {
-                tail = null;
+                arr[i] = arr[i+1];
             }
-            head = head.next;
+            rear --;
             return front;
         }
         public int peek()
@@ -55,12 +47,12 @@ public class Practice
                 System.out.println("Queue is Empty");
                 return -1;
             }
-            return head.data;
+            return arr[0];
         }
     }
     public static void main(String args [])
     {
-        Queue q = new Queue();
+        Queue q = new Queue(5);
         q.add(1);
         q.add(2);
         q.add(3);
