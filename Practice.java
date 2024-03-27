@@ -1,80 +1,60 @@
+import java.util.Stack;
 public class Practice
 {
-    static class Node{
-        int data;
-        Node next;
-
-        Node(int data)
-        {
-            this.data = data;
-            this.next = null;
-        }
-    }
     static class Queue
     {
-        
-        static Node head = null;
-        static Node tail = null;
+        Stack<Integer> s1 = new Stack<>();
+        Stack<Integer> s2 = new Stack<>(); 
 
-        
         public boolean isEmpty()
         {
-            return head == null && tail == null;
+            return s1.isEmpty();
         }
-        
-        public void add(int data)
+        public void push(int data)
         {
-            Node newNode = new Node(data);
-            if(tail == null)
+            while(!s1.isEmpty())
             {
-                tail = head = newNode;
+                s2.push(s1.pop());
             }
-            tail.next = newNode;
-            tail = newNode;
+            s1.push(data);
+            while(!s2.isEmpty())
+            {
+                s1.push(s2.pop());
+            }
 
         }
-        public int remove()
+        public int pop()
         {
             if(isEmpty())
             {
-                System.out.println("Empty");
+                System.out.println("Empty Queue");
                 return -1;
             }
-            int front = head.data;
-            if(tail == head)
-            {
-                tail = null;
-            }   
-            head = head.next;
-            return front;
+            return s1.pop();
         }
         public int peek()
         {
             if(isEmpty())
             {
-                System.out.println("Empty");
+                System.out.println("Empty Queue");
                 return -1;
             }
-            return head.data;
+            return s1.peek();
         }
     }
     public static void main(String args [])
     {
-        Queue q = new Queue();
-        q.add(1);
-        q.add(2);
-        q.add(3);
-        System.out.println(q.remove());
-        q.add(4);
-        System.out.println(q.remove());
-        q.add(5);
+       Queue q = new Queue();
+       q.push(1);
+       q.push(2);
+       q.push(3);
+       q.push(4);
+       q.push(5);
 
-        while(!q.isEmpty())
-        {
+       while(!q.isEmpty())
+       {
             System.out.println(q.peek());
-            q.remove();
-
-        }
+            q.pop();
+       }
     }
-
 }
