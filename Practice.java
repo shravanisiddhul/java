@@ -1,39 +1,37 @@
 public class Practice
 {
+    static class Node{
+        int data;
+        Node next;
+
+        Node(int data)
+        {
+            this.data = data;
+            this.next = null;
+        }
+    }
     static class Queue
     {
-        static int arr[];
-        int size;
-        static int rear = -1;
-        static int front = -1;
-
-        Queue(int n)
-        {
-            arr = new int [n];
-            this.size = n;
-        }
+        static Node head =null;
+        static Node tail = null ;
+        
         public boolean isEmpty()
         {
-            return rear == -1 && front == -1;
+            return head == null && tail == null;
         }
-        public boolean isFull()
-        {
-            return (rear+1)%size == front;
-        }
+        
         public void add(int data)
         {
-            if(isFull())
+            Node newNode = new Node(data);
+            if(tail == null)
             {
-                System.out.println("Queue is Full");
+                head = tail = newNode;
                 return ;
             }
-            if(front == -1)
-            {
-                front = 0;
-            }
-            rear = (rear+1)%size;
-            arr[rear] = data;
-
+            
+            tail.next = newNode;
+            tail = newNode;
+            
         }
         public int remove()
         {
@@ -42,14 +40,13 @@ public class Practice
                 System.out.println("Queue is Empty");
                 return -1;
             }
-            int result = arr[front];
-            if(rear == front)
+            int front = head.data;
+            if(head == tail)
             {
-                rear = front = -1;
-            }else{
-                front = (front +1)%size;
+                tail = null;
             }
-            return result;
+            head = head.next;
+            return front;
         }
         public int peek()
         {
@@ -58,12 +55,12 @@ public class Practice
                 System.out.println("Queue is Empty");
                 return -1;
             }
-            return arr[front];
+            return head.data;
         }
     }
     public static void main(String args [])
     {
-        Queue q = new Queue(3);
+        Queue q = new Queue();
         q.add(1);
         q.add(2);
         q.add(3);
