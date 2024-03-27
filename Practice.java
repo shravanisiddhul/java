@@ -5,6 +5,7 @@ public class Practice
         static int arr[];
         int size;
         static int rear = -1;
+        static int front = -1;
 
         Queue(int n)
         {
@@ -13,41 +14,52 @@ public class Practice
         }
         public boolean isEmpty()
         {
-            return rear == -1;
+            return rear == -1 && front == -1;
+        }
+        public boolean isFull()
+        {
+            return (rear + 1 )%size == front;
         }
         public void add(int data)
         {
-            if(rear == size - 1)
+            if(isFull())
             {
-                System.out.println(" Queue is Full");
-                return;
+                System.out.println("Full");
+                return ;
             }
-            rear ++;
+            if(front == -1)
+            {
+                front = 0;
+            }
+            rear = (rear + 1)% size;
             arr[rear] = data;
         }
         public int remove()
         {
             if(isEmpty())
             {
-                System.out.println("Queue is Empty");
+                System.out.println("Empty");
                 return -1;
             }
-            int front = arr[0];
-            for(int i=0;i<rear;i++)
+            int result = arr[front];
+            if(front == rear)
             {
-                arr[i] = arr[i+1];
+                front = rear = -1;
             }
-            rear --;
-            return front;
+            else 
+            {
+                front = (front + 1) % size;
+            }
+            return result;
         }
         public int peek()
         {
             if(isEmpty())
             {
-                System.out.println("Queue is Empty");
+                System.out.println("Empty");
                 return -1;
             }
-            return arr[0];
+            return arr[front];
         }
     }
     public static void main(String args [])
