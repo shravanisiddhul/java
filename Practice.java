@@ -1,60 +1,53 @@
-import java.util.Stack;
 public class Practice
 {
-    static class Queue
+    static class Node
     {
-        Stack<Integer> s1 = new Stack<>();
-        Stack<Integer> s2 = new Stack<>(); 
+        int data;
+        Node left;
+        Node right;
 
-        public boolean isEmpty()
+        Node(int data)
         {
-            return s1.isEmpty();
+            this.data = data;
+            this.left = null;
+            this.right = null;
         }
-        public void push(int data)
+    }
+    static class BinaryTree
+    {
+        static int idx = -1;
+        public static Node buildTree(int nodes[])
         {
-            while(!s1.isEmpty())
+            idx++;
+            if(nodes[idx] == -1)
             {
-                s2.push(s1.pop());
+                return null;
             }
-            s1.push(data);
-            while(!s2.isEmpty())
-            {
-                s1.push(s2.pop());
-            }
+            Node newNode = new Node(nodes[idx]);
+            newNode.left = buildTree(nodes);
+            newNode.right = buildTree(nodes);
 
+            return newNode;
         }
-        public int pop()
+    }
+    public static void preorder(Node root)
+    {
+        if(root == null)
         {
-            if(isEmpty())
-            {
-                System.out.println("Empty Queue");
-                return -1;
-            }
-            return s1.pop();
+            System.out.print("-1"+" ");
+            return ;
         }
-        public int peek()
-        {
-            if(isEmpty())
-            {
-                System.out.println("Empty Queue");
-                return -1;
-            }
-            return s1.peek();
-        }
+        System.out.print(root.data+" ");
+        preorder(root.left);
+        preorder(root.right);
     }
     public static void main(String args [])
     {
-       Queue q = new Queue();
-       q.push(1);
-       q.push(2);
-       q.push(3);
-       q.push(4);
-       q.push(5);
-
-       while(!q.isEmpty())
-       {
-            System.out.println(q.peek());
-            q.pop();
-       }
+        int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        Node root = BinaryTree.buildTree(nodes);
+        System.out.println("Root Node is : ");
+        System.out.println(root.data);
+        System.out.println("Pre-Order is traversal is :");
+        preorder(root);
     }
 }
