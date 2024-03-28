@@ -1,5 +1,7 @@
 // import LL.Node;
-
+import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
 public class BinaryTree {
     static class Node
     {
@@ -35,13 +37,67 @@ public class BinaryTree {
     {
         if(root == null)
         {
-            System.out.print("-1"+" ");
+            System.out.print("-1"+", ");
             return ;
         }
-        System.out.print(root.data+" ");
+        System.out.print(root.data+", ");
         preorder(root.left);
         preorder(root.right);
 
+    }
+    public static void inorder(Node root)
+    {
+        if(root == null)
+        {
+            System.out.print("-1"+", ");
+            return;
+        }
+        inorder(root.left);
+        System.out.print(root.data+", ");
+        inorder(root.right);
+    }
+    public static void postorder(Node root)
+    {
+        if(root == null)
+        {
+            System.out.print("-1"+", ");
+            return;
+        }
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print( root.data+", ");
+    }
+    public static void levelOrder(Node root)
+    {
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        q.add(null);
+
+        while(!q.isEmpty())
+        {
+            Node currNode = q.remove();
+            if(currNode == null)
+            {
+                System.out.println();
+                if(q.isEmpty())
+                {
+                    break;
+                }else{
+                    q.add(null);
+                }
+            }else{
+                System.out.print(currNode.data+" ");
+                if(currNode.left != null)
+                {
+                    q.add(currNode.left);
+                }
+                if(currNode.right != null)
+                {
+                    q.add(currNode.right);
+                }
+            }
+            
+        }
     }
     public static void main(String args [])
     {
@@ -52,6 +108,11 @@ public class BinaryTree {
         System.out.println(root.data);
         System.out.println("Pre-Order is : ");
         preorder(root);
-        
+        System.out.println("\nIn-Order Traversal is :");
+        inorder(root);
+        System.out.println("\nPost-Order Traversal is :");
+        postorder(root);
+        System.out.println("Level Order Traversal is :");
+        levelOrder(root);
     }
 }
