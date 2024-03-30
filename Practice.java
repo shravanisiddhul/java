@@ -145,15 +145,14 @@ public class Practice
     }
 
     // Case 2 
-    static class TreeInfo
-    {
+    static class TreeInfo{
         int height;
         int diam;
 
         TreeInfo(int height,int diam)
         {
-            this.height = height;
             this.diam = diam;
+            this.height = height;
         }
     }
     public static TreeInfo diameter2(Node root)
@@ -165,15 +164,16 @@ public class Practice
         TreeInfo left = diameter2(root.left);
         TreeInfo right = diameter2(root.right);
 
-        int myHeight = Math.max(left.height,right.height)+ 1;
+        int myHeight = Math.max(left.height,right.height)+1;
 
         int diam1 = left.diam;
         int diam2 = right.diam;
-        int diam3 = left.height+right.height+ 1;
-        
-        int mydiam = Math.max(Math.max(diam1, diam2), diam3);
+        int diam3 = left.diam + right.diam+1;
 
-        return new TreeInfo(myHeight, mydiam);
+        int myDiam = Math.max(Math.max(diam1, diam2), diam3);
+
+        return new TreeInfo(myHeight, myDiam);
+
     }
     public static void main(String args [])
     {
