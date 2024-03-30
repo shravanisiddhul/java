@@ -164,17 +164,25 @@ public class BinaryTree {
             this.diam = diam;
         }
     }
-    public static TreeInfo Diameter(Node root)
+
+    // Case 2
+    public static TreeInfo diameter2(Node root)
     {
-        TreeInfo left = Diameter(root.left);
-        TreeInfo right = Diameter(root.right);
+        if(root == null)
+        {
+            return new TreeInfo(0, 0);
+        }   
+        TreeInfo left = diameter2(root.left);
+        TreeInfo right = diameter2(root.right);
 
         int myHeight = Math.max(left.height, right.height)+1;
-        int dia1 = left.diam;
-        int dia2 = right.diam; 
-        int dia3 = left.height+ right.height+1;
+        int diam1 = left.diam;
+        int diam2 = right.diam; 
+        int diam3 = left.height+ right.height+1;
 
-    
+        int mydiam = Math.max(Math.max(diam1,diam2), diam3);
+
+        return new TreeInfo(myHeight, mydiam);
     }
     public static void main(String args [])
     {
@@ -197,9 +205,9 @@ public class BinaryTree {
         System.out.println("Height of Tree is : "+HeightOfTree(root));
 
         System.out.println("Diameter of Tree : "+diameter(root));
+
+        System.out.println("Diameter2 of tree is: "+diameter2(root).diam);
+
     }
-    public static Practice.Node buildTree(int[] nodes) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buildTree'");
-    }
+    
 }
