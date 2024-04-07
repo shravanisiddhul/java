@@ -1,42 +1,27 @@
+import java.util.ArrayList;
+
 public class Practice
 {
-    static class Node
+    static class stack
     {
-        int data ;
-        Node next;
+        ArrayList<Integer> list = new ArrayList<>();
 
-        Node(int data)
-        {
-            this.data = data;
-            this.next = null;
-        }
-    }
-    static class Stack
-    {
-        public static Node head ;
         public boolean isEmpty()
         {
-            return head == null;
+            return list.size() == 0;
         }
         public void push(int data)
         {
-            Node newNode = new Node(data);
-            if(isEmpty())
-            {
-                head = newNode;
-                return ;
-            }
-            newNode.next = head;
-            head = newNode;
+            list.add(data);
         }
-        public int pop()
+        public int  pop()
         {
             if(isEmpty())
             {
                 return -1;
             }
-            int top = head.data;
-            head = head.next;
+            int top = list.get(list.size()-1);
+            list.remove(list.size()-1);
             return top;
         }
         public int peek()
@@ -45,18 +30,16 @@ public class Practice
             {
                 return -1;
             }
-            return head.data;
+            return list.get(list.size()-1);
         }
     }
-    public static void main(String args [])
+    public static void main(String args[])
     {
-        Stack s = new Stack();
+        stack s = new stack();
         s.push(0);
         s.push(1);
         s.push(2);
         s.push(3);
-        s.push(4);
-        s.push(5);
 
         while(!s.isEmpty())
         {
@@ -64,4 +47,5 @@ public class Practice
             s.pop();
         }
     }
+    
 }
