@@ -1,51 +1,30 @@
-import java.util.ArrayList;
+import java.util.Stack;
 
-public class Practice
-{
-    static class stack
+public class Practice {
+    public static void pushAtBottom(int data,Stack<Integer> s)
     {
-        ArrayList<Integer> list = new ArrayList<>();
-
-        public boolean isEmpty()
+        if(s.isEmpty())
         {
-            return list.size() == 0;
+            s.push(data);
+            return ;
         }
-        public void push(int data)
-        {
-            list.add(data);
-        }
-        public int  pop()
-        {
-            if(isEmpty())
-            {
-                return -1;
-            }
-            int top = list.get(list.size()-1);
-            list.remove(list.size()-1);
-            return top;
-        }
-        public int peek()
-        {
-            if(isEmpty())
-            {
-                return -1;
-            }
-            return list.get(list.size()-1);
-        }
+        int top = s.pop();
+        pushAtBottom(data, s);
+        s.push(top);
+    
     }
     public static void main(String args[])
     {
-        stack s = new stack();
-        s.push(0);
+        Stack<Integer> s = new Stack<>();
         s.push(1);
         s.push(2);
         s.push(3);
-
+        
+        pushAtBottom(4, s);
         while(!s.isEmpty())
         {
             System.out.println(s.peek());
             s.pop();
         }
     }
-    
 }
