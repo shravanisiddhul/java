@@ -1,33 +1,67 @@
-import java.util.LinkedList;
-
 public class Practice
 {
-
-    public static void main(String args[])
+    static class Node
     {
-        LinkedList<Integer> list = new LinkedList<>();
-        list.addFirst(2);
-        list.addLast(3);
-        list.addFirst(1);
-        list.addLast(4);
-        list.addFirst(0);
-        list.addLast(5);
-        
-        for(int i=0;i< list.size();i++)
-        {
-            System.out.print(list.get(i)+" -> ");
-        }
-        System.out.println("Null");
-        System.out.println(list.size());
+        int data ;
+        Node next;
 
-        list.removeFirst();
-        list.removeLast();
-
-        for(int i=0;i< list.size();i++)
+        Node(int data)
         {
-            System.out.print(list.get(i)+" -> ");
+            this.data = data;
+            this.next = null;
         }
-        System.out.println("Null");
-        System.out.println(list.size());
+    }
+    static class Stack
+    {
+        public static Node head ;
+        public boolean isEmpty()
+        {
+            return head == null;
+        }
+        public void push(int data)
+        {
+            Node newNode = new Node(data);
+            if(isEmpty())
+            {
+                head = newNode;
+                return ;
+            }
+            newNode.next = head;
+            head = newNode;
+        }
+        public int pop()
+        {
+            if(isEmpty())
+            {
+                return -1;
+            }
+            int top = head.data;
+            head = head.next;
+            return top;
+        }
+        public int peek()
+        {
+            if(isEmpty())
+            {
+                return -1;
+            }
+            return head.data;
+        }
+    }
+    public static void main(String args [])
+    {
+        Stack s = new Stack();
+        s.push(0);
+        s.push(1);
+        s.push(2);
+        s.push(3);
+        s.push(4);
+        s.push(5);
+
+        while(!s.isEmpty())
+        {
+            System.out.println(s.peek());
+            s.pop();
+        }
     }
 }
