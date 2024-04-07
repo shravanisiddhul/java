@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "stackCF",
+      "request": "launch",
+      "mainClass": "stackCF",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "BinaryTree",
       "request": "launch",
       "mainClass": "BinaryTree",
