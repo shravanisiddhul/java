@@ -1,30 +1,69 @@
-import java.util.Stack;
+public class Practice
+{
+    static class Queue
+    {
+        int size;
+        static int arr[];
+        static int rear = -1;
 
-public class Practice {
-    public static void pushAtBottom(int data,Stack<Integer> s)
-    {
-        if(s.isEmpty())
+        Queue(int n)
         {
-            s.push(data);
-            return ;
+            this.size = n;
+            arr = new int [n];
         }
-        int top = s.pop();
-        pushAtBottom(data, s);
-        s.push(top);
-    
-    }
-    public static void main(String args[])
-    {
-        Stack<Integer> s = new Stack<>();
-        s.push(1);
-        s.push(2);
-        s.push(3);
-        
-        pushAtBottom(4, s);
-        while(!s.isEmpty())
+        public boolean isEmpty()
         {
-            System.out.println(s.peek());
-            s.pop();
+            return rear == -1;
+        }
+        public void add(int data)
+        {
+            if(rear == size - 1)
+            {
+                System.out.println("Queue is Full");
+                return;
+            }
+            rear++;
+            arr[rear] = data;
+        }
+        public int remove()
+        {
+            if(isEmpty())
+            {
+                System.out.println("Queue is Empty");
+                return -1;
+            }
+            
+            int front = arr[0];
+            for(int i=0;i<rear;i++)
+            {
+                arr[i] = arr[i+1];
+            }
+            rear--;
+            return front;
+        }
+        public int peek()
+        {
+            if(isEmpty())
+            {
+                System.out.println("Queue is Empty");
+                return -1;
+            }
+            return arr[0];
+        }
+    }
+    public static void main(String args [])
+    {
+        Queue q = new Queue(5);
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        q.add(4);
+        q.add(5);
+
+        while(!q.isEmpty())
+        {
+            System.out.println(q.peek());
+            q.remove();
         }
     }
 }
