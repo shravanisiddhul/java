@@ -1,7 +1,6 @@
-public class Practice
-{
+public class BST {
     static class Node{
-        int data;
+        int data ;
         Node left;
         Node right;
 
@@ -14,10 +13,12 @@ public class Practice
     }
     public static Node insert(Node root,int val)
     {
-        if (root == null) {
+        if(root == null)
+        {
             root = new Node(val);
             return root;
         }
+
         if(root.data > val)
         {
             root.left = insert(root.left, val);
@@ -30,49 +31,42 @@ public class Practice
     {
         if(root == null)
         {
-            return;
+            return ;
         }
         inorder(root.left);
         System.out.print(root.data+" ");
         inorder(root.right);
     }
-    public static boolean search(Node root,int key)
+    public static void preorder(Node root)
     {
         if(root == null)
         {
-            return false;
+            return ;
         }
-        
-        if(root.data > key)
-        {
-            return search(root.left, key);
-        }
-        else if(root.data == key)
-        {
-            return true;
-        }
-        else
-        {
-            return search(root.right, key);
-        }
+        System.out.print(root.data+" ");
+        preorder(root.left);
+        preorder(root.right);
     }
-    public static void main(String args[])
+    public static void postorder(Node root)
+    {
+        if(root == null)
+        {
+            return ;
+        }
+        postorder(root.left);
+        postorder(root.right);
+        System.out.print(root.data+" ");
+    }
+    public static void main(String args [])
     {
         int values[] = {5,1,4,3,2,7};
         Node root = null;
 
-        for(int i=0;i<values.length; i++)
+        for(int i=0; i<values.length ; i++ )
         {
             root = insert(root, values[i]);
         }
-        inorder(root);
+        postorder(root);
         System.out.println();
-
-        if(search(root,1))
-        {
-            System.out.println("Found");
-        }else{
-            System.out.println("Not Found");
-        }
     }
 }
