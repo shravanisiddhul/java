@@ -68,11 +68,14 @@ public class Practice
         inorder(root);
         System.out.println();
 
-        if(search(root,1))
+        int key = 1;
+
+        if(search(root,key))
         {
-            System.out.println("Found");
+            System.out.println("Found"); 
         }else{
             System.out.println("Not Found");
         }
+
     }
 }
