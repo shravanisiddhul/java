@@ -110,7 +110,7 @@ public class BST {
             System.out.print(root.data+" ");
             printInRange(root.right, x, y);
             
-        }else if (root.data >=y)
+        }else if (root.data >= y)
         {
             printInRange(root.left, x, y);
         }else{
@@ -139,9 +139,9 @@ public class BST {
             System.out.println("Not found");
         }
 
-        delete(root, 5);
+        delete(root, 3);
         inorder(root);
         System.out.println("\nNumbers in range of "+x+ " to "+y+" are : ");
-        printInRange(root, 6, 10);
+        printInRange(root, 1, 5);
     }
 }

@@ -103,7 +103,7 @@ public class Practice
             printInRange(root.left, x, y);
             System.out.print(root.data+" ");
             printInRange(root.right, x, y);
-        }else if (root.data >= x)
+        }else if (root.data >= y)
         {
             printInRange(root.left, x, y);
         }else{
@@ -113,6 +113,7 @@ public class Practice
     }
     public static void main(String args[])
     {
+        int x = 6,y =10;
         int values[] = {8 ,5, 3, 1, 4, 6,10, 11, 14};
         Node root = null;
         for(int i=0; i<values.length; i++)
@@ -131,7 +132,7 @@ public class Practice
 
         delete(root, 3);
         inorder(root);
-        System.out.println("\nNo between x and y are : ");
-        printInRange(root, 6, 10);
+        System.out.println("\nNumbers in range of "+x+ " to "+y+" are : ");
+        printInRange(root, 1, 5);
     }
 }
