@@ -158,14 +158,14 @@ public class BST {
         inorder(root);
         System.out.println();
 
-        if(search(root, 5))
+        if(search(root, 8))
         {
             System.out.println("Found");
         }else{
             System.out.println("Not found");
         }
 
-        delete(root, 3);
+        delete(root, 8);
         inorder(root);
         System.out.println("\nNumbers in range of "+x+ " to "+y+" are : ");
         printInRange(root, 1, 5);

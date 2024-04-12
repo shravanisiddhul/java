@@ -2,19 +2,17 @@ import java.util.ArrayList;
 
 public class Practice
 {
-    static class Node 
-    {
-        int data ;
-        Node left;
+   static class Node 
+   {
+        int data;
+        Node left ;
         Node right;
 
         Node(int data)
         {
             this.data = data;
-            this.left = null;
-            this.right = null;
         }
-    }
+   }
     public static Node insert(Node root,int val)
     {
         if(root == null)
@@ -26,7 +24,7 @@ public class Practice
         {
             root.left = insert(root.left, val);
         }else{
-            root.right =  insert(root.right, val);
+            root.right = insert(root.right, val);
         }
         return root;
     }
@@ -45,14 +43,12 @@ public class Practice
         if(root.data > val)
         {
             return search(root.left, val);
-        }else if (root.data == val)
+        }else if(root.data == val)
         {
             return true;
-        }else
-        {
+        }else{
             return search(root.right, val);
         }
-    
     }
     public static Node delete(Node root,int val)
     {
@@ -60,33 +56,38 @@ public class Practice
         {
             return null;
         }
-        if (root.data > val) {
+        if(root.data > val)
+        {
             root.left = delete(root.left, val);
-        }else if (root.data < val)
+        }else if(root.data < val)
         {
             root.right = delete(root.right, val);
-        } else{
+        }else
+        {
             // case 1 
             if(root.left == null && root.right == null)
             {
                 return null;
             }
-            // case 2 
+
+            // case 2
             if(root.left == null)
             {
                 return root.right;
-            }else if (root.right == null)
+            }
+            else if(root.right == null)
             {
                 return root.left;
             }
+
             // case 3
-            Node IS = inorderSuccessor(root.right);
+            Node IS = inorderSuccesor(root.right);
             root.data = IS.data;
             root.right = delete(root.right, IS.data);
         }
-        return root;  
+        return root;
     }
-    public static Node inorderSuccessor(Node root)
+    public static Node inorderSuccesor(Node root)
     {
         while(root.right != null)
         {
@@ -103,15 +104,9 @@ public class Practice
         if(root.data >= x && root.data <= y)
         {
             printInRange(root.left, x, y);
-            System.out.print(root.data+" ");
-            printInRange(root.right, x, y);
-        }else if (root.data >= y)
-        {
-            printInRange(root.left, x, y);
-        }else{
+            System.out.print(root.data +" ");
             printInRange(root.right, x, y);
         }
-
     }
     public static void printRootToLeaf(Node root,ArrayList<Integer> path)
     {
@@ -120,13 +115,10 @@ public class Practice
             return ;
         }
         path.add(root.data);
-
-        // if next node is leaf
         if(root.left == null && root.right == null)
         {
             printPath(path);
         }else{
-            // next node is not leaf
             printRootToLeaf(root.left, path);
             printRootToLeaf(root.right, path);
         }
@@ -136,35 +128,33 @@ public class Practice
     {
         for(int i=0;i<path.size();i++)
         {
-             System.out.print(path.get(i)+" -> ");
+            System.out.print(path.get(i)+" -> ");
         }
-        System.out.println(" Null");
+        System.out.println("Null");
     }
-    public static void main(String args[])
+    public static void main(String args [])
     {
-        int x = 6,y =10;
         int values[] = {8 ,5, 3, 1, 4, 6,10, 11, 14};
         Node root = null;
-        for(int i=0; i<values.length; i++)
+
+        for(int i=0; i< values.length; i++)
         {
             root = insert(root, values[i]);
         }
         inorder(root);
         System.out.println();
 
-        if(search(root, 3))
+        if(search(root, 5))
         {
             System.out.println("Found");
         }else{
-            System.out.println("Not Found");
+            System.out.println("Not found");
         }
-
-        delete(root, 3);
+        delete(root, 5);
         inorder(root);
-        System.out.println("\nNumbers in range of "+x+ " to "+y+" are : ");
-        printInRange(root, 1, 5);
-
-        System.out.println("\nPaths from root to leaf are : ");
+        System.out.println();
+        printInRange(root, 5, 10);
+        System.out.println();
         printRootToLeaf(root, new ArrayList<>());
     }
 }
