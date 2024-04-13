@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Iterator;
 public class Hashing {
     public static void main(String args [])
     {
@@ -29,5 +30,12 @@ public class Hashing {
         set.remove(4);
         System.out.println(set);
         System.out.println("Size of set is : "+set.size());
+
+        Iterator it = set.iterator();
+        while(it.hasNext())
+        {
+            System.out.println(it.next());
+        }
+        System.out.println("Null");
     }
 }
