@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Hashing",
+      "request": "launch",
+      "mainClass": "Hashing",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "BST",
       "request": "launch",
       "mainClass": "BST",
