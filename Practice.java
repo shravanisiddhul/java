@@ -2,28 +2,29 @@ import java.util.ArrayList;
 
 public class Practice
 {
-   static class Node 
-   {
-        int data;
-        Node left ;
+    static class Node
+    {
+        int data ;
+        Node left;
         Node right;
 
         Node(int data)
         {
             this.data = data;
+            this.left = null;
+            this.right = null;
         }
-   }
+    }
     public static Node insert(Node root,int val)
     {
         if(root == null)
         {
             root = new Node(val);
-            return root;
         }
         if(root.data > val)
         {
             root.left = insert(root.left, val);
-        }else{
+        }else if(root.data < val){
             root.right = insert(root.right, val);
         }
         return root;
@@ -40,6 +41,10 @@ public class Practice
     }
     public static boolean search(Node root,int val)
     {
+        if(root == null)
+        {
+            return false;
+        }
         if(root.data > val)
         {
             return search(root.left, val);
@@ -59,27 +64,23 @@ public class Practice
         if(root.data > val)
         {
             root.left = delete(root.left, val);
-        }else if(root.data < val)
+        }else if (root.data < val)
         {
             root.right = delete(root.right, val);
-        }else
-        {
+        }else{
             // case 1 
             if(root.left == null && root.right == null)
             {
                 return null;
             }
-
             // case 2
             if(root.left == null)
             {
                 return root.right;
-            }
-            else if(root.right == null)
+            }else if(root.right == null)
             {
                 return root.left;
             }
-
             // case 3
             Node IS = inorderSuccesor(root.right);
             root.data = IS.data;
@@ -106,7 +107,12 @@ public class Practice
             printInRange(root.left, x, y);
             System.out.print(root.data +" ");
             printInRange(root.right, x, y);
-        }
+        } else if (root.data >= y)
+        {
+            printInRange(root.left, x, y);
+        }else{
+            printInRange(root.right, x, y);
+        } 
     }
     public static void printRootToLeaf(Node root,ArrayList<Integer> path)
     {
@@ -118,13 +124,13 @@ public class Practice
         if(root.left == null && root.right == null)
         {
             printPath(path);
-        }else{
+        }else {
             printRootToLeaf(root.left, path);
             printRootToLeaf(root.right, path);
         }
         path.remove(path.size()-1);
     }
-    public static void printPath(ArrayList<Integer> path)
+    public static void printPath(ArrayList<Integer>path)
     {
         for(int i=0;i<path.size();i++)
         {
@@ -136,24 +142,26 @@ public class Practice
     {
         int values[] = {8 ,5, 3, 1, 4, 6,10, 11, 14};
         Node root = null;
-
-        for(int i=0; i< values.length; i++)
+        for(int i=0; i<values.length;i++)
         {
             root = insert(root, values[i]);
         }
+
         inorder(root);
         System.out.println();
 
-        if(search(root, 5))
+        if(search(root, 8))
         {
-            System.out.println("Found");
+            System.out.println("FOund");
         }else{
-            System.out.println("Not found");
+            System.out.println("Not Found");
         }
-        delete(root, 5);
+
+        delete(root, 8);
         inorder(root);
+
         System.out.println();
-        printInRange(root, 5, 10);
+        printInRange(root, 3, 10);
         System.out.println();
         printRootToLeaf(root, new ArrayList<>());
     }

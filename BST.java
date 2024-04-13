@@ -168,7 +168,7 @@ public class BST {
         delete(root, 8);
         inorder(root);
         System.out.println("\nNumbers in range of "+x+ " to "+y+" are : ");
-        printInRange(root, 1, 5);
+        printInRange(root, 3, 10);
 
         System.out.println("\nPaths from root to leaf are : ");
         printRootToLeaf(root,new  ArrayList<>());
