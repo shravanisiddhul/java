@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class HashMapCode{
@@ -90,6 +91,69 @@ public class HashMapCode{
                 rehash();
             }
         }
+        public boolean containsKey(K key)
+        {
+            int bi = hashFunction(key);
+            int di = searchInLL(key,bi);
+
+            if(di == -1)
+            {
+                return false;
+            }else{
+               return true;
+            }
+        }
+
+        public V remove(K key)
+        {
+            
+            int bi = hashFunction(key);
+            int di = searchInLL(key,bi);
+
+            if(di == -1)
+            {
+                return null;
+            }else{
+                Node node = buckets[bi].remove(di);
+                n--;
+                return node.value ;
+            }
+        }
+        public V get(K key)
+        {
+            int bi = hashFunction(key);
+            int di = searchInLL(key,bi);
+
+            if(di == -1)
+            {
+                return null;
+            }else{
+                Node node = buckets[bi].get(di);
+                return node.value ;
+            }
+        }
+        public boolean isEmpty()
+        {
+            return n == 0;
+        }
+
+        public ArrayList <K> keyset()
+        {
+            ArrayList<K> keys = new ArrayList<>();
+
+            for(int i=0;i<buckets.length;i++)
+            {
+                LinkedList<Node> ll = buckets[i];
+                for(int j=0 ;j<ll.size();j++)
+                {
+                    Node node = ll.get(j);
+                    keys.add(node.key);
+                }
+            }
+            return keys;
+
+        } 
+       
     }
     public static void main(String args[])
     {
@@ -100,5 +164,13 @@ public class HashMapCode{
         map.put(4, "Nanda");
         map.put(5, "Shrushti");
 
+        ArrayList<Integer> keys = map.keyset();
+        for(int i=0;i<keys.size();i++)
+        {
+            System.out.println(keys.get(i)+" : "+map.get(keys.get(i)));
+        }
+
+        map.remove(5);
+        System.out.println(map.get(5));
     }
 }
