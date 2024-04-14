@@ -172,5 +172,10 @@ public class HashMapCode{
 
         map.remove(5);
         System.out.println(map.get(5));
+
+        for(int i=0 ;i<keys.size();i++)
+        {
+            System.out.println(keys.get(i)+" : "+map.get(keys.get(i)));
+        }
     }
 }
