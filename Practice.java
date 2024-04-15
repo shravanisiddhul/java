@@ -5,7 +5,8 @@ public class Practice
 {
     static class hashMap<K,V>
     {
-        private class Node{
+        private class Node
+        {
             K key;
             V value;
 
@@ -19,7 +20,6 @@ public class Practice
         private int N;
         private LinkedList<Node> buckets[];
 
-        @SuppressWarnings("unchecked")
         hashMap()
         {
             this.N = 4;
@@ -40,7 +40,7 @@ public class Practice
         public int searchInLL(K key,int bi)
         {
             LinkedList<Node> ll = buckets[bi];
-            for(int i=0;i<ll.size();i++)
+            for(int i=0;i< ll.size();i++)
             {
                 if(ll.get(i).key == key)
                 {
@@ -53,7 +53,7 @@ public class Practice
         @SuppressWarnings("unchecked")
         public void rehash()
         {
-            LinkedList<Practice.hashMap<K, V>.Node>[] oldBucket = buckets;
+            LinkedList<Practice.hashMap<K, V>.Node>[] oldbucket = buckets;
             buckets = new LinkedList[N*2];
 
             for(int i=0;i<N*2;i++)
@@ -61,17 +61,16 @@ public class Practice
                 buckets[i] = new LinkedList<>();
             }
 
-            for(int i=0;i<oldBucket.length;i++)
+            for(int i=0;i<oldbucket.length;i++)
             {
-                LinkedList<Node> ll = oldBucket[i];
-                for(int j=0;j< ll.size();j++)
+                LinkedList<Node> ll = oldbucket[i];
+                for(int j=0;j<ll.size();j++)
                 {
                     Node node = ll.get(j);
                     put(node.key, node.value);
                 }
             }
         }
-
         public void put(K key,V value)
         {
             int bi = hashFunction(key);
@@ -100,10 +99,10 @@ public class Practice
 
             if(di == -1)
             {
-               return null;
+                return null;
             }else{
                 Node node = buckets[bi].get(di);
-                return node.value ;
+                return node.value;
             }
         }
 
@@ -130,7 +129,7 @@ public class Practice
             {
                 return false;
             }else{
-                return true;
+               return true;
             }
         }
 
@@ -142,7 +141,8 @@ public class Practice
         public ArrayList<K> keyset()
         {
             ArrayList<K> keys = new ArrayList<>();
-            for(int i=0;i< buckets.length;i++)
+
+            for(int i=0;i<buckets.length;i++)
             {
                 LinkedList<Node> ll = buckets[i];
                 for(int j=0;j<ll.size();j++)
@@ -150,12 +150,10 @@ public class Practice
                     Node node = ll.get(j);
                     keys.add(node.key);
                 }
-
             }
             return keys;
         }
     }
-
     public static void main(String args [])
     {
         hashMap<Integer,String> map = new hashMap<>();
@@ -165,18 +163,17 @@ public class Practice
         map.put(4, "D");
 
         ArrayList<Integer> keys = map.keyset();
-        for(int i=0;i< keys.size();i++)
+        for(int i=0;i<keys.size();i++)
         {
             System.out.println(keys.get(i)+" : "+map.get(keys.get(i)));
         }
 
         map.remove(4);
         System.out.println(map.get(4));
-        
-        for(int i=0;i< keys.size();i++)
+
+        for(int i=0;i<keys.size();i++)
         {
             System.out.println(keys.get(i)+" : "+map.get(keys.get(i)));
         }
-
     }
 }
