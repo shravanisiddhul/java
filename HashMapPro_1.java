@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.HashMap;
 public class HashMapPro_1 
 {
     public static void majority(int nums[])
