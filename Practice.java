@@ -3,10 +3,9 @@ import java.util.LinkedList;
 
 public class Practice
 {
-    static class hashMap<K,V>
+    static class hashmap<K,V>
     {
-        private class Node
-        {
+        private class Node{
             K key;
             V value;
 
@@ -16,13 +15,14 @@ public class Practice
                 this.value = value;
             }
         }
-        private int n ;
+        private int n;
         private int N;
         private LinkedList<Node> buckets[];
 
-        hashMap()
+        @SuppressWarnings("unchecked")
+        hashmap()
         {
-            this.N = 4 ;
+            this.N = 4;
             this.buckets = new LinkedList[4];
 
             for(int i=0;i<4;i++)
@@ -31,13 +31,13 @@ public class Practice
             }
         }
 
-        public int hashFunction(K key)
+        public int hashFunction( K key)
         {
             int bi = key.hashCode();
             return Math.abs(bi) % N;
         }
 
-        public int searchInAll(K key,int bi)
+        public int searchInLL(K key,int bi)
         {
             LinkedList<Node> ll = buckets[bi];
             for(int i=0;i<ll.size();i++)
@@ -50,14 +50,15 @@ public class Practice
             return -1;
         }
 
+        @SuppressWarnings("unchecked")
         public void rehash()
         {
-            LinkedList<Node> oldbuckets[] = buckets;
+            LinkedList<Practice.hashmap<K, V>.Node>[] oldbuckets = buckets;
             buckets = new LinkedList[N*2];
 
             for(int i=0;i<N*2;i++)
             {
-                LinkedList<Node> ll = buckets[i];
+                buckets[i] = new LinkedList<>();
             }
 
             for(int i=0;i<oldbuckets.length;i++)
@@ -65,17 +66,16 @@ public class Practice
                 LinkedList<Node> ll = oldbuckets[i];
                 for(int j=0;j<ll.size();j++)
                 {
-                    Node node = ll.get(j); 
+                    Node node = ll.get(j);
                     put(node.key, node.value);
                 }
             }
-
         }
 
         public void put(K key,V value)
         {
             int bi = hashFunction(key);
-            int di = searchInAll(key, bi);
+            int di = searchInLL(key, bi);
 
             if(di == -1)
             {
@@ -86,94 +86,104 @@ public class Practice
                 node.value = value;
             }
 
-            double lambda = (double) n/N;
+            double lambda = (double) n / N;
+
             if(lambda > 2.0)
             {
                 rehash();
             }
         }
 
-        public V get(K key)
+        public boolean containsKey(K key)
         {
             int bi = hashFunction(key);
-            int di = searchInAll(key, bi);
+            int di = searchInLL(key,bi);
 
             if(di == -1)
             {
-               return null;
+                return false;
             }else{
-                Node node = buckets[bi].get(di);
-                return node.value ;
+               return true;
             }
         }
 
         public V remove(K key)
         {
+            
             int bi = hashFunction(key);
-            int di = searchInAll(key, bi);
+            int di = searchInLL(key,bi);
 
             if(di == -1)
             {
-               return null;
+                return null;
             }else{
                 Node node = buckets[bi].remove(di);
                 n--;
                 return node.value ;
             }
         }
-
-        public boolean isEmpty()
-        {
-            return n==0;
-        }
-
-        public boolean containkey(K key)
+        public V get(K key)
         {
             int bi = hashFunction(key);
-            int di = searchInAll(key, bi);
+            int di = searchInLL(key,bi);
 
             if(di == -1)
             {
-               return false;
+                return null;
             }else{
-                return true;
+                Node node = buckets[bi].get(di);
+
+                return node.value ;
             }
         }
+        public boolean isEmpty()
+        {
+            return n == 0;
+        }
 
-        ArrayList<K> keyset()
+        public ArrayList <K> keyset()
         {
             ArrayList<K> keys = new ArrayList<>();
-            for(int i=0;i< buckets.length;i++)
+
+            for(int i=0;i<buckets.length;i++)
             {
                 LinkedList<Node> ll = buckets[i];
-                for(int j=0;j<ll.size();j++)
+                for(int j=0 ;j<ll.size();j++)
                 {
                     Node node = ll.get(j);
                     keys.add(node.key);
                 }
-            } 
+            }
             return keys;
-        }
+
+        } 
+       
     }
 
-    public static void main(String args [])
+    public static void main(String args[])
     {
-        hashMap<Integer,String > map = new hashMap<>();
-        map.put(1, "A");
-        map.put(2, "B");
-        map.put(3, "C");
+        hashmap<Integer,String> map = new hashmap<>();
+        map.put(1,"Shravani");
+        map.put(2, "Mahi");
+        map.put(3, "Vijju");
+        map.put(4, "Nanda");
+        map.put(5, "Shrushti");
 
+        // to print the hashmap
         ArrayList<Integer> keys = map.keyset();
         for(int i=0;i<keys.size();i++)
         {
             System.out.println(keys.get(i)+" : "+map.get(keys.get(i)));
         }
+        // delete
+        map.remove(5);
+        System.out.println();
 
-        map.remove(3);
-        System.out.println(map.get(3));
+        // to get the key
+        System.out.println(map.get(5));
 
-        // ArrayList<Integer> keys = map.keyset();
-        for(int i=0;i<keys.size();i++)
+        // to print hashmap after deletion
+        for(int i=0 ;i<keys.size();i++)
         {
             System.out.println(keys.get(i)+" : "+map.get(keys.get(i)));
         }
