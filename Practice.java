@@ -2,40 +2,39 @@ import java.util.HashMap;
 
 public class Practice
 {
-    public static String getStart(HashMap<String ,String> map)
+    public static String Start(HashMap<String ,String > ticket)
     {
-        HashMap<String, String> revMap = new HashMap<>();
+        HashMap<String ,String > revMap = new HashMap<>();
 
-        for(String key : map.keySet())
+        for(String key : ticket.keySet())
         {
-            revMap.put(map.get(key), key);
+            revMap.put(ticket.get(key), key);
         }
 
-        for(String key : map.keySet())
+        for(String key : ticket.keySet())
         {
-            if(!revMap.containsKey(key))
-            {
+            if (!revMap.containsKey(key)) {
                 return key;
             }
         }
         return null;
-
     }
     public static void main(String args [])
     {
-        HashMap<String ,String> map = new HashMap<>();
-        map.put("Chennai", "Bangaluru");
-        map.put("Mumbai", "Delhi");
-        map.put("Goa", "Chennai");
-        map.put("Delhi", "Goa"); 
+        HashMap<String ,String > ticket = new HashMap<>();
+        ticket.put("Chennai", "Bangaluru");
+        ticket.put("Mumbai", "Delhi");
+        ticket.put("Goa", "Chennai");
+        ticket.put("Delhi", "Goa");
 
-        String start = getStart(map);
+        String start = Start(ticket);
 
-        while(map.containsKey(start))
+        while(ticket.containsKey(start))
         {
             System.out.print(start+" -> ");
-            start = map.get(start);
+            start = ticket.get(start);
         }
         System.out.println(start);
+
     }
 }
