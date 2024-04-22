@@ -1,28 +1,32 @@
-import java.util.HashSet;
+import java.util.HashMap;
 
 public class Practice
 {
-    public static int union(int arr1[],int arr2[])
+    public static void majority(int nums[])
     {
-        HashSet<Integer> set = new HashSet<>();
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int n = nums.length;
 
-        for(int i=0;i<arr1.length;i++)
+        for(int i=0;i<n;i++)
         {
-            set.add(arr1[i]);
+            if(map.containsKey(nums[i]))
+            {
+                map.put(nums[i], map.get(nums[i])+1);
+            }else{
+                map.put(nums[i], 1);
+            }
         }
 
-        for(int i=0;i<arr2.length;i++)
+        for(int key : map.keySet())
         {
-            set.add(arr2[i]);
+            if (map.get(key) > n/3) {
+                System.out.println(key);
+            }
         }
-
-        System.out.println(set);
-        return set.size();
     }
     public static void main(String args [])
     {
-        int arr1[] = {1, 2, 5, 6, 9};
-        int arr2[] = {5, 6, 2, 7, 1};
-        System.out.println(union(arr1, arr2));
+        int nums[] = {1, 2};
+        majority(nums);
     }
 }
