@@ -31,6 +31,7 @@ public class Hashing {
         System.out.println(set);
         System.out.println("Size of set is : "+set.size());
 
+        @SuppressWarnings("rawtypes")
         Iterator it = set.iterator();
         while(it.hasNext())
         {
