@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 public class HashMapPro_4 {
-    private static final HashMap<String, String> ticket = null;
+    // private static final HashMap<String, String> ticket = null;
     public static String getStart(HashMap<String,String> ticket)
     {
         HashMap<String,String> revMap = new HashMap<>();
