@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "HashMapPro_2",
+      "request": "launch",
+      "mainClass": "HashMapPro_2",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "HashMapPro_1",
       "request": "launch",
       "mainClass": "HashMapPro_1",
