@@ -2,38 +2,31 @@ import java.util.HashMap;
 
 public class Practice
 {
-    public static String getStart(HashMap<String, String> map)
-    {
-        HashMap<String, String> revMap = new HashMap<>();
-
-        for(String key : map.keySet())
-        {
-            revMap.put(map.get(key), key);
-        }
-
-        for(String key : map.keySet())
-        {
-            if(!revMap.containsKey(key))
-            {
-                return key;
-            }
-        }
-        return null;
-    }
     public static void main(String args [])
     {
-        HashMap<String, String> map = new HashMap<>();
-        map.put("Chennai", "Bangaluru");
-        map.put("Mumbai", "Delhi");
-        map.put("Goa", "Chennai");
-        map.put("Delhi", "Goa");
+        int arr[] = {10, 2, -2, -20, 10};
+        int k = -10;
 
-        String start = getStart(map);
-        while(map.containsKey(start))
+        HashMap<Integer,Integer> map = new HashMap<>();
+
+        int ans = 0;
+        int sum = 0;
+        for(int i=0;i<arr.length;i++)
         {
-            System.out.print(start+"->");
-            start = map.get(start);
+            sum += arr[i];
+
+            if(map.containsKey(sum-k))
+            {
+                ans += map.get(sum-k);
+            }
+
+            if(map.containsKey(sum))
+            {
+                map.put(sum,  map.get(sum)+1);
+            }else{
+                map.put(sum, 1);
+            }
         }
-        System.out.println(start);
+        System.out.println(ans);
     }
 }
