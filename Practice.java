@@ -2,39 +2,32 @@ import java.util.HashMap;
 
 public class Practice
 {
-    public static String Start(HashMap<String ,String > ticket)
+    public static void majority(int nums[])
     {
-        HashMap<String ,String > revMap = new HashMap<>();
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int n = nums.length;
 
-        for(String key : ticket.keySet())
+        for(int i=0;i<n;i++)
         {
-            revMap.put(ticket.get(key), key);
-        }
-
-        for(String key : ticket.keySet())
-        {
-            if (!revMap.containsKey(key)) {
-                return key;
+            if(map.containsKey(nums[i]))
+            {
+                map.put(nums[i], map.get(nums[i])+1);
+            }else{
+                map.put(nums[i], 1);
             }
         }
-        return null;
+
+        for(int key : map.keySet())
+        {
+            if(map.get(key) > n/2)
+            {
+                System.out.println(key);
+            }
+        }
     }
     public static void main(String args [])
     {
-        HashMap<String ,String > ticket = new HashMap<>();
-        ticket.put("Chennai", "Bangaluru");
-        ticket.put("Mumbai", "Delhi");
-        ticket.put("Goa", "Chennai");
-        ticket.put("Delhi", "Goa");
-
-        String start = Start(ticket);
-
-        while(ticket.containsKey(start))
-        {
-            System.out.print(start+" -> ");
-            start = ticket.get(start);
-        }
-        System.out.println(start);
-
+        int nums[] = {1, 2, 4, 1, 1};
+        majority(nums);
     }
 }
