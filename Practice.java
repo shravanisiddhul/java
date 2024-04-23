@@ -2,31 +2,34 @@ import java.util.HashMap;
 
 public class Practice
 {
-    public static void main(String args [])
+    public static void majority(int arr[])
     {
-        int arr[] = {10, 2, -2, -20, 10};
-        int k = -10;
+        HashMap<Integer,Integer> map = new HashMap<>();
 
-        HashMap<Integer, Integer> map = new HashMap<>();
-        int ans = 0;
-        int sum = 0;
-
-        for(int i=0;i<arr.length;i++)
+        int n = arr.length;
+        for(int i=0;i<n;i++)
         {
-            sum += arr[i];
-
-            if(map.containsKey(sum - k))
+            if(map.containsKey(arr[i]))
             {
-                ans += map.get(sum - k);
-            }
-
-            if(map.containsKey(sum))
-            {
-                map.put(sum, map.get(sum)+1);
+                map.put(arr[i], map.get(arr[i])+1);
             }else{
-                map.put(sum, 1);
+                map.put(arr[i], 1);
+            }
+            
+        }
+
+        for(int  key : map.keySet())
+        {
+            if(map.get(key) > n/4)
+            {
+                System.out.println(key);
             }
         }
-        System.out.println(ans);
+
+    }
+    public static void main(String args [])
+    {
+        int arr[] = {1, 2, 1, 2, 4, 5, 3, 9, 1, 1, 2, 2, 1};
+        majority(arr);
     }
 }
