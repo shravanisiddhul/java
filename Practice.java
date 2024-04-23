@@ -1,33 +1,54 @@
-import java.util.HashMap;
+import java.util.HashSet;
 
 public class Practice
 {
-    public static void majority(int nums[])
+    public static int union(int arr1[],int arr2[])
     {
-        HashMap<Integer,Integer> map = new HashMap<>();
-        int n = nums.length;
+        HashSet<Integer> set = new HashSet<>();
 
-        for(int i=0;i<n;i++)
+        for(int i=0;i<arr1.length;i++)
         {
-            if(map.containsKey(nums[i]))
-            {
-                map.put(nums[i], map.get(nums[i])+1);
-            }else{
-                map.put(nums[i], 1);
-            }
+            set.add(arr1[i]);
         }
 
-        for(int key : map.keySet())
+        for(int i=0;i<arr2.length;i++)
         {
-            if(map.get(key) > n/2)
-            {
-                System.out.println(key);
-            }
+            set.add(arr2[i]);
         }
+
+        System.out.println(set);
+        return set.size();
+    }
+
+    public static int intersection(int arr1[],int arr2[])
+    {
+        HashSet<Integer> set = new HashSet<>();
+
+        for(int i=0;i<arr1.length;i++)
+        {
+            set.add(arr1[i]);
+        }
+        int count = 0;
+        for(int i=0;i<arr2.length;i++)
+        {
+            if(set.contains(arr2[i]))
+            {
+                count++;
+                set.remove(arr2[i]);
+                System.out.println(set);
+            }
+            // System.out.println(set);
+            
+        }
+        // System.out.println(set);
+        return count;
     }
     public static void main(String args [])
     {
-        int nums[] = {1, 2, 4, 1, 1};
-        majority(nums);
+        int arr1[] = {1, 2, 4, 5, 1, 2};
+        int arr2[] = {1, 2, 5, 3, 0, 7};
+        System.out.println(union(arr1, arr2));
+        
+        System.out.println(intersection(arr1, arr2));
     }
 }
