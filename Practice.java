@@ -2,16 +2,16 @@ import java.util.HashMap;
 
 public class Practice
 {
-    public static String getStart(HashMap<String, String> ticket)
+    public static String getStart(HashMap<String, String> map)
     {
         HashMap<String, String> revMap = new HashMap<>();
 
-        for(String key : ticket.keySet())
+        for(String key : map.keySet())
         {
-            revMap.put(ticket.get(key), key);
+            revMap.put(map.get(key), key);
         }
 
-        for(String key : ticket.keySet())
+        for(String key : map.keySet())
         {
             if(!revMap.containsKey(key))
             {
@@ -22,19 +22,18 @@ public class Practice
     }
     public static void main(String args [])
     {
-        HashMap<String, String> ticket = new HashMap<>();
-        ticket.put("Chennai", "Bengaluru");
-        ticket.put("Mumbai", "Delhi");
-        ticket.put("Goa", "Chennai");
-        ticket.put("Delhi", "Goa");
+        HashMap<String, String> map = new HashMap<>();
+        map.put("Chennai", "Bangaluru");
+        map.put("Mumbai", "Delhi");
+        map.put("Goa", "Chennai");
+        map.put("Delhi", "Goa");
 
-        String start = getStart(ticket);
-
-        while (ticket.containsKey(start)) {
-            System.out.print(start+" -> ");
-            start = ticket.get(start);
+        String start = getStart(map);
+        while(map.containsKey(start))
+        {
+            System.out.print(start+"->");
+            start = map.get(start);
         }
         System.out.println(start);
-
     }
 }
