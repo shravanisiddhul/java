@@ -1,34 +1,76 @@
-import java.util.HashMap;
+public class Practice{
+    static class Node
+    {
+        Node[] children;
+        boolean eow;
 
-public class Practice
-{
-   
+        Node()
+        {
+            children = new Node[26];
+            for(int i=0;i<26;i++)
+            {
+                children[i] = null;
+            }
+            eow = false;
+        }
+
+    }
+
+    static Node root = new Node();
+    
+    public static void insert(String word)
+    {
+        Node curr = root;
+        for(int i=0;i<word.length();i++)
+        {
+            int idx = word.charAt(i) - 'a';
+
+            if(curr.children[idx] == null)
+            {
+                curr.children[idx] = new Node();
+            }
+
+            if(i == word.length()-1)
+            {
+                curr.children[idx].eow = true;
+            }
+
+            curr = curr.children[idx];
+        }
+    }
+
+    public static boolean search(String key)
+    {
+        Node curr = root;
+        for(int i=0;i<key.length();i++)
+        {
+            int idx = key.charAt(i) - 'a';
+
+            if(curr.children[idx] == null)
+            {
+                return false;
+            }
+
+            if(i == key.length()-1 && curr.children[idx].eow == false)
+            {
+                return false;
+            }
+            curr = curr.children[idx];
+        }
+        return true;
+    }
+
     public static void main(String args [])
     {
-        int arr[] = {10, 2, -2, -20, 10};
-        int k = -10;
-        HashMap<Integer, Integer> map = new HashMap<>();
-
-        map.put(0, 1);
-        int ans = 0;
-        int sum = 0;
-        for(int i=0;i<arr.length;i++)
+        String words[] = {"the ","a","there","their","any"};
+        for(int i=0;i<words.length;i++)
         {
-            sum += arr[i];
-
-            if(map.containsKey(sum-k))
-            {
-                ans += map.get(sum-k);
-            }
-
-            if(map.containsKey(sum))
-            {
-                map.put(sum, map.get(sum)+1);
-            }else{
-                map.put(sum, 1);
-            }
-
+            insert(words[i]);
         }
-        System.out.println(ans);
+
+        System.out.println(search("their"));
+        System.out.println(search("thor"));
+        System.out.println(search("an"));
+
     }
 }
