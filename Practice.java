@@ -2,7 +2,7 @@ public class Practice
 {
     static class Node
     {
-        Node[] children;
+        Node children[];
         boolean eow;
 
         Node()
@@ -12,9 +12,9 @@ public class Practice
             {
                 children[i] = null;
             }
-
             eow = false;
         }
+        
     }
 
     static Node root = new Node();
@@ -22,6 +22,7 @@ public class Practice
     public static void insert(String word)
     {
         Node curr = root;
+
         for(int i=0;i<word.length();i++)
         {
             int idx = word.charAt(i) - 'a';
@@ -31,7 +32,7 @@ public class Practice
                 curr.children[idx] = new Node();
             }
 
-            if(i== word.length()-1)
+            if(i == word.length() - 1)
             {
                 curr.children[idx].eow = true;
             }
@@ -42,6 +43,7 @@ public class Practice
     public static boolean search(String key)
     {
         Node curr = root;
+
         for(int i=0;i<key.length();i++)
         {
             int idx = key.charAt(i) - 'a';
@@ -51,7 +53,7 @@ public class Practice
                 return false;
             }
 
-            if(i == key.length()-1 && curr.children[idx].eow == false)
+            if(i == key.length() - 1 && curr.children[idx].eow == false)
             {
                 return false;
             }
@@ -59,16 +61,18 @@ public class Practice
         }
         return true;
     }
-
     public static void main(String args [])
     {
-        String words[] = {"the","a","their","there","any"};
+        String words[] = {"the","a","any","there","their"};
+
         for(int i=0;i<words.length;i++)
         {
             insert(words[i]);
         }
+
         System.out.println(search("their"));
         System.out.println(search("an"));
         System.out.println(search("thor"));
+        System.out.println(search("a"));
     }
 }
