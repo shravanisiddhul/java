@@ -58,17 +58,36 @@ public class Practice
         return true;
     }
 
+    public static boolean wordbreak(String key)
+    {
+        if(key.length() == 0)
+        {
+            return true;
+        }
+
+        for(int i=1;i<=key.length();i++)
+        {
+            String firstpart = key.substring(0, i);
+            String secPart = key.substring(i);
+
+            if(search(firstpart) && wordbreak(secPart))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String args [] )
     {
-        String words[] = {"the","a","their","there","any"};
+        String words[] = {"i","like","sam","samsung","mobile"};
+        String key = "ilikesamsung";
 
         for(int i=0;i<words.length;i++)
         {
             insert(words[i]);
         }
 
-        System.out.println(search("thor"));
-        System.out.println(search("their"));
-        System.out.println(search("an"));
+        System.out.println(wordbreak(key));
     }
 }
