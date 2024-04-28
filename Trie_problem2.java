@@ -1,6 +1,6 @@
-public class Trie_problem1 {
+public class Trie_problem2 {
 
-    // Problem : word Break
+    // Problem : start with
     static class Node
     {
         Node[] children;
@@ -62,36 +62,33 @@ public class Trie_problem1 {
         return true;
         
     } 
-    public static boolean wordbreak(String key)
+
+    public static boolean startwith(String prefix)
     {
-        if(key.length() == 0)
+        Node curr = root;
+        for(int i=0;i<prefix.length();i++)
         {
-            return true;
-        }
+            int idx = prefix.charAt(i) - 'a';
 
-        for(int i=1;i<=key.length();i++)
-        {
-            String firstPart = key.substring(0, i);
-            String secondPart = key.substring(i);
-
-            if(search(firstPart) && wordbreak(secondPart))
+            if(curr.children[idx] == null)
             {
-                return true;
+                return false;
             }
-
+            curr = curr.children[idx];
         }
-        return false;
+        return true;
     }
     public static void main(String args [])
     {
         String words[] = {"i","like","sam","ice","samsung","mobile"};
-        String key = "ilikemobile";
+        String prefix = "sung";
 
         for(int i=0;i<words.length;i++)
         {
             insert(words[i]);
         }
 
-        System.out.println(wordbreak(key));
+        System.err.println(startwith(prefix));
     }
+   
 }
