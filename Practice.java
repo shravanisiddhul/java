@@ -1,9 +1,11 @@
-public class Practice
-{
-    static class Node{
-        Node children[];
-        boolean eow;
+public class Trie_problem1 {
 
+    // Problem : word Break
+    static class Node
+    {
+        Node[] children;
+        boolean eow; //end of word
+        
         Node()
         {
             children = new Node[26];
@@ -11,8 +13,10 @@ public class Practice
             {
                 children[i] = null;
             }
+
             eow = false;
         }
+
     }
     static Node root = new Node();
 
@@ -32,14 +36,14 @@ public class Practice
             {
                 curr.children[idx].eow = true;
             }
-            curr = curr.children[idx] ;
+
+            curr = curr.children[idx];
         }
     }
 
     public static boolean search(String key)
     {
         Node curr = root;
-
         for(int i=0;i<key.length();i++)
         {
             int idx = key.charAt(i) - 'a';
@@ -48,16 +52,16 @@ public class Practice
             {
                 return false;
             }
-            if(i == key.length()-1 && curr.children[idx].eow == false)
+
+            if(i == key.length()-1 && curr.children[idx].eow == false )
             {
                 return false;
             }
-
             curr = curr.children[idx];
         }
         return true;
-    }
-
+        
+    } 
     public static boolean wordbreak(String key)
     {
         if(key.length() == 0)
@@ -67,21 +71,21 @@ public class Practice
 
         for(int i=1;i<=key.length();i++)
         {
-            String firstpart = key.substring(0, i);
-            String secPart = key.substring(i);
+            String firstPart = key.substring(0, i);
+            String secondPart = key.substring(i);
 
-            if(search(firstpart) && wordbreak(secPart))
+            if(search(firstPart) && wordbreak(secondPart))
             {
                 return true;
             }
+
         }
         return false;
     }
-
-    public static void main(String args [] )
+    public static void main(String args [])
     {
-        String words[] = {"i","like","sam","samsung","mobile"};
-        String key = "ilikesamsung";
+        String words[] = {"i","like","sam","ice","samsung","mobile"};
+        String key = "ilikemobile";
 
         for(int i=0;i<words.length;i++)
         {
