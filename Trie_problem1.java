@@ -84,8 +84,9 @@ public class Trie_problem1 {
     }
     public static void main(String args [])
     {
-        String words[] = {"i","like","sam","ice","samsung","mobile"};
-        String key = "ilikemobile";
+        // 
+        String words[] = {"the","a","their","there","any"};
+        String key = "theany";
 
         for(int i=0;i<words.length;i++)
         {
