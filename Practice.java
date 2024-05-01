@@ -1,11 +1,10 @@
-public class Practice {
-
-    // Problem : start with
+public class Practice
+{
     static class Node
     {
-        Node[] children;
-        boolean eow; //end of word
-        
+        Node children[];
+        boolean eow;
+
         Node()
         {
             children = new Node[26];
@@ -13,11 +12,10 @@ public class Practice {
             {
                 children[i] = null;
             }
-
             eow = false;
         }
-
     }
+
     static Node root = new Node();
 
     public static void insert(String word)
@@ -53,42 +51,26 @@ public class Practice {
                 return false;
             }
 
-            if(i == key.length()-1 && curr.children[idx].eow == false )
+            if(i == key.length()-1 && curr.children[idx].eow == false)
             {
                 return false;
             }
-            curr = curr.children[idx];
-        }
-        return true;
-        
-    } 
 
-    public static boolean startwith(String prefix)
-    {
-        Node curr = root;
-        for(int i=0;i<prefix.length();i++)
-        {
-            int idx = prefix.charAt(i) - 'a';
-
-            if(curr.children[idx] == null)
-            {
-                return false;
-            }
             curr = curr.children[idx];
         }
         return true;
     }
+
     public static void main(String args [])
     {
-        String words[] = {"i","like","sam","ice","samsung","mobile"};
-        String prefix = "sung";
-
+        String words[] = {"the","a","their","there","any"};
         for(int i=0;i<words.length;i++)
         {
             insert(words[i]);
         }
 
-        System.err.println(startwith(prefix));
+        System.out.println(search("a"));
+        System.out.println(search("an"));
+        System.out.println(search("thor"));
     }
-   
 }
