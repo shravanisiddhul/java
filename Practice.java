@@ -59,9 +59,47 @@ public class Practice
         return true;
     }
 
+    public static boolean wordbreak(String key)
+    {
+        if(key.length() == 0)
+        {
+            return true;
+        }
+
+        for(int i=1;i<=key.length();i++)
+        {
+            String firstpart = key.substring(0, i);
+            String secpart = key.substring(i);
+
+            if(search(firstpart) && wordbreak(secpart))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean startwith(String prefix)
+    {
+        Node curr = root;
+        for(int i=0;i<prefix.length();i++)
+        {
+            int idx = prefix.charAt(i) - 'a';
+
+            if(curr.children[idx] == null)
+            {
+                return false;
+            }
+            curr = curr.children[idx];
+        }
+        return true;
+    }
     public static void main(String args [])
     {
         String words[] = {"i","love","bts","like","mobile"};
+        String key1 = "ilovebts";
+        String key2 = "ilikemomos";
+        String prefix = "love";
         for(int i=0;i<words.length;i++)
         {
             insert(words[i]);
@@ -70,5 +108,12 @@ public class Practice
         System.out.println(search("love"));
         System.out.println(search("bts"));
         System.out.println(search("mobi"));
+
+        System.out.println();
+        System.out.println(wordbreak(key1));
+        System.out.println(wordbreak(key2));
+
+        System.out.println();
+        System.out.println(startwith(prefix));
     }
 }
