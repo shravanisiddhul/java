@@ -1,4 +1,5 @@
-public class Trie_problem4 
+public class Trie_problem4
+// Longest Word with all prefixes 
 {
 
     static class Node{
@@ -84,7 +85,7 @@ public class Trie_problem4
 
     public static void main(String args [])
     {
-        String words [] = {"a","banana","app","aple","ap","apply","apple"};
+        String words [] = {"a","banana","app","appl","ap","apply","apple"};
 
         for(int i=0;i<words.length;i++)
         {
