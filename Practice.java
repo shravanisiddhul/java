@@ -112,9 +112,34 @@ public class Practice
         }
         return count +1;
     }
+
+    public static String ans = "";
+
+    public static void longestword(Node root,StringBuilder temp)
+    {
+        if(root == null)
+        {
+            return;
+        }
+
+        for(int i=0;i<26;i++)
+        {
+            if(root.children[i] != null && root.children[i].eow == true)
+            {
+                temp.append((char)(i+'a'));
+                if(ans.length() < temp.length())
+                {
+                    ans = temp.toString();
+                }
+                longestword(root.children[i], temp);
+                temp.deleteCharAt(temp.length()-1);
+            }
+        }
+    }
     public static void main(String args [])
     {
         String words[] = {"i","love","bts","like","mobile"};
+        String words2[] = {"a","app","ap","apple","apply","appl"};
         String key1 = "ilovebts";
         String key2 = "ilikemomos";
         String prefix = "love";
@@ -132,6 +157,13 @@ public class Practice
         {
             insert(words[i]);
         }
+
+        for(int i=0;i<words2.length;i++)
+        {
+            insert(words2[i]);
+        }
+        longestword(root, new StringBuilder(""));
+        System.out.println(ans);
 
         System.out.println(search("love"));
         System.out.println(search("bts"));
