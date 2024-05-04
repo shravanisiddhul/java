@@ -65,29 +65,30 @@ public class Practice
 
         for(int i=1;i<=key.length();i++)
         {
-            String firstPart = key.substring(0, i);
-            String secPart = key.substring(i);
+            String firstpart = key.substring(0, i);
+            String secpart = key.substring(i);
 
-            if(search(firstPart) && wordbreak(secPart))
+            if(search(firstpart) && wordbreak(secpart))
             {
                 return true;
             }
-            
         }
         return false;
     }
 
     public static boolean startwith(String prefix)
     {
+    
         Node curr = root;
         for(int i=0;i<prefix.length();i++)
         {
             int idx = prefix.charAt(i) - 'a';
+
             if(curr.children[idx] == null)
             {
                 return false;
             }
-            curr = curr.children[idx];
+
         }
         return true;
     }
@@ -107,25 +108,10 @@ public class Practice
                 count += countNodes(root.children[i]);
             }
         }
-        return count +1;
+        return count+1;
     }
     public static void main(String args [])
     {
-        // String words[] = {"vani","v","shra","thv","siddhul","tae"};
-        // for(int i=0;i<words.length;i++)
-        // {
-        //     insert(words[i]);
-        // }
-        // System.out.println(search("shra"));
-        // System.out.println(search("kim"));
-        // System.out.println(search("tae"));
-
-        // String key = "shravani";
-        // System.out.println(wordbreak(key));
-
-        // String prefix = "hv";
-        // System.out.println(startwith(prefix));
-
         String str = "apple";
         for(int i=0;i<str.length();i++)
         {
@@ -133,5 +119,21 @@ public class Practice
             insert(suffix);
         }
         System.out.println(countNodes(root));
+        String words[] = {"vani","v","shra","thv","siddhul","tae"};
+        for(int i=0;i<words.length;i++)
+        {
+            insert(words[i]);
+        }
+        System.out.println(search("shra"));
+        System.out.println(search("kim"));
+        System.out.println(search("tae"));
+
+        String key = "shravani";
+        System.out.println(wordbreak(key));
+
+        String prefix = "hv";
+        System.out.println(startwith(prefix));
+
+        
     }
 }
