@@ -88,7 +88,7 @@ public class Trie_problem2 {
             insert(words[i]);
         }
 
-        System.err.println(startwith(prefix));
+        System.out.println(startwith(prefix));
     }
    
 }

@@ -1,6 +1,7 @@
 public class Practice
 {
-    static class Node{
+    static class Node
+    {
         Node children[];
         boolean eow;
 
@@ -13,6 +14,7 @@ public class Practice
             }
             eow = false;
         }
+
     }
 
     static Node root = new Node();
@@ -23,7 +25,6 @@ public class Practice
         for(int i=0;i<word.length();i++)
         {
             int idx = word.charAt(i) - 'a';
-
             if(curr.children[idx] == null)
             {
                 curr.children[idx] = new Node();
@@ -42,7 +43,6 @@ public class Practice
         for(int i=0;i<key.length();i++)
         {
             int idx = key.charAt(i) - 'a';
-
             if(curr.children[idx] == null)
             {
                 return false;
@@ -50,7 +50,7 @@ public class Practice
             if(i == key.length()-1 && curr.children[idx].eow == false)
             {
                 return false;
-            } 
+            }
             curr = curr.children[idx];
         }
         return true;
@@ -62,13 +62,12 @@ public class Practice
         {
             return true;
         }
-
         for(int i=1;i<=key.length();i++)
         {
-            String firstpart = key.substring(0, i);
-            String secpart = key.substring(i);
+            String firstPart = key.substring(0, i);
+            String secPart = key.substring(i);
 
-            if(search(firstpart) && wordbreak(secpart))
+            if(search(firstPart)&&wordbreak(secPart))
             {
                 return true;
             }
@@ -78,17 +77,15 @@ public class Practice
 
     public static boolean startwith(String prefix)
     {
-    
         Node curr = root;
         for(int i=0;i<prefix.length();i++)
         {
             int idx = prefix.charAt(i) - 'a';
-
             if(curr.children[idx] == null)
             {
                 return false;
             }
-
+            curr = curr.children[idx];
         }
         return true;
     }
@@ -99,7 +96,6 @@ public class Practice
         {
             return 0;
         }
-
         int count = 0;
         for(int i=0;i<26;i++)
         {
@@ -108,7 +104,7 @@ public class Practice
                 count += countNodes(root.children[i]);
             }
         }
-        return count+1;
+        return count + 1;
     }
 
     public static String ans = "";
@@ -123,7 +119,7 @@ public class Practice
         {
             if(root.children[i] != null && root.children[i].eow == true)
             {
-                temp.append((char)(i + 'a'));
+                temp.append((char)(i+'a'));
                 if(ans.length() < temp.length())
                 {
                     ans = temp.toString();
@@ -135,33 +131,29 @@ public class Practice
     }
     public static void main(String args [])
     {
-        String str = "apple";
+        String str = "taehyung";
         for(int i=0;i<str.length();i++)
         {
             String suffix = str.substring(i);
             insert(suffix);
         }
         System.out.println(countNodes(root));
-        String words[] = {"vani","v","shra","thv","siddhul","tae"};
+        String words [] = {"i","like","love","mobile","bts","samsung","sam"};
+        String key = "ilovebts";
+        String prefix = "sung";
         for(int i=0;i<words.length;i++)
         {
             insert(words[i]);
         }
-        System.out.println(search("shra"));
-        System.out.println(search("kim"));
-        System.out.println(search("tae"));
+        System.out.println(search("bts"));
+        System.out.println(search("likely"));
+        System.out.println(search("love"));
 
-        String key = "shravani";
+        System.out.println();
         System.out.println(wordbreak(key));
-
-        String prefix = "hv";
+        System.out.println();
         System.out.println(startwith(prefix));
 
-        String words2[] = {"a","app","ap","apply","apple","appl","banana"};
-        for(int i=0;i<words2.length;i++)
-        {
-            insert(words2[i]);
-        }
         longestword(root, new StringBuilder());
         System.out.println(ans);
     }
