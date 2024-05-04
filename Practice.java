@@ -94,12 +94,40 @@ public class Practice
         }
         return true;
     }
+
+    public static int countNodes(Node root)
+    {
+        if(root == null)
+        {
+            return 0;
+        }
+
+        int count = 0;
+        for(int i=0;i<26;i++)
+        {
+            if(root.children[i] != null)
+            {
+                count +=countNodes(root.children[i]);
+            }
+        }
+        return count +1;
+    }
     public static void main(String args [])
     {
         String words[] = {"i","love","bts","like","mobile"};
         String key1 = "ilovebts";
         String key2 = "ilikemomos";
         String prefix = "love";
+
+        String str = "apple";
+
+        for(int i=0;i<str.length();i++)
+        {
+            String suffix = str.substring(i);
+            // System.out.println(suffix);
+            insert(suffix);
+        }
+        System.out.println(countNodes(root));
         for(int i=0;i<words.length;i++)
         {
             insert(words[i]);
@@ -115,5 +143,6 @@ public class Practice
 
         System.out.println();
         System.out.println(startwith(prefix));
+
     }
 }
