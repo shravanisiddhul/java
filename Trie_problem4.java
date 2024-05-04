@@ -1,5 +1,4 @@
-public class Trie_problem3
-// Count Unique Substrings 
+public class Trie_problem4 
 {
 
     static class Node{
@@ -60,34 +59,39 @@ public class Trie_problem3
         return true;
     }
 
-    public static int countNodes(Node root)
+    public static String ans = "";
+    public static void longestword(Node root,StringBuilder temp)
     {
         if(root == null)
         {
-            return 0;
+            return ;
         }
 
-        int count = 0;
         for(int i=0;i<26;i++)
         {
-            if(root.children[i] !=null)
+            if(root.children[i] != null && root.children[i].eow == true)
             {
-                count +=countNodes(root.children[i]);
+                temp.append((char)(i+'a'));
+                if(temp.length() > ans.length())
+                {
+                    ans = temp.toString();
+                }
+                longestword(root.children[i], temp);
+                temp.deleteCharAt(temp.length()-1);
             }
-
         }
-        return count + 1;
     }
+
     public static void main(String args [])
     {
-        String str = "apple";
+        String words [] = {"a","banana","app","aple","ap","apply","apple"};
 
-        for(int i=0;i<str.length();i++)
+        for(int i=0;i<words.length;i++)
         {
-            String suffix = str.substring(i);
-            insert(suffix);
+            insert(words[i]);
         }
-
-        System.out.println(countNodes(root));
+        longestword(root, new StringBuilder(""));
+        System.out.println(ans);
     }
+    
 }
