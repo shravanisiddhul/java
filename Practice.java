@@ -76,18 +76,62 @@ public class Practice
         }
         return false;
     }
+
+    public static boolean startwith(String prefix)
+    {
+        Node curr = root;
+        for(int i=0;i<prefix.length();i++)
+        {
+            int idx = prefix.charAt(i) - 'a';
+            if(curr.children[idx] == null)
+            {
+                return false;
+            }
+            curr = curr.children[idx];
+        }
+        return true;
+    }
+
+    public static int countNodes(Node root)
+    {
+        if(root == null)
+        {
+            return 0;
+        }
+
+        int count = 0;
+        for(int i=0;i<26;i++)
+        {
+            if(root.children[i] != null)
+            {
+                count += countNodes(root.children[i]);
+            }
+        }
+        return count +1;
+    }
     public static void main(String args [])
     {
-        String words[] = {"vani","v","shra","thv","siddhul","tae"};
-        for(int i=0;i<words.length;i++)
-        {
-            insert(words[i]);
-        }
-        System.out.println(search("shra"));
-        System.out.println(search("kim"));
-        System.out.println(search("tae"));
+        // String words[] = {"vani","v","shra","thv","siddhul","tae"};
+        // for(int i=0;i<words.length;i++)
+        // {
+        //     insert(words[i]);
+        // }
+        // System.out.println(search("shra"));
+        // System.out.println(search("kim"));
+        // System.out.println(search("tae"));
 
-        String key = "shravani";
-        System.out.println(wordbreak(key));
+        // String key = "shravani";
+        // System.out.println(wordbreak(key));
+
+        // String prefix = "hv";
+        // System.out.println(startwith(prefix));
+
+        String str = "apple";
+        for(int i=0;i<str.length();i++)
+        {
+            String suffix = str.substring(i);
+            insert(suffix);
+        }
+        System.out.println(countNodes(root));
     }
 }
