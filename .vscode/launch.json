@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "BFS",
+      "request": "launch",
+      "mainClass": "BFS",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "Graph",
       "request": "launch",
       "mainClass": "Graph",
