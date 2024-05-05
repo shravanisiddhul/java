@@ -1,53 +1,166 @@
-import java.util.ArrayList;
-
 public class Practice
 {
-    static class Edge
+    static class Node
     {
-        int src;
-        int dest;
+        Node children[];
+        boolean eow;
 
-        Edge(int s,int d)
+        Node()
         {
-            this.src = s;
-            this.dest = d; 
-        }
-    }
-
-    public static void createGraph(ArrayList<Edge> graph[])
-    {
-        for(int i=0;i<graph.length;i++)
-        {
-            graph[i] = new ArrayList<Edge>();
-        }
-
-        graph[0].add(new Edge(0, 2));
-
-        graph[1].add(new Edge(1, 2));
-        graph[1].add(new Edge(1, 3));
-
-        graph[2].add(new Edge(2, 0));
-        graph[2].add(new Edge(2, 1));
-        graph[2].add(new Edge(2, 3));
-
-        graph[3].add(new Edge(3, 1));
-        graph[3].add(new Edge(3, 2));
-    }
-    public static void main(String arg [])
-    {
-        int V = 4;
-        ArrayList<Edge> graph[] = new ArrayList[V];
-        createGraph(graph);
-
-        for(int i=0;i<graph.length;i++)
-        {
-            System.out.println("Vertex "+i+" is connected to :");
-            for(int j=0;j<graph[i].size(); j++)
+            children = new Node[26];
+            for(int i=0;i<26;i++)
             {
-                Edge e = graph[i].get(j);
-                System.out.print(e.dest+" ");
+                children[i] = null;
             }
-            System.out.println();
+            eow = false;
         }
+    }
+
+    public static Node root = new Node();
+
+    public static void insert(String word)
+    {
+        Node curr = root;
+        for(int i=0;i<word.length();i++)
+        {
+            int idx = word.charAt(i) - 'a';
+
+            if(curr.children[idx] == null)
+            {
+                curr.children[idx] = new Node();
+            }
+            if(i == word.length()-1)
+            {
+                curr.children[idx].eow = true;
+            }
+            curr = curr.children[idx];
+        }
+    }
+
+    public static boolean search(String key)
+    {
+        Node curr = root;
+        for(int i=0;i<key.length();i++)
+        {
+            int idx = key.charAt(i) - 'a';
+
+            if(curr.children[idx] == null)
+            {
+                return false;
+            }
+            if(i == key.length()-1 && curr.children[idx].eow == false)
+            {
+                return false;
+            }
+            curr = curr.children[idx];
+        }
+        return true;
+    }
+
+    public static boolean wordbreak(String key)
+    {
+        if(key.length() == 0)
+        {
+            return true;
+        }
+
+        for(int i=1;i<=key.length();i++)
+        {
+            String firstPart = key.substring(0, i);
+            String secPart = key.substring(i);
+
+            if(search(firstPart)&& wordbreak(secPart))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean startwith(String prefix)
+    {
+        Node curr = root;
+        for(int i=0;i<prefix.length();i++)
+        {
+            int idx = prefix.charAt(i) - 'a';
+
+            if(curr.children[idx] == null)
+            {
+                return false;
+            }
+            curr = curr.children[idx];
+        }
+        return true;
+    }
+
+    public static int countNodes(Node root)
+    {
+        if(root == null)
+        {
+            return 0;
+        }
+
+        int count = 0;
+        for(int i=0;i<26;i++)
+        {
+            if(root.children[i] != null )
+            {
+                count += countNodes(root.children[i]);
+            }
+        }
+        return count + 1;
+    }
+
+    public static String ans = "";
+    public static void longestword(Node root,StringBuilder temp)
+    {
+        if(root == null)
+        {
+            return ;
+        }
+
+        for(int i=0;i<26;i++)
+        {
+            if(root.children[i] != null && root.children[i].eow == true)
+            {
+                temp.append((char)(i+'a'));
+                if(ans.length() < temp.length())
+                {
+                    ans = temp.toString();
+                }
+                longestword(root.children[i], temp);
+                temp.deleteCharAt(temp.length()-1);
+            }
+        }
+    }
+    public static void main(String args [])
+    {
+        String str = "mango";
+        for(int i=0;i<str.length();i++)
+        {
+            String suffix = str.substring(i);
+            insert(suffix);
+        }
+        System.out.println(countNodes(root));
+
+        String words[] = {"i","like","mango","apple","a","app","appl","ap"};
+        
+        for(int i=0;i<words.length;i++)
+        {
+            insert(words[i]);
+        }
+        System.out.println(search("man"));
+        System.out.println(search("apple"));
+        System.out.println(search("app"));
+        System.out.println();
+
+        String key = "ilikemango";
+        System.out.println(wordbreak(key));
+
+        String prefix = "go";
+        System.out.println(startwith(prefix));
+
+        longestword(root, new StringBuilder());
+        System.out.println(ans);
     }
 }
