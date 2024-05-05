@@ -12,12 +12,10 @@ public class Practice
             {
                 children[i] = null;
             }
-            eow = false;
         }
-
     }
 
-    static Node root = new Node();
+    public static Node root = new Node();
 
     public static void insert(String word)
     {
@@ -25,16 +23,19 @@ public class Practice
         for(int i=0;i<word.length();i++)
         {
             int idx = word.charAt(i) - 'a';
+
             if(curr.children[idx] == null)
             {
                 curr.children[idx] = new Node();
             }
+
             if(i == word.length()-1)
             {
                 curr.children[idx].eow = true;
             }
             curr = curr.children[idx];
         }
+
     }
 
     public static boolean search(String key)
@@ -43,10 +44,12 @@ public class Practice
         for(int i=0;i<key.length();i++)
         {
             int idx = key.charAt(i) - 'a';
+
             if(curr.children[idx] == null)
             {
                 return false;
             }
+
             if(i == key.length()-1 && curr.children[idx].eow == false)
             {
                 return false;
@@ -62,12 +65,13 @@ public class Practice
         {
             return true;
         }
+
         for(int i=1;i<=key.length();i++)
         {
-            String firstPart = key.substring(0, i);
-            String secPart = key.substring(i);
+            String firstpart = key.substring(0, i);
+            String secpart = key.substring(i);
 
-            if(search(firstPart)&&wordbreak(secPart))
+            if(search(firstpart) && wordbreak(secpart))
             {
                 return true;
             }
@@ -96,6 +100,7 @@ public class Practice
         {
             return 0;
         }
+
         int count = 0;
         for(int i=0;i<26;i++)
         {
@@ -108,7 +113,7 @@ public class Practice
     }
 
     public static String ans = "";
-    public static void longestword(Node root,StringBuilder temp)
+    public static void longestword(Node root, StringBuilder temp)
     {
         if(root == null)
         {
@@ -131,30 +136,34 @@ public class Practice
     }
     public static void main(String args [])
     {
-        String str = "taehyung";
+        String str = "shravani";
         for(int i=0;i<str.length();i++)
         {
             String suffix = str.substring(i);
             insert(suffix);
         }
         System.out.println(countNodes(root));
-        String words [] = {"i","like","love","mobile","bts","samsung","sam"};
-        String key = "ilovebts";
-        String prefix = "sung";
+        System.out.println();
+        
+        String words[] ={"a","the","there","any","their"};
         for(int i=0;i<words.length;i++)
         {
             insert(words[i]);
         }
-        System.out.println(search("bts"));
-        System.out.println(search("likely"));
-        System.out.println(search("love"));
-
+        System.out.println(search("their"));
+        System.out.println(search("thor"));
+        System.out.println(search("an"));
         System.out.println();
+
+        String key = "athere";
         System.out.println(wordbreak(key));
         System.out.println();
+
+        String prefix = "the";
         System.out.println(startwith(prefix));
 
         longestword(root, new StringBuilder());
         System.out.println(ans);
+
     }
 }
