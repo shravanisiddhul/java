@@ -46,15 +46,13 @@ public class Practice
         graph[6].add(new Edge(6, 5));
     }
 
-    public static void BFS(ArrayList<Edge> graph[],int V)
+    public static void BFS(ArrayList<Edge> graph[],int V,boolean vis[],int start)
     {
         Queue<Integer> q = new LinkedList<>();
-        boolean vis[] = new boolean[V];
 
-        q.add(0);
-        
-        while(!q.isEmpty())
-        {
+        q.add(start);
+
+        while (!q.isEmpty()) {
             int curr = q.remove();
             if(vis[curr] == false)
             {
@@ -84,6 +82,10 @@ public class Practice
             }
             System.out.println();
         }
-        BFS(graph, V);
+        boolean vis[] = new boolean[V];
+        for(int i=0;i<graph.length;i++)
+        {
+            BFS(graph, V, vis, i);
+        }
     }
 }
