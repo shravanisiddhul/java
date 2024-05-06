@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "DFS1",
+      "request": "launch",
+      "mainClass": "DFS1",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "DFS",
       "request": "launch",
       "mainClass": "DFS",
