@@ -1,165 +1,94 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Practice
 {
-    static class Node
+    static class Edge
     {
-        Node children[];
-        boolean eow;
+        int src;
+        int dest;
+        // int weight;
 
-        Node()
+        Edge(int s,int d)
         {
-            children = new Node[26];
-            for(int i=0;i<26;i++)
-            {
-                children[i] = null;
-            }
-            eow = false;
+            this.src = s;
+            this.dest = d;
+            // this.weight = w;
         }
     }
 
-    public static Node root = new Node();
-
-    public static void insert(String word)
+    public static void createGraph(ArrayList<Edge> graph[])
     {
-        Node curr = root;
-        for(int i=0;i<word.length();i++)
+        for(int i=0;i<graph.length;i++)
         {
-            int idx = word.charAt(i) - 'a';
-            
-            if(curr.children[idx] == null)
-            {
-                curr.children[idx] = new Node();
-            }
-            if(i == word.length()-1)
-            {
-                curr.children[idx].eow = true;
-            }
-            curr = curr.children[idx];
+            graph[i] = new ArrayList<>();
         }
+        
+        graph[0].add(new Edge(0, 1));
+        graph[0].add(new Edge(0, 2));
+        
+        graph[1].add(new Edge(1, 0));
+        graph[1].add(new Edge(1, 3));
+
+        graph[2].add(new Edge(2, 0));
+        graph[2].add(new Edge(2, 4));
+        
+        graph[3].add(new Edge(3, 1));
+        graph[3].add(new Edge(3, 4));
+        graph[3].add(new Edge(3, 5));
+        
+        graph[4].add(new Edge(4, 2));
+        graph[4].add(new Edge(4, 3));
+        graph[4].add(new Edge(4, 5));
+
+        graph[5].add(new Edge(5, 3));
+        graph[5].add(new Edge(5, 4));
+        graph[5].add(new Edge(5, 6));
+
+        graph[6].add(new Edge(6, 5));
+    
     }
 
-    public static boolean search(String key)
+    public static void BFS(ArrayList<Edge> graph[],int V)
     {
-        Node curr = root;
-        for(int i=0;i<key.length();i++)
+        Queue<Integer> q = new LinkedList<>();
+        boolean vis[] = new boolean[V];
+
+        q.add(0);
+
+        while(!q.isEmpty())
         {
-            int idx = key.charAt(i) - 'a';
-            if(curr.children[idx] == null)
+            int curr = q.remove();
+            if(vis[curr] == false)
             {
-                return false;
-            }
-            if(i == key.length()-1 && curr.children[idx].eow == false)
-            {
-                return false;
-            }
-            curr = curr.children[idx];
-        }
-        return true;
-    }
-
-    public static boolean wordbreak(String key)
-    {
-        if(key.length() == 0)
-        {
-            return true;
-        }
-        for(int i=1;i<=key.length();i++)
-        {
-            String firstpart = key.substring(0, i);
-            String secpart = key.substring(i);
-
-            if(search(firstpart)&&wordbreak(secpart))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static boolean startwith(String prefix)
-    {
-        Node curr = root;
-        for(int i=0;i<prefix.length();i++)
-        {
-            int idx = prefix.charAt(i) - 'a';
-            if(curr.children[idx] == null)
-            {
-                return false;
-            }
-            curr = curr.children[idx];
-        }
-        return true;
-    }
-
-    public static int countNode(Node root)
-    {
-        if(root == null)
-        {
-            return 0;
-        }
-
-        int count = 0;
-        for(int i=0; i<26; i++)
-        {
-            if(root.children[i] != null)
-            {
-                count += countNode(root.children[i]);
-            }
-        }
-        return count + 1;
-    }
-
-    public static String ans = "";
-    public static void longestword(Node root ,StringBuilder temp)
-    {
-        if(root == null)
-        {
-            return ;
-        }
-
-        for(int i=0;i<26;i++)
-        {
-            if(root.children[i] != null && root.children[i].eow == true)
-            {
-                temp.append((char)(i+'a'));
-                if(temp.length() > ans.length())
+                System.out.print(curr+" ");
+                vis[curr] = true;
+                for(int i=0;i<graph[curr].size();i++)
                 {
-                    ans = temp.toString();
+                    Edge e = graph[curr].get(i);
+                    q.add(e.dest);
                 }
-                longestword(root.children[i], temp);
-                temp.deleteCharAt(temp.length()-1);
             }
         }
     }
     public static void main(String args [])
     {
-        String str = "mango";
-        for(int i=0; i<str.length();i++)
+        int V = 7;
+        @SuppressWarnings("unchecked")
+        ArrayList<Edge> graph[] = new ArrayList[V];
+        createGraph(graph);
+        for(int i=0;i<graph.length;i++)
         {
-            String suffix = str.substring(i);
-            insert(suffix);
+            System.out.println("Vertex "+i+" is connected to : ");
+            for(int j=0;j<graph[i].size();j++)
+            {
+                Edge e = graph[i].get(j);
+                System.out.print("("+e.src+", "+e.dest+")");
+            }
+            System.out.println();
         }
-        System.out.println(countNode(root));
-        System.out.println();
 
-        String words[] = {"i","like","love","apple","mango","a","app","ap","appl"};
-        for(int i=0;i<words.length;i++)
-        {
-            insert(words[i]);
-        }
-        System.out.println(search("mango"));
-        System.out.println(search("go"));
-        System.out.println(search("apple"));
-        System.out.println();
-
-        String key = "ilikemango";
-        System.out.println(wordbreak(key));
-
-        String prefix = "go";
-        System.out.println(startwith(prefix));
-        System.out.println();
-
-        longestword(root, new StringBuilder(""));
-        System.out.println(ans);
+        BFS(graph, V);
     }
 }
