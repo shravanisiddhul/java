@@ -73,6 +73,15 @@ public class BFS
     public static void main(String args [])
     {
         int V = 7;
+    /*     
+          1 --- 3
+        /      | \
+       0       |  5 -- 6
+        \      | /
+         2 ---- 4
+
+    */
+        @SuppressWarnings("unchecked")
         ArrayList<Edge> graph[] = new ArrayList[V];
 
         createGraph(graph);
