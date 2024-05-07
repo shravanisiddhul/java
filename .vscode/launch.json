@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "EvenOdd",
+      "request": "launch",
+      "mainClass": "EvenOdd",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "DFS1",
       "request": "launch",
       "mainClass": "DFS1",
