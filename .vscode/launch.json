@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Graph_problem1",
+      "request": "launch",
+      "mainClass": "Graph_problem1",
+      "projectName": "java_bdccd79e"
+    },
+    {
+      "type": "java",
       "name": "EvenOdd",
       "request": "launch",
       "mainClass": "EvenOdd",
