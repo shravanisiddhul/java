@@ -48,12 +48,12 @@ public class Practice
         graph[6].add(new Edge(6, 5));
     }
 
-    public static void bfs(ArrayList<Edge> graph[] ,int V)
+    public static void bfs(ArrayList<Edge> graph[] ,int V,boolean vis[],int start)
     {
         Queue<Integer> q = new LinkedList<>();
-        boolean vis[] = new boolean[V];
+        
 
-        q.add(0);
+        q.add(start);
 
         while(!q.isEmpty())
         {
@@ -69,6 +69,21 @@ public class Practice
                     Edge e = graph[curr].get(i);
                     q.add(e.dest);
                 }
+            }
+        }
+    }
+
+    public static void dfs(ArrayList<Edge> graph[],int curr,boolean vis[])
+    {
+        System.out.print(curr+" ");
+        vis[curr] = true;
+
+        for(int i=0;i<graph[curr].size();i++)
+        {
+            Edge e = graph[curr].get(i);
+            if(vis[e.dest] == false)
+            {
+                dfs(graph, e.dest, vis);
             }
         }
     }
@@ -88,6 +103,15 @@ public class Practice
             }
             System.out.println();
         }
-        bfs(graph, V);
+        
+        boolean vis[] = new boolean[V];
+        // for(int i=0;i<V;i++)
+        // {
+        //     if(vis[i] == false)
+        //     {
+        //         dfs(graph, i, vis);
+        //     }
+        // }
+        dfs(graph, 0, vis);
     }
 }
