@@ -87,31 +87,33 @@ public class Practice
             }
         }
     }
+
+    public static void printAllPrath(ArrayList<Edge> graph[],int curr,int target,String string,boolean vis[])
+    {
+        if(curr == target)
+        {
+            System.out.println(string);
+            return ;
+        }
+
+        for(int i=0;i<graph[curr].size();i++)
+        {
+            Edge e = graph[curr].get(i);
+            if(!vis[e.dest])
+            {
+                vis[curr] = true;
+                printAllPrath(graph, e.dest, target, string+e.dest, vis);
+                vis[curr] = false;
+            }
+        }
+    }
     public static void main(String args [])
     {
         int V = 7;
         ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
 
-        for(int i=0;i<graph.length;i++)
-        {
-            System.out.println("Vertex "+i+" is coonected to : ");
-            for(int j=0;j<graph[i].size();j++)
-            {
-                Edge e = graph[i].get(j);
-                System.out.print("("+e.src+" ,"+e.dest+")");
-            }
-            System.out.println();
-        }
-        
-        boolean vis[] = new boolean[V];
-        // for(int i=0;i<V;i++)
-        // {
-        //     if(vis[i] == false)
-        //     {
-        //         dfs(graph, i, vis);
-        //     }
-        // }
-        dfs(graph, 0, vis);
+        int src = 0, target = 4;
+        printAllPrath(graph, src, target, "0", new boolean[V]);
     }
 }
