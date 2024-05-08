@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class DFS {
+public class DFS1 {
     static class Edge{
         int src ;
         int dest;
