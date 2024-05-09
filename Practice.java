@@ -1,12 +1,11 @@
+import java.util.*;
 import java.util.Queue;
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Practice
 {
     static class Edge
     {
-        int src ;
+        int src;
         int dest;
 
         Edge(int s,int d)
@@ -22,7 +21,6 @@ public class Practice
         {
             graph[i] = new ArrayList<Edge>();
         }
-
         graph[0].add(new Edge(0, 1));
         graph[0].add(new Edge(0, 2));
 
@@ -45,11 +43,13 @@ public class Practice
         graph[5].add(new Edge(5, 6));
 
         graph[6].add(new Edge(6, 5));
+
+
     }
 
     public static void bfs(ArrayList<Edge> graph[],int V)
     {
-        Queue<Integer> q =  new LinkedList<>();
+        Queue<Integer> q = new LinkedList<>();
         boolean vis[] = new boolean[V];
 
         q.add(0);
@@ -74,6 +74,7 @@ public class Practice
     {
         System.out.print(curr+" ");
         vis[curr] = true;
+        
         for(int i=0;i<graph[curr].size();i++)
         {
             Edge e = graph[curr].get(i);
@@ -82,23 +83,24 @@ public class Practice
                 dfs(graph, e.dest, vis);
             }
         }
+        
     }
 
-    public static void printAllPrath(ArrayList<Edge> graph[],int curr,int target,String path, boolean vis[])
+    public static void printAllPaths(ArrayList<Edge> graph[],int curr,int target,String path,boolean vis[])
     {
         if(curr == target)
         {
-            System.err.println(path);
+            System.out.println(path);
             return ;
         }
 
-        for(int i=0;i< graph[curr].size();i++)
+        for(int i=0;i<graph[curr].size();i++)
         {
             Edge e = graph[curr].get(i);
-            if(!vis[curr])
+            if(!vis[e.dest])
             {
                 vis[curr] = true;
-                printAllPrath(graph, e.dest, target, path+e.dest, vis);
+                printAllPaths(graph, e.dest, target, path+e.dest, vis);
                 vis[curr] = false;
             }
         }
@@ -107,27 +109,25 @@ public class Practice
     {
         int V = 7;
         ArrayList<Edge> graph[] = new ArrayList[V];
-
         createGraph(graph);
-
         for(int i=0;i<graph.length;i++)
         {
-            System.out.println("Vertex "+i+" is coonected to : ");
+            System.out.println("Vretex "+i+" is coonected to : ");
             for(int j=0;j<graph[i].size();j++)
             {
                 Edge e = graph[i].get(j);
-                System.out.println("("+e.src+", "+e.dest+")");
+                System.out.print("("+e.src+", "+e.dest+")");
             }
             System.out.println();
         }
         bfs(graph, V);
         System.out.println();
-        boolean vis[] = new boolean[V];
-        dfs(graph, 0, vis);
+        
+        dfs(graph, 0, new boolean[V]);
         System.out.println();
 
-        int src = 0,target = 5;
         System.out.println();
-        printAllPrath(graph, src, target, "0", new boolean[V]);
+        int src = 0,target = 5;
+        printAllPaths(graph, src, target, "0", new boolean[V]);
     }
 }
