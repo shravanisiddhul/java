@@ -74,7 +74,7 @@ public class Practice
     {
         System.out.print(curr+" ");
         vis[curr] = true;
-        
+
         for(int i=0;i<graph[curr].size();i++)
         {
             Edge e = graph[curr].get(i);
@@ -83,7 +83,6 @@ public class Practice
                 dfs(graph, e.dest, vis);
             }
         }
-        
     }
 
     public static void printAllPaths(ArrayList<Edge> graph[],int curr,int target,String path,boolean vis[])
@@ -94,7 +93,7 @@ public class Practice
             return ;
         }
 
-        for(int i=0;i<graph[curr].size();i++)
+        for(int i= 0; i<graph[curr].size();i++)
         {
             Edge e = graph[curr].get(i);
             if(!vis[e.dest])
