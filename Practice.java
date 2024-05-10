@@ -84,6 +84,26 @@ public class Practice
             }
         }
     }
+
+    public static void printAllPath(ArrayList<Edge> graph[],int curr,int target,String path,boolean vis[])
+    {
+        if(curr == target)
+        {
+            System.out.println(path);
+            return ;
+        } 
+
+        for(int i=0;i<graph[curr].size();i++)
+        {
+            Edge e = graph[curr].get(i);
+            if(vis[curr] == false)
+            {
+                vis[curr] = true;
+                printAllPath(graph, e.dest, target, path+e.dest, vis);
+                vis[curr] = false;
+            }
+        }
+    }
     public static void main(String args [])
     {
         int V = 7;
@@ -104,5 +124,10 @@ public class Practice
 
         boolean vis[] = new boolean[V];
         dfs(graph, 0, vis);
+        System.out.println();
+
+        System.out.println();
+        int src = 0,target = 5;
+        printAllPath(graph, src, target, "0", new boolean[V]);
     }
 }
