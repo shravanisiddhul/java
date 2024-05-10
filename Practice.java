@@ -49,7 +49,7 @@ public class Practice
 
     public static void bfs(ArrayList<Edge> graph[],int V)
     {
-        Queue<Integer> q = new LinkedList<>();
+        Queue <Integer> q = new LinkedList<>();
         boolean vis[] = new boolean[V];
 
         q.add(0);
@@ -72,11 +72,11 @@ public class Practice
 
     public static void dfs(ArrayList<Edge> graph[],int curr,boolean vis[])
     {
-        System.out.print(curr+" ");
+        System.out.print(curr+ " ");
         vis[curr] = true;
 
         for(int i=0;i<graph[curr].size();i++)
-        {  
+        {
             Edge e = graph[curr].get(i);
             if(vis[e.dest] == false)
             {
@@ -101,6 +101,7 @@ public class Practice
         }
         bfs(graph, V);
         System.out.println();
+
         boolean vis[] = new boolean[V];
         dfs(graph, 0, vis);
     }
