@@ -69,6 +69,21 @@ public class Practice
             }
         }
     }
+
+    public static void dfs(ArrayList<Edge> graph[],int curr,boolean vis[])
+    {
+        System.out.print(curr+" ");
+        vis[curr] = true;
+
+        for(int i=0;i<graph[curr].size();i++)
+        {  
+            Edge e = graph[curr].get(i);
+            if(vis[e.dest] == false)
+            {
+                dfs(graph, e.dest, vis);
+            }
+        }
+    }
     public static void main(String args [])
     {
         int V = 7;
@@ -80,10 +95,13 @@ public class Practice
             for(int j=0;j<graph[i].size();j++)
             {
                 Edge e = graph[i].get(j);
-                System.out.println("("+e.src+" ,"+e.dest+")");
+                System.out.println("("+e.src+", "+e.dest+")");
             }
             System.out.println();
         }
         bfs(graph, V);
+        System.out.println();
+        boolean vis[] = new boolean[V];
+        dfs(graph, 0, vis);
     }
 }
