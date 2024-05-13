@@ -1,58 +1,76 @@
-import java.util.ArrayList;
-
-public class Practice
-{
-    static class Edge
+public class Practice {
+    static class Node
     {
-        int src;
-        int dest;
-        int weight;
-
-        Edge(int s,int d,int w)
-        {
-            this.src = s;
-            this.dest = d;
-            this.weight = w;
-        }
-    }
-
-    public static void createGraph(ArrayList<Edge> graph[])
-    {
-        for(int i=0;i<graph.length;i++)
-        {
-            graph[i] = new ArrayList<Edge>();
-        }
-
-        graph[0].add(new Edge(0, 2, 2));
-
-        graph[1].add(new Edge(1, 2, 10));
-        graph[1].add(new Edge(1, 3, 0));
+        Node[] children;
+        boolean eow; //end of word
         
-        graph[2].add(new Edge(2, 0, 2));
-        graph[2].add(new Edge(2, 1, 10));
-        graph[2].add(new Edge(2, 3, -1));
+        Node()
+        {
+            children = new Node[26];
+            for(int i=0;i<26;i++)
+            {
+                children[i] = null;
+            }
 
-        graph[3].add(new Edge(3, 1, 0));
-        graph[3].add(new Edge(3, 2, -1));
+            eow = false;
+        }
+
+    }
+    static Node root = new Node();
+
+    public static void insert(String word)
+    {
+        Node curr = root;
+        for(int i=0;i<word.length();i++)
+        {
+            int idx = word.charAt(i) - 'a';
+
+            if(curr.children[idx] == null)
+            {
+                curr.children[idx] = new Node();
+            }
+
+            if(i == word.length()-1)
+            {
+                curr.children[idx].eow = true;
+            }
+
+            curr = curr.children[idx];
+        }
     }
 
+    public static boolean search(String key)
+    {
+        Node curr = root;
+        for(int i=0;i<key.length();i++)
+        {
+            int idx = key.charAt(i) - 'a';
+
+            if(curr.children[idx] == null)
+            {
+                return false;
+            }
+
+            if(i == key.length()-1 && curr.children[idx].eow == false )
+            {
+                return false;
+            }
+            curr = curr.children[idx];
+        }
+        return true;
+        
+    } 
     public static void main(String args [])
     {
-        int V = 4;
-        @SuppressWarnings("unchecked")
-        ArrayList<Edge> graph[] = new ArrayList[V];
-        createGraph(graph);
+        String words[] = {"the","a","there","their","any"};
 
-        // print connected vertices of each vertex
-        for(int i=0; i<graph.length; i++)
+        for(int i=0;i<words.length;i++)
         {
-            System.out.println("Vertex "+i+" is connected to : ");
-            for(int j=0; j<graph[i].size();j++)
-            {
-                Edge e = graph[i].get(j);
-                System.out.print("("+e.src+", "+e.dest+", "+e.weight+")");
-            }
-            System.out.println();
+            insert(words[i]);
         }
+
+        System.out.println(search("their")); // true
+        System.out.println(search("thor")); // false
+        System.out.println(search("an")); // false
     }
 }
