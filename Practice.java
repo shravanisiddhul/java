@@ -1,76 +1,66 @@
-public class Practice {
-    static class Node
+import java.util.ArrayList;
+
+public class Practice
+{
+    static class Edge
     {
-        Node[] children;
-        boolean eow; //end of word
-        
-        Node()
+        int src ;
+        int dest;
+
+        Edge(int s,int d)
         {
-            children = new Node[26];
-            for(int i=0;i<26;i++)
-            {
-                children[i] = null;
-            }
-
-            eow = false;
-        }
-
-    }
-    static Node root = new Node();
-
-    public static void insert(String word)
-    {
-        Node curr = root;
-        for(int i=0;i<word.length();i++)
-        {
-            int idx = word.charAt(i) - 'a';
-
-            if(curr.children[idx] == null)
-            {
-                curr.children[idx] = new Node();
-            }
-
-            if(i == word.length()-1)
-            {
-                curr.children[idx].eow = true;
-            }
-
-            curr = curr.children[idx];
+            this.src = s;
+            this.dest = d;
         }
     }
 
-    public static boolean search(String key)
+    public static void createGraph(ArrayList<Edge> graph[])
     {
-        Node curr = root;
-        for(int i=0;i<key.length();i++)
+        for(int i=0;i<graph.length;i++)
         {
-            int idx = key.charAt(i) - 'a';
-
-            if(curr.children[idx] == null)
-            {
-                return false;
-            }
-
-            if(i == key.length()-1 && curr.children[idx].eow == false )
-            {
-                return false;
-            }
-            curr = curr.children[idx];
+            graph[i] = new ArrayList<Edge>();
         }
-        return true;
-        
-    } 
+
+        graph[0].add(new Edge(0, 1));
+        graph[0].add(new Edge(0, 2));
+
+        graph[1].add(new Edge(1, 3));
+        graph[1].add(new Edge(1, 0));
+
+        graph[2].add(new Edge(2, 0));
+        graph[2].add(new Edge(2, 4));
+
+        graph[3].add(new Edge(3, 1));
+        graph[3].add(new Edge(3, 4));
+        graph[3].add(new Edge(3, 5));
+
+        graph[4].add(new Edge(4, 2));
+        graph[4].add(new Edge(4, 3));
+        graph[4].add(new Edge(4, 5));
+
+        graph[5].add(new Edge(5, 3));
+        graph[5].add(new Edge(5, 4));
+        graph[5].add(new Edge(5, 6));
+
+        graph[6].add(new Edge(6, 5));
+
+    }
     public static void main(String args [])
     {
-        String words[] = {"the","a","there","their","any"};
+        int V = 7;
+        ArrayList<Edge> graph[] = new ArrayList[V];
 
-        for(int i=0;i<words.length;i++)
+        createGraph(graph);
+        for(int i=0;i<graph.length;i++)
         {
-            insert(words[i]);
+            System.out.println("Vertex "+i+ " is connected to :");
+            for(int j=0;j<graph[i].size();j++)
+            {
+                Edge e = graph[i].get(j);
+                System.out.print("("+e.src+", "+e.dest+")");
+            }
+            System.out.println();
         }
 
-        System.out.println(search("their")); // true
-        System.out.println(search("thor")); // false
-        System.out.println(search("an")); // false
     }
 }
