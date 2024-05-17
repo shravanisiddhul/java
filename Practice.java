@@ -15,18 +15,24 @@ public class Practice
             n[i] = sc.nextInt();
         }
 
-        System.out.println("Enter element to be search : ");
-        int x = sc.nextInt();
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
+
         for(int i=0;i<size;i++)
         {
-            if(n[i] == x)
+            if(n[i] > max)
             {
-                System.out.println(x+" is found at : "+i);
+                max = n[i];
             }
-            // System.out.print(n[i]+" ");
-            
+            if(n[i] < min)
+            {
+                min = n[i];
+            }
+
         }
-        System.out.println("Element is not present in an array");
+
+        System.out.println("Minimum value: " +min);
+        System.out.println("Maximum value: "+max);
 
     }
 }
