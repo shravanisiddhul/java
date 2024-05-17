@@ -15,22 +15,10 @@ public class Practice
             n[i] = sc.nextInt();
         }
 
-        boolean isAscending = true;
-
-        for(int i=0;i<n.length-1;i++)
+        for(int i= size-1;i>=0;i--)
         {
-            if(n[i] > n[i+1])
-            {
-                isAscending = false;
-            }
+            System.out.print(n[i]+" ");
         }
 
-        if(!isAscending)
-        {
-            System.out.println("Array is in not ascending order");
-        }
-        else{
-            System.out.println("Array is in ascending order");
-        }
     }
 }
