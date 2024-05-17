@@ -15,24 +15,22 @@ public class Practice
             n[i] = sc.nextInt();
         }
 
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
+        boolean isAscending = true;
 
-        for(int i=0;i<size;i++)
+        for(int i=0;i<n.length-1;i++)
         {
-            if(n[i] > max)
+            if(n[i] > n[i+1])
             {
-                max = n[i];
+                isAscending = false;
             }
-            if(n[i] < min)
-            {
-                min = n[i];
-            }
-
         }
 
-        System.out.println("Minimum value: " +min);
-        System.out.println("Maximum value: "+max);
-
+        if(!isAscending)
+        {
+            System.out.println("Array is in not ascending order");
+        }
+        else{
+            System.out.println("Array is in ascending order");
+        }
     }
 }
