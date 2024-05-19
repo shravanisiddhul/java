@@ -1,24 +1,76 @@
-import java.util.Scanner;
-public class Practice
-{
+public class Practice {
+    static class Node
+    {
+        Node[] children;
+        boolean eow; //end of word
+        
+        Node()
+        {
+            children = new Node[26];
+            for(int i=0;i<26;i++)
+            {
+                children[i] = null;
+            }
+
+            eow = false;
+        }
+
+    }
+    static Node root = new Node();
+
+    public static void insert(String word)
+    {
+        Node curr = root;
+        for(int i=0;i<word.length();i++)
+        {
+            int idx = word.charAt(i) - 'a';
+
+            if(curr.children[idx] == null)
+            {
+                curr.children[idx] = new Node();
+            }
+
+            if(i == word.length()-1)
+            {
+                curr.children[idx].eow = true;
+            }
+
+            curr = curr.children[idx];
+        }
+    }
+
+    public static boolean search(String key)
+    {
+        Node curr = root;
+        for(int i=0;i<key.length();i++)
+        {
+            int idx = key.charAt(i) - 'a';
+
+            if(curr.children[idx] == null)
+            {
+                return false;
+            }
+
+            if(i == key.length()-1 && curr.children[idx].eow == false )
+            {
+                return false;
+            }
+            curr = curr.children[idx];
+        }
+        return true;
+        
+    } 
     public static void main(String args [])
     {
-        @SuppressWarnings("resource")
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter size: ");
-        int size = sc.nextInt();
-        int [] n = new int[5];
-        
+        String words[] = {"the","a","there","their","any"};
 
-        for(int i=0;i<size;i++)
+        for(int i=0;i<words.length;i++)
         {
-            n[i] = sc.nextInt();
+            insert(words[i]);
         }
 
-        for(int i= size-1;i>=0;i--)
-        {
-            System.out.print(n[i]+" ");
-        }
-
+        System.out.println(search("their")); // true
+        System.out.println(search("thor")); // false
+        System.out.println(search("an")); // false
     }
 }
