@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Problem15 {
+public class CheckPrime {
     public static void checkPrime(int n)
     {
         int temp = 0;
